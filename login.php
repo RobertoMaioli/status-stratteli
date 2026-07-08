@@ -8,7 +8,7 @@ use DashStatus\Auth\AuthService;
 use DashStatus\Database;
 
 if (!empty($_SESSION['user_id'])) {
-    header('Location: index.php');
+    header('Location: hub.php');
     exit;
 }
 
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($auth->attempt($usernameAttempt, (string) ($_POST['password'] ?? ''))) {
             (new ActivityLog(__DIR__ . '/data/activity-log.json'))
                 ->log('sys', sprintf("Login: usuário '%s' autenticado.", $usernameAttempt));
-            header('Location: index.php');
+            header('Location: hub.php');
             exit;
         }
         $error = 'Usuário ou senha inválidos.';

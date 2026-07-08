@@ -238,6 +238,7 @@ if ($criticalCount > 0) {
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9L2.7 18a2 2 0 001.7 3h15.2a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>
         <?= htmlspecialchars($pillLabel, ENT_QUOTES, 'UTF-8') ?>
       </div>
+      <a href="hub.php" class="clock" style="text-decoration:none;">← Dashboards</a>
       <a href="logout.php" class="clock" style="text-decoration:none;">Sair</a>
     </div>
   </header>
@@ -402,7 +403,7 @@ if ($criticalCount > 0) {
 
   </div>
 
-  <div class="section-label"><div class="bar"></div><h2>Status de serviços</h2></div>
+  <div class="section-label"><div class="bar"></div><h2>Status LLM</h2></div>
 
   <div class="status-tiles">
     <?php foreach ($statusServices as $svc): ?>

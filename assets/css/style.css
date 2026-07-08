@@ -282,6 +282,28 @@ header::after{
 .chart-filter button:hover{color:var(--text-muted);}
 .chart-filter button.active{background:var(--signal);color:var(--bg-panel);}
 
+/* ---------- HUB (selecao de dashboards) ---------- */
+.hub-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:14px;
+  margin-bottom:32px;
+}
+.hub-card{
+  display:flex;align-items:center;gap:14px;
+  background:var(--bg-panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:18px 20px;
+  text-decoration:none;color:inherit;
+  transition:border-color .15s ease,transform .15s ease,background .15s ease;
+}
+.hub-card:hover{border-color:var(--signal);background:var(--bg-panel-alt);transform:translateY(-1px);}
+.hub-card-text{flex:1;min-width:0;}
+.hub-card-name{font-family:'Space Grotesk',sans-serif;font-size:15.5px;font-weight:700;}
+.hub-card-desc{font-size:12px;color:var(--text-muted);margin-top:3px;line-height:1.4;}
+.hub-card-arrow{font-size:18px;color:var(--signal);flex-shrink:0;}
+
 /* ---------- STATUS TILES (Statuspage services) ---------- */
 .status-tiles{
   display:grid;
@@ -373,6 +395,19 @@ footer{
   margin-top:26px;text-align:center;
   font-size:11.5px;color:var(--text-dim);
   font-family:'JetBrains Mono',monospace;
+}
+
+@media (max-width:640px){
+  body{padding:20px 14px 40px;}
+  .cards{grid-template-columns:1fr;}
+  .card,.status-tile{padding:16px;}
+  .chart-toolbar{flex-direction:column;align-items:flex-start;gap:8px;}
+  .chart-filter{align-self:stretch;}
+  .chart-filter button{flex:1;}
+  .stat-grid{grid-template-columns:1fr;}
+  .card-top,.status-tile-top{flex-wrap:wrap;}
+  .log-item{padding:11px 14px;flex-wrap:wrap;}
+  .log-text{flex-basis:100%;}
 }
 
 @media (max-width:520px){
