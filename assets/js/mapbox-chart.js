@@ -4,17 +4,20 @@
     return;
   }
 
-  var history = JSON.parse(canvas.dataset.history || '[]');
-  var lastIndex = history.length - 1;
+  var fullHistory = JSON.parse(canvas.dataset.history || '[]');
+  var labelEl = document.getElementById('mapbox-chart-label');
+  var filterEl = document.querySelector('[data-chart-filter="mapbox-chart"]');
 
   var styles = getComputedStyle(document.documentElement);
-  var signal = styles.getPropertyValue('--signal').trim() || '#4fd1ff';
+  var signal = styles.getPropertyValue('--signal').trim() || '#F97316';
   var crit = styles.getPropertyValue('--crit').trim() || '#f87171';
   var textMuted = styles.getPropertyValue('--text-muted').trim() || '#8894a3';
   var textDim = styles.getPropertyValue('--text-dim').trim() || '#525d6b';
   var lineSoft = styles.getPropertyValue('--line-soft').trim() || '#1a222b';
   var bgPanel = styles.getPropertyValue('--bg-panel').trim() || '#12181f';
   var textPrimary = styles.getPropertyValue('--text-primary').trim() || '#e8edf2';
+
+  var MONTHS = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
 
   function hexToRgba(hex, alpha) {
     var clean = hex.replace('#', '');
@@ -25,34 +28,74 @@
     return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')';
   }
 
-  function formatDate(isoDate) {
-    var parts = isoDate.split('-');
-    return parts[2] + '/' + parts[1] + '/' + parts[0];
+  function formatDayLabel(iso) {
+    var p = iso.split('-');
+    return p[2] + '/' + p[1];
+  }
+  function formatDayTitle(iso) {
+    var p = iso.split('-');
+    return p[2] + '/' + p[1] + '/' + p[0];
+  }
+  function formatMonthLabel(key) {
+    var p = key.split('-');
+    return MONTHS[parseInt(p[1], 10) - 1] + '/' + p[0].slice(2);
+  }
+  function formatMonthTitle(key) {
+    var p = key.split('-');
+    return MONTHS[parseInt(p[1], 10) - 1] + '/' + p[0];
   }
 
-  var labels = history.map(function (entry) {
-    var parts = entry.date.split('-');
-    return parts[2] + '/' + parts[1];
-  });
+  function buildView(range) {
+    if (range === 'month' || range === 'year') {
+      var keyLength = range === 'month' ? 7 : 4;
+      var buckets = {};
+      var order = [];
 
-  var values = history.map(function (entry) {
-    return entry.delta;
-  });
+      fullHistory.forEach(function (entry) {
+        var key = entry.date.slice(0, keyLength);
+        if (!(key in buckets)) {
+          buckets[key] = { delta: 0, used: entry.used };
+          order.push(key);
+        }
+        buckets[key].delta += entry.delta;
+        buckets[key].used = entry.used;
+      });
 
-  var backgroundColors = history.map(function (entry, i) {
-    if (entry.delta < 0) {
-      return hexToRgba(crit, 0.6);
+      if (range === 'month') {
+        order = order.slice(-6);
+      }
+
+      return {
+        entries: order.map(function (key) {
+          return { key: key, delta: buckets[key].delta, used: buckets[key].used };
+        }),
+        labelFor: range === 'month' ? formatMonthLabel : function (key) { return key; },
+        titleFor: range === 'month' ? formatMonthTitle : function (key) { return key; },
+        caption: range === 'month'
+          ? ('Loads por mês — últimos ' + order.length + ' meses')
+          : ('Loads por ano — últimos ' + order.length + ' anos'),
+      };
     }
-    return i === lastIndex ? signal : hexToRgba(signal, 0.28);
-  });
 
-  new Chart(canvas, {
+    return {
+      entries: fullHistory.map(function (entry) {
+        return { key: entry.date, delta: entry.delta, used: entry.used };
+      }),
+      labelFor: formatDayLabel,
+      titleFor: formatDayTitle,
+      caption: 'Loads entre leituras registradas',
+    };
+  }
+
+  var currentView = null;
+
+  var chart = new Chart(canvas, {
     type: 'bar',
     data: {
-      labels: labels,
+      labels: [],
       datasets: [{
-        data: values,
-        backgroundColor: backgroundColors,
+        data: [],
+        backgroundColor: [],
         borderRadius: 4,
         maxBarThickness: 22,
         categoryPercentage: 0.6,
@@ -75,10 +118,11 @@
           displayColors: false,
           callbacks: {
             title: function (items) {
-              return formatDate(history[items[0].dataIndex].date);
+              var entry = currentView.entries[items[0].dataIndex];
+              return currentView.titleFor(entry.key);
             },
             label: function (item) {
-              var entry = history[item.dataIndex];
+              var entry = currentView.entries[item.dataIndex];
               var sign = entry.delta >= 0 ? '+' : '';
               return sign + entry.delta.toLocaleString('pt-BR') + ' requisições (total: ' + entry.used.toLocaleString('pt-BR') + ')';
             },
@@ -99,4 +143,37 @@
       },
     },
   });
+
+  function render(range) {
+    currentView = buildView(range);
+    var lastIndex = currentView.entries.length - 1;
+
+    chart.data.labels = currentView.entries.map(function (e) { return currentView.labelFor(e.key); });
+    chart.data.datasets[0].data = currentView.entries.map(function (e) { return e.delta; });
+    chart.data.datasets[0].backgroundColor = currentView.entries.map(function (e, i) {
+      if (e.delta < 0) {
+        return hexToRgba(crit, 0.6);
+      }
+      return i === lastIndex ? signal : hexToRgba(signal, 0.28);
+    });
+    chart.update();
+
+    if (labelEl) {
+      labelEl.textContent = currentView.caption;
+    }
+  }
+
+  if (filterEl) {
+    filterEl.addEventListener('click', function (ev) {
+      var btn = ev.target.closest('button[data-range]');
+      if (!btn) {
+        return;
+      }
+      filterEl.querySelectorAll('button').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      render(btn.dataset.range);
+    });
+  }
+
+  render('day');
 })();

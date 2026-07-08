@@ -40,15 +40,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/login.css">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
 </head>
 <body class="login-body">
   <form class="login-card" method="post" action="login.php">
-    <div class="brand">
-      <div class="brand-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
-      </div>
+    <div class="brand brand-login">
+      <img class="brand-logo" src="assets/img/logo-gray.png" alt="Stratelli">
       <div class="brand-text">
-        <h1>Sentinel</h1>
         <p>ACESSO RESTRITO</p>
       </div>
     </div>
@@ -63,12 +61,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </label>
     <label>
       Senha
-      <input type="password" name="password" autocomplete="current-password" required>
+      <div class="password-field">
+        <input type="password" id="login-password" name="password" autocomplete="current-password" required>
+        <button type="button" class="password-toggle" id="password-toggle" aria-label="Mostrar senha" aria-pressed="false">
+          <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17.94 17.94A10.94 10.94 0 0112 19c-7 0-11-7-11-7a21.6 21.6 0 015.06-6.06M9.9 4.24A10.4 10.4 0 0112 4c7 0 11 7 11 7a21.7 21.7 0 01-2.29 3.36M14.12 14.12a3 3 0 11-4.24-4.24"/><path d="M1 1l22 22"/></svg>
+        </button>
+      </div>
     </label>
 
     <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(csrf_token(), ENT_QUOTES, 'UTF-8') ?>">
 
     <button type="submit">Entrar</button>
   </form>
+<script src="assets/js/login.js?v=<?= filemtime(__DIR__ . '/assets/js/login.js') ?>"></script>
 </body>
 </html>

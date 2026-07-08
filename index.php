@@ -20,7 +20,7 @@ $opencage = new OpenCageService(
 
 $ocError = null;
 try {
-    $oc = $opencage->getUsage();
+    $oc = $opencage->getUsage(90);
 } catch (\Throwable $e) {
     $ocError = $e->getMessage();
     $oc = [
@@ -136,18 +136,16 @@ if ($criticalCount > 0) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
 </head>
 <body>
 <div class="wrap">
 
   <header>
     <div class="brand">
-      <div class="brand-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
-      </div>
+      <img class="brand-logo" src="assets/img/logo-gray.png" alt="Stratelli">
       <div class="brand-text">
-        <h1>Stratelli · API Monitor</h1>
-        <p>PROJETO · GEOLOCALIZAÇÃO &nbsp;/&nbsp; 2 SERVIÇOS MONITORADOS</p>
+        <p>API MONITOR &nbsp;·&nbsp; GEOLOCALIZAÇÃO &nbsp;/&nbsp; 2 SERVIÇOS MONITORADOS</p>
       </div>
     </div>
     <div class="header-right">
@@ -163,11 +161,11 @@ if ($criticalCount > 0) {
   <div class="summary">
     <div class="summary-chip">
       <div class="label">Requisições (<?= $ocRefLabel ?>)</div>
-      <div class="value"><?= number_format($oc['used'], 0, ',', '.') ?> <span>/ <?= number_format($oc['limit'], 0, ',', '.') ?> (OpenCage)</span></div>
+      <div class="value"><?= number_format($oc['used'], 0, ',', '.') ?> <span>/ <?= number_format($oc['limit'], 0, ',', '.') ?> <br>(OpenCage)</span></div>
     </div>
     <div class="summary-chip">
       <div class="label">Loads do Mapbox</div>
-      <div class="value"><?= number_format($mb['used'], 0, ',', '.') ?> <span>/ <?= number_format($mb['limit'], 0, ',', '.') ?> (Mapbox)</span></div>
+      <div class="value"><?= number_format($mb['used'], 0, ',', '.') ?> <span>/ <?= number_format($mb['limit'], 0, ',', '.') ?> <br>(Mapbox)</span></div>
     </div>
     <div class="summary-chip">
       <div class="label">APIs monitoradas</div>
@@ -218,7 +216,7 @@ if ($criticalCount > 0) {
           <div class="big-num"><?= number_format($oc['used'], 0, ',', '.') ?> <span class="of">/ <?= number_format($oc['limit'], 0, ',', '.') ?> req</span></div>
           <div class="caption">
             <?php if ($oc['hasRecentActivity']): ?>
-              Último dia com uso: <strong><?= $ocRefLabel ?></strong> · 125.000/dia inclusos no plano Medium
+             Plano Medium - 125.000/dia inclusos
             <?php else: ?>
               Nenhuma requisição registrada nos últimos <?= count($oc['history']) ?> dias
             <?php endif; ?>
@@ -227,11 +225,18 @@ if ($criticalCount > 0) {
       </div>
 
       <div class="stat-grid">
-        <div class="stat-box"><div class="label">Restantes no dia</div><div class="val"><?= number_format($oc['remaining'], 0, ',', '.') ?> req</div></div>
+        <div class="stat-box"><div class="label">Restantes no dia</div><div class="val"><?= number_format($oc['remaining'], 0, ',', '.') ?> requisições</div></div>
         <div class="stat-box"><div class="label">Dia de referência</div><div class="val"><?= $ocRefLabel ?></div></div>
       </div>
 
-      <div class="oc-chart-label">Uso diário — últimos <?= count($oc['history']) ?> dias</div>
+      <div class="chart-toolbar">
+        <div class="oc-chart-label" id="opencage-chart-label">Uso diário — últimos 30 dias</div>
+        <div class="chart-filter" data-chart-filter="opencage-chart">
+          <button type="button" class="active" data-range="day">Dias</button>
+          <button type="button" data-range="month">Mês</button>
+          <button type="button" data-range="year">Ano</button>
+        </div>
+      </div>
       <div class="oc-chart-wrap">
         <canvas
           id="opencage-chart"
@@ -240,7 +245,7 @@ if ($criticalCount > 0) {
       </div>
 
       <div class="card-footer">
-        <span>Fonte: CSV de uso (dashboard OpenCage)</span>
+        <span>Fonte: API de uso (dashboard OpenCage)</span>
         <a href="https://opencagedata.com/dashboard" target="_blank">Ver dashboard →</a>
       </div>
     </div>
@@ -288,7 +293,14 @@ if ($criticalCount > 0) {
       </div>
 
       <?php if (count($mbHistory) > 0): ?>
-        <div class="oc-chart-label">Loads entre leituras registradas</div>
+        <div class="chart-toolbar">
+          <div class="oc-chart-label" id="mapbox-chart-label">Loads entre leituras registradas</div>
+          <div class="chart-filter" data-chart-filter="mapbox-chart">
+            <button type="button" class="active" data-range="day">Dias</button>
+            <button type="button" data-range="month">Mês</button>
+            <button type="button" data-range="year">Ano</button>
+          </div>
+        </div>
         <div class="oc-chart-wrap">
           <canvas
             id="mapbox-chart"
@@ -349,7 +361,7 @@ if ($criticalCount > 0) {
 
 </div>
 <script src="assets/js/vendor/chart.umd.js"></script>
-<script src="assets/js/opencage-chart.js"></script>
-<script src="assets/js/mapbox-chart.js"></script>
+<script src="assets/js/opencage-chart.js?v=<?= filemtime(__DIR__ . '/assets/js/opencage-chart.js') ?>"></script>
+<script src="assets/js/mapbox-chart.js?v=<?= filemtime(__DIR__ . '/assets/js/mapbox-chart.js') ?>"></script>
 </body>
 </html>

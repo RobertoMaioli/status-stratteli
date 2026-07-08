@@ -16,6 +16,9 @@
   gap:16px;
 }
 .login-card .brand{margin-bottom:6px;}
+.login-card .brand-login{flex-direction:column;align-items:center;gap:10px;text-align:center;}
+.login-card .brand-login .brand-logo{height:42px;}
+.login-card .brand-login .brand-text p{margin-top:0;}
 .login-card label{
   display:flex;
   flex-direction:column;
@@ -33,13 +36,31 @@
   font-size:14px;
 }
 .login-card input:focus{outline:1px solid var(--signal);}
+
+.password-field{position:relative;display:flex;}
+.password-field input{width:100%;padding-right:40px;}
+.login-card .password-toggle{
+  position:absolute;top:0;right:0;bottom:0;width:38px;margin:0;
+  display:flex;align-items:center;justify-content:center;
+  background:none;border:none;border-radius:0;cursor:pointer;padding:0;
+  appearance:none;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;
+  color:var(--text-dim);
+}
+.login-card .password-toggle:hover,
+.login-card .password-toggle:focus,
+.login-card .password-toggle:focus-visible,
+.login-card .password-toggle:active{background:none;outline:none;opacity:1;color:var(--text-muted);}
+.password-toggle svg{width:18px;height:18px;}
+.password-toggle .icon-eye-off{display:none;}
+.password-toggle.active .icon-eye{display:none;}
+.password-toggle.active .icon-eye-off{display:block;}
 .login-card button{
   margin-top:6px;
   padding:11px;
   border:none;
   border-radius:8px;
   background:var(--signal);
-  color:#04141c;
+  color:var(--bg-panel);
   font-weight:600;
   font-size:14px;
   cursor:pointer;
