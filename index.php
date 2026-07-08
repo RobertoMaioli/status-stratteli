@@ -135,7 +135,7 @@ if ($criticalCount > 0) {
 <title>Stratelli · Monitor de APIs</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=<?= filemtime(__DIR__ . '/assets/css/style.css') ?>">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 </head>
 <body>
@@ -145,7 +145,7 @@ if ($criticalCount > 0) {
     <div class="brand">
       <img class="brand-logo" src="assets/img/logo-gray.png" alt="Stratelli">
       <div class="brand-text">
-        <p>API MONITOR &nbsp;·&nbsp; GEOLOCALIZAÇÃO &nbsp;/&nbsp; 2 SERVIÇOS MONITORADOS</p>
+        <p>API MONITOR</p>
       </div>
     </div>
     <div class="header-right">
