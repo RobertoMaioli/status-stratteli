@@ -282,6 +282,44 @@ header::after{
 .chart-filter button:hover{color:var(--text-muted);}
 .chart-filter button.active{background:var(--signal);color:var(--bg-panel);}
 
+/* ---------- STATUS TILES (Statuspage services) ---------- */
+.status-tiles{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:14px;
+  margin-bottom:32px;
+}
+.status-tile{
+  background:var(--bg-panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:16px 18px;
+}
+.status-tile.state-crit{border-color:rgba(248,113,113,0.4);}
+.status-tile.state-warn{border-color:rgba(251,191,36,0.35);}
+.status-tile-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:10px;}
+.status-tile-name{font-family:'Space Grotesk',sans-serif;font-size:14.5px;font-weight:700;}
+.status-tile-meta{font-size:11px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;margin-top:1px;}
+.status-tile-caption{font-size:11.5px;color:var(--text-muted);margin-bottom:6px;}
+.status-tile .card-footer{padding-top:10px;margin-top:6px;}
+
+.status-list{margin-bottom:16px;}
+.status-row{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 0;border-bottom:1px solid var(--line-soft);
+  font-size:12.5px;
+}
+.status-row:last-child{border-bottom:none;}
+.status-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.status-dot.ok{background:var(--ok);box-shadow:0 0 6px var(--ok);}
+.status-dot.warn{background:var(--warn);box-shadow:0 0 6px var(--warn);}
+.status-dot.crit{background:var(--crit);box-shadow:0 0 6px var(--crit);}
+.status-name{flex:1;color:var(--text-primary);}
+.status-state{font-size:11px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.3px;}
+.status-state.ok{color:var(--ok);}
+.status-state.warn{color:var(--warn);}
+.status-state.crit{color:var(--crit);}
+
 .card-footer{
   display:flex;justify-content:space-between;align-items:center;
   padding-top:14px;border-top:1px solid var(--line-soft);

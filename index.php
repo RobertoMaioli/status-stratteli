@@ -7,6 +7,7 @@ auth_check();
 
 use DashStatus\Services\OpenCageService;
 use DashStatus\Services\MapboxService;
+use DashStatus\Services\StatuspageService;
 use DashStatus\ActivityLog;
 use DashStatus\StateTracker;
 
@@ -86,6 +87,49 @@ if (!empty($mb['updated_at'])) {
 
 $mbHistory = $mapbox->getDailyHistory();
 
+// ---- Status externos (Statuspage publico) — lista cresce via config/status-pages.php ----
+$statusPagesConfig = require __DIR__ . '/config/status-pages.php';
+
+$statusIndicatorMap = ['none' => 'ok', 'minor' => 'warn', 'major' => 'warn', 'critical' => 'crit'];
+$componentStateMap = ['operational' => 'ok', 'degraded_performance' => 'warn', 'partial_outage' => 'warn', 'major_outage' => 'crit', 'under_maintenance' => 'warn'];
+
+$statusServices = [];
+foreach ($statusPagesConfig as $svc) {
+    $statuspage = new StatuspageService(
+        summaryUrl: $svc['summary_url'],
+        cacheFile: __DIR__ . '/data/status-' . $svc['key'] . '.json'
+    );
+
+    $svcError = null;
+    try {
+        $svcData = $statuspage->getStatus();
+    } catch (\Throwable $e) {
+        $svcError = $e->getMessage();
+        $svcData = ['indicator' => 'none', 'description' => 'Indisponível', 'components' => [], 'incidents' => [], 'updatedAt' => ''];
+    }
+
+    $svcState = $svcError ? 'warn' : ($statusIndicatorMap[$svcData['indicator']] ?? 'ok');
+    $problemComponents = array_values(array_filter(
+        $svcData['components'],
+        static fn (array $c): bool => ($c['status'] ?? 'operational') !== 'operational'
+    ));
+
+    $statusServices[] = [
+        'key' => $svc['key'],
+        'name' => $svc['name'],
+        'meta' => $svc['meta'],
+        'link' => $svc['link'],
+        'icon' => $svc['icon'] ?? '',
+        'state' => $svcState,
+        'colorVar' => ['crit' => 'var(--crit)', 'warn' => 'var(--warn)', 'ok' => 'var(--ok)'][$svcState],
+        'error' => $svcError,
+        'description' => $svcData['description'],
+        'componentsTotal' => count($svcData['components']),
+        'problemComponents' => $problemComponents,
+        'incidents' => $svcData['incidents'] ?? [],
+    ];
+}
+
 // ---- Registro de atividade: detecta mudanca de estado dos servicos ----
 $stateTracker = new StateTracker(__DIR__ . '/data/service-states.json');
 $activityLog = new ActivityLog(__DIR__ . '/data/activity-log.json');
@@ -95,26 +139,66 @@ $trackedLevel = ['ok' => 'ok', 'warn' => 'warn', 'crit' => 'crit', 'error' => 'c
 
 $ocTrackedState = $ocError ? 'error' : $ocState;
 $ocTransition = $stateTracker->checkTransition('opencage', $ocTrackedState);
-if ($ocTransition['changed'] && $ocTransition['previous'] !== null) {
+if ($ocTransition['changed'] && ($ocTransition['previous'] !== null || $ocTrackedState !== 'ok')) {
     $activityLog->log(
         $trackedLevel[$ocTrackedState],
-        sprintf('OpenCage passou de %s para %s.', $trackedLabels[$ocTransition['previous']], $trackedLabels[$ocTrackedState])
+        $ocTransition['previous'] !== null
+            ? sprintf('OpenCage passou de %s para %s.', $trackedLabels[$ocTransition['previous']], $trackedLabels[$ocTrackedState])
+            : sprintf('OpenCage está em %s.', $trackedLabels[$ocTrackedState])
     );
 }
 
 $mbTrackedState = $mbError ? 'error' : $mapboxState;
 $mbTransition = $stateTracker->checkTransition('mapbox', $mbTrackedState);
-if ($mbTransition['changed'] && $mbTransition['previous'] !== null) {
+if ($mbTransition['changed'] && ($mbTransition['previous'] !== null || $mbTrackedState !== 'ok')) {
     $activityLog->log(
         $trackedLevel[$mbTrackedState],
-        sprintf('Mapbox passou de %s para %s.', $trackedLabels[$mbTransition['previous']], $trackedLabels[$mbTrackedState])
+        $mbTransition['previous'] !== null
+            ? sprintf('Mapbox passou de %s para %s.', $trackedLabels[$mbTransition['previous']], $trackedLabels[$mbTrackedState])
+            : sprintf('Mapbox está em %s.', $trackedLabels[$mbTrackedState])
     );
+}
+
+foreach ($statusServices as $svc) {
+    $svcTrackedState = $svc['error'] ? 'error' : $svc['state'];
+
+    // Fingerprint inclui severidade + incidentes ativos + componentes com problema,
+    // assim um incidente novo no mesmo nivel de severidade (ex: warn -> warn) ainda
+    // e detectado como mudanca, nao so a transicao de ok/warn/crit.
+    $incidentNames = array_map(static fn (array $i): string => $i['name'], $svc['incidents']);
+    sort($incidentNames);
+    $componentFingerprint = array_map(static fn (array $c): string => $c['name'] . ':' . $c['status'], $svc['problemComponents']);
+    sort($componentFingerprint);
+    $svcFingerprint = $svcTrackedState . '|' . implode(',', $incidentNames) . '|' . implode(',', $componentFingerprint);
+
+    $svcTransition = $stateTracker->checkTransition($svc['key'], $svcFingerprint);
+    if ($svcTransition['changed'] && ($svcTransition['previous'] !== null || $svcTrackedState !== 'ok')) {
+        if ($svcTrackedState === 'ok') {
+            $reason = 'Voltou ao normal.';
+        } elseif ($svc['error']) {
+            $reason = $svc['error'];
+        } elseif (!empty($svc['incidents'])) {
+            $reason = implode('; ', array_map(static fn (array $i): string => $i['name'], $svc['incidents']));
+        } elseif (!empty($svc['problemComponents'])) {
+            $reason = 'Problema em: ' . implode(', ', array_map(static fn (array $c): string => $c['name'], $svc['problemComponents']));
+        } else {
+            $reason = $svc['description'];
+        }
+
+        $activityLog->log(
+            $trackedLevel[$svcTrackedState],
+            sprintf('%s - %s', $svc['name'], $reason)
+        );
+    }
 }
 
 $activityEntries = $activityLog->recent(10);
 
-$criticalCount = ($ocState === 'crit' ? 1 : 0) + ($mapboxState === 'crit' ? 1 : 0);
-$warnCount = ($ocState === 'warn' ? 1 : 0) + ($mapboxState === 'warn' ? 1 : 0);
+$statusCritCount = count(array_filter($statusServices, static fn (array $s): bool => $s['state'] === 'crit'));
+$statusWarnCount = count(array_filter($statusServices, static fn (array $s): bool => $s['state'] === 'warn'));
+
+$criticalCount = ($ocState === 'crit' ? 1 : 0) + ($mapboxState === 'crit' ? 1 : 0) + $statusCritCount;
+$warnCount = ($ocState === 'warn' ? 1 : 0) + ($mapboxState === 'warn' ? 1 : 0) + $statusWarnCount;
 
 if ($criticalCount > 0) {
     $pillState = 'crit';
@@ -169,7 +253,7 @@ if ($criticalCount > 0) {
     </div>
     <div class="summary-chip">
       <div class="label">APIs monitoradas</div>
-      <div class="value">2 <span>ativas</span></div>
+      <div class="value"><?= 2 + count($statusServices) ?> <span>ativas</span></div>
     </div>
     <div class="summary-chip<?= $criticalCount + $warnCount > 0 ? ' alert' : '' ?>">
       <div class="label">Alertas ativos</div>
@@ -245,7 +329,6 @@ if ($criticalCount > 0) {
       </div>
 
       <div class="card-footer">
-        <span>Fonte: API de uso (dashboard OpenCage)</span>
         <a href="https://opencagedata.com/dashboard" target="_blank">Ver dashboard →</a>
       </div>
     </div>
@@ -319,6 +402,49 @@ if ($criticalCount > 0) {
 
   </div>
 
+  <div class="section-label"><div class="bar"></div><h2>Status de serviços</h2></div>
+
+  <div class="status-tiles">
+    <?php foreach ($statusServices as $svc): ?>
+      <div class="status-tile<?= $svc['state'] === 'ok' ? '' : (' state-' . $svc['state']) ?>">
+        <div class="status-tile-top">
+          <div class="service-id">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="<?= $svc['colorVar'] ?>" stroke-width="1.8"><?= $svc['icon'] ?></svg>
+            </div>
+            <div>
+              <div class="status-tile-name"><?= htmlspecialchars($svc['name'], ENT_QUOTES, 'UTF-8') ?></div>
+              <div class="status-tile-meta"><?= htmlspecialchars($svc['meta'], ENT_QUOTES, 'UTF-8') ?></div>
+            </div>
+          </div>
+          <div class="mode-tag <?= $svc['state'] ?>"><?= $statusLabels[$svc['state']] ?></div>
+        </div>
+
+        <?php if ($svc['error']): ?>
+          <div class="status-tile-caption">Falha ao buscar status: <?= htmlspecialchars($svc['error'], ENT_QUOTES, 'UTF-8') ?></div>
+        <?php elseif (empty($svc['problemComponents'])): ?>
+          <div class="status-tile-caption"><?= $svc['componentsTotal'] ?>/<?= $svc['componentsTotal'] ?> serviços operacionais</div>
+        <?php else: ?>
+          <div class="status-tile-caption"><?= count($svc['problemComponents']) ?> de <?= $svc['componentsTotal'] ?> com problema</div>
+          <div class="status-list">
+            <?php foreach ($svc['problemComponents'] as $component): ?>
+              <?php $compState = $componentStateMap[$component['status']] ?? 'warn'; ?>
+              <div class="status-row">
+                <span class="status-dot <?= $compState ?>"></span>
+                <span class="status-name"><?= htmlspecialchars($component['name'], ENT_QUOTES, 'UTF-8') ?></span>
+                <span class="status-state <?= $compState ?>"><?= htmlspecialchars(ucwords(str_replace('_', ' ', $component['status'])), ENT_QUOTES, 'UTF-8') ?></span>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        <?php endif; ?>
+
+        <div class="card-footer">
+          <a href="<?= htmlspecialchars($svc['link'], ENT_QUOTES, 'UTF-8') ?>" target="_blank">Ver status →</a>
+        </div>
+      </div>
+    <?php endforeach; ?>
+  </div>
+
   <div class="section-label"><div class="bar"></div><h2>Registro de atividade</h2></div>
 
   <div class="log-panel">
@@ -363,5 +489,6 @@ if ($criticalCount > 0) {
 <script src="assets/js/vendor/chart.umd.js"></script>
 <script src="assets/js/opencage-chart.js?v=<?= filemtime(__DIR__ . '/assets/js/opencage-chart.js') ?>"></script>
 <script src="assets/js/mapbox-chart.js?v=<?= filemtime(__DIR__ . '/assets/js/mapbox-chart.js') ?>"></script>
+<script src="assets/js/auto-refresh.js?v=<?= filemtime(__DIR__ . '/assets/js/auto-refresh.js') ?>"></script>
 </body>
 </html>
