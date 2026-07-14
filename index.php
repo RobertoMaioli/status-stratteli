@@ -289,7 +289,7 @@ if ($criticalCount > 0) {
 
   <div class="summary">
     <div class="summary-chip">
-      <div class="label">Requisições (<?= $ocRefLabel ?>)</div>
+      <div class="label">Geocoding Opencage</div>
       <div class="value"><?= number_format($oc['used'], 0, ',', '.') ?> <span>/ <?= number_format($oc['limit'], 0, ',', '.') ?> <br>(OpenCage)</span></div>
     </div>
     <div class="summary-chip">
@@ -298,7 +298,7 @@ if ($criticalCount > 0) {
     </div>
     <div class="summary-chip">
       <div class="label">Mapbox Search</div>
-      <div class="value"><?= number_format($sr['used'], 0, ',', '.') ?> <span>/ <?= number_format($sr['limit'], 0, ',', '.') ?> <br>(Temp. Geocoding)</span></div>
+      <div class="value"><?= number_format($sr['used'], 0, ',', '.') ?> <span>/ <?= number_format($sr['limit'], 0, ',', '.') ?> <br>(Geocoding API)</span></div>
     </div>
     <div class="summary-chip">
       <div class="label">APIs monitoradas</div>
@@ -310,7 +310,10 @@ if ($criticalCount > 0) {
     </div>
   </div>
 
-  <div class="section-label"><div class="bar"></div><h2>Status por serviço</h2></div>
+  <div class="section-label section-label-with-action">
+    <div class="bar"></div><h2>Status por serviço</h2>
+    <button type="button" class="view-all-btn" id="open-services-modal">Ver todos os serviços →</button>
+  </div>
 
   <div class="cards-wrap">
     <button type="button" class="cards-arrow cards-arrow-left" aria-label="Ver card anterior" data-dir="-1">
@@ -358,7 +361,7 @@ if ($criticalCount > 0) {
           <div class="big-num"><?= number_format($oc['used'], 0, ',', '.') ?> <span class="of">/ <?= number_format($oc['limit'], 0, ',', '.') ?> req</span></div>
           <div class="caption">
             <?php if ($oc['hasRecentActivity']): ?>
-             Plano Medium - 125.000/dia inclusos
+             Plano Medium - 125.000 / dia
             <?php else: ?>
               Nenhuma requisição registrada nos últimos <?= count($oc['history']) ?> dias
             <?php endif; ?>
@@ -367,7 +370,7 @@ if ($criticalCount > 0) {
       </div>
 
       <div class="stat-grid">
-        <div class="stat-box"><div class="label">Restantes no dia</div><div class="val"><?= number_format($oc['remaining'], 0, ',', '.') ?> requisições</div></div>
+        <div class="stat-box"><div class="label">Restantes no dia</div><div class="val"><?= number_format($oc['remaining'], 0, ',', '.') ?> req</div></div>
         <div class="stat-box"><div class="label">Dia de referência</div><div class="val"><?= $ocRefLabel ?></div></div>
       </div>
 
@@ -430,13 +433,13 @@ if ($criticalCount > 0) {
       </div>
 
       <div class="stat-grid">
-        <div class="stat-box"><div class="label">Restantes</div><div class="val"><?= number_format(max(0, $mb['limit'] - $mb['used']), 0, ',', '.') ?></div></div>
+        <div class="stat-box"><div class="label">Restantes</div><div class="val"><?= number_format(max(0, $mb['limit'] - $mb['used']), 0, ',', '.') ?> loads</div></div>
         <div class="stat-box"><div class="label">Atualizado em</div><div class="val"><?= htmlspecialchars($mbUpdatedLabel, ENT_QUOTES, 'UTF-8') ?></div></div>
       </div>
 
       <?php if (count($mbHistory) > 0): ?>
         <div class="chart-toolbar">
-          <div class="oc-chart-label" id="mapbox-chart-label">Loads entre leituras registradas</div>
+          <div class="oc-chart-label" id="mapbox-chart-label">Loads registrados</div>
           <div class="chart-filter" data-chart-filter="mapbox-chart">
             <button type="button" class="active" data-range="day">Dias</button>
             <button type="button" data-range="month">Mês</button>
@@ -469,7 +472,7 @@ if ($criticalCount > 0) {
           </div>
           <div>
             <div class="service-name">Mapbox Search</div>
-            <div class="service-meta">Temporary Geocoding API · Free Tier</div>
+            <div class="service-meta">Geocoding API · Free Tier</div>
           </div>
         </div>
         <div class="mode-tag <?= $mapboxSearchState ?>"><?= $srStatusLabel ?></div>
@@ -492,19 +495,19 @@ if ($criticalCount > 0) {
           </div>
         </div>
         <div class="usage-detail">
-          <div class="big-num"><?= number_format($sr['used'], 0, ',', '.') ?> <span class="of">/ <?= number_format($sr['limit'], 0, ',', '.') ?> requisições</span></div>
+          <div class="big-num"><?= number_format($sr['used'], 0, ',', '.') ?> <span class="of">/ <?= number_format($sr['limit'], 0, ',', '.') ?> req</span></div>
           <div class="caption">Plano - Free Tier</div>
         </div>
       </div>
 
       <div class="stat-grid">
-        <div class="stat-box"><div class="label">Restantes</div><div class="val"><?= number_format(max(0, $sr['limit'] - $sr['used']), 0, ',', '.') ?></div></div>
+        <div class="stat-box"><div class="label">Restantes</div><div class="val"><?= number_format(max(0, $sr['limit'] - $sr['used']), 0, ',', '.') ?> req</div></div>
         <div class="stat-box"><div class="label">Atualizado em</div><div class="val"><?= htmlspecialchars($srUpdatedLabel, ENT_QUOTES, 'UTF-8') ?></div></div>
       </div>
 
       <?php if (count($srHistory) > 0): ?>
         <div class="chart-toolbar">
-          <div class="oc-chart-label" id="mapbox-search-chart-label">Requisições entre leituras registradas</div>
+          <div class="oc-chart-label" id="mapbox-search-chart-label">Requisições registradas</div>
           <div class="chart-filter" data-chart-filter="mapbox-search-chart">
             <button type="button" class="active" data-range="day">Dias</button>
             <button type="button" data-range="month">Mês</button>
@@ -546,6 +549,22 @@ foreach ($sortedCards as $cardItem) {
 }
 ?>
   </div>
+  </div>
+
+  <div class="modal-overlay" id="services-modal" hidden>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="services-modal-title">
+      <div class="modal-header">
+        <h2 id="services-modal-title">Todos os serviços</h2>
+        <button type="button" class="modal-close" id="close-services-modal" aria-label="Fechar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Preenchido via JS: os cards reais são movidos pra cá (não duplicados),
+             pra não quebrar os IDs únicos usados pelos gráficos. -->
+        <div class="modal-cards"></div>
+      </div>
+    </div>
   </div>
 
   <div class="section-label"><div class="bar"></div><h2>Status LLM</h2></div>
@@ -636,6 +655,7 @@ foreach ($sortedCards as $cardItem) {
 <script src="assets/js/opencage-chart.js?v=<?= filemtime(__DIR__ . '/assets/js/opencage-chart.js') ?>"></script>
 <script src="assets/js/mapbox-chart.js?v=<?= filemtime(__DIR__ . '/assets/js/mapbox-chart.js') ?>"></script>
 <script src="assets/js/cards-carousel.js?v=<?= filemtime(__DIR__ . '/assets/js/cards-carousel.js') ?>"></script>
+<script src="assets/js/services-modal.js?v=<?= filemtime(__DIR__ . '/assets/js/services-modal.js') ?>"></script>
 <script src="assets/js/auto-refresh.js?v=<?= filemtime(__DIR__ . '/assets/js/auto-refresh.js') ?>"></script>
 </body>
 </html>

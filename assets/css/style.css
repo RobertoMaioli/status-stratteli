@@ -444,3 +444,66 @@ footer{
   .gauge-row{flex-direction:column;align-items:flex-start;}
   .log-time{width:88px;}
 }
+
+/* ---------- MODAL: VER TODOS OS SERVIÇOS ---------- */
+.section-label-with-action{justify-content:flex-start;}
+.view-all-btn{
+  margin-left:auto;
+  background:none;border:none;padding:0;
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;color:var(--signal);
+  cursor:pointer;
+}
+.view-all-btn:hover{text-decoration:underline;}
+
+body.modal-open{overflow:hidden;}
+
+.modal-overlay{
+  position:fixed;inset:0;z-index:50;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,10,20,0.72);
+  backdrop-filter:blur(3px);
+  padding:24px;
+}
+.modal-overlay[hidden]{display:none;}
+.modal-panel{
+  background:var(--bg-deep);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  width:100%;max-width:1240px;max-height:88vh;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+.modal-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 22px;border-bottom:1px solid var(--line);
+  flex-shrink:0;
+}
+.modal-header h2{
+  font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;margin:0;
+  text-transform:uppercase;letter-spacing:.6px;color:var(--text-primary);
+}
+.modal-close{
+  width:30px;height:30px;border-radius:8px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg-panel);border:1px solid var(--line);
+  color:var(--text-muted);cursor:pointer;
+  transition:background .15s ease,color .15s ease;
+}
+.modal-close:hover{background:var(--bg-raised);color:var(--text-primary);}
+.modal-close svg{width:16px;height:16px;}
+.modal-body{overflow-y:auto;padding:22px;}
+.modal-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:18px;
+}
+.modal-cards .card{flex:none;min-width:0;scroll-snap-align:none;}
+
+@media (max-width:640px){
+  .modal-overlay{padding:0;}
+  .modal-panel{max-height:100vh;border-radius:0;}
+  .modal-body{padding:16px;}
+  .modal-cards{grid-template-columns:1fr;}
+}
