@@ -87,6 +87,39 @@ if (!empty($mb['updated_at'])) {
 
 $mbHistory = $mapbox->getDailyHistory();
 
+// ---- Mapbox Search (Temporary Geocoding API): mesmo esquema do Map Loads ----
+$mapboxSearchConfig = $config['services']['mapbox_search'];
+$mapboxSearch = new MapboxService(
+    monthlyLimit: $mapboxSearchConfig['monthly_limit'],
+    storageFile: __DIR__ . '/data/mapbox-search-usage.json'
+);
+
+$srError = null;
+try {
+    $sr = $mapboxSearch->getUsage();
+} catch (\Throwable $e) {
+    $srError = $e->getMessage();
+    $sr = ['used' => 0, 'limit' => $mapboxSearchConfig['monthly_limit'], 'updated_at' => null];
+}
+
+$srPct = $sr['limit'] > 0 ? ($sr['used'] / $sr['limit']) * 100 : 0;
+$srPctLabel = $srPct > 0 && $srPct < 10 ? round($srPct, 1) : (int) round($srPct);
+$srGaugePct = max(0, min(100, $srPct));
+$srDashOffset = round($ocCircumference * (1 - $srGaugePct / 100), 1);
+
+$mapboxSearchState = $srError ? 'warn' : ($srPct >= 90 ? 'crit' : ($srPct >= 75 ? 'warn' : 'ok'));
+$srColorVar = ['crit' => 'var(--crit)', 'warn' => 'var(--warn)', 'ok' => 'var(--ok)'][$mapboxSearchState];
+$srCardStateClass = $mapboxSearchState === 'ok' ? '' : (' state-' . $mapboxSearchState);
+$srStatusLabel = $statusLabels[$mapboxSearchState];
+
+$srUpdatedLabel = 'Nunca';
+if (!empty($sr['updated_at'])) {
+    $srUpdatedAt = new \DateTimeImmutable($sr['updated_at']);
+    $srUpdatedLabel = $srUpdatedAt->format('d/m/Y H:i');
+}
+
+$srHistory = $mapboxSearch->getDailyHistory();
+
 // ---- Status externos (Statuspage publico) — lista cresce via config/status-pages.php ----
 $statusPagesConfig = require __DIR__ . '/config/status-pages.php';
 
@@ -159,6 +192,17 @@ if ($mbTransition['changed'] && ($mbTransition['previous'] !== null || $mbTracke
     );
 }
 
+$srTrackedState = $srError ? 'error' : $mapboxSearchState;
+$srTransition = $stateTracker->checkTransition('mapbox_search', $srTrackedState);
+if ($srTransition['changed'] && ($srTransition['previous'] !== null || $srTrackedState !== 'ok')) {
+    $activityLog->log(
+        $trackedLevel[$srTrackedState],
+        $srTransition['previous'] !== null
+            ? sprintf('Mapbox Search passou de %s para %s.', $trackedLabels[$srTransition['previous']], $trackedLabels[$srTrackedState])
+            : sprintf('Mapbox Search está em %s.', $trackedLabels[$srTrackedState])
+    );
+}
+
 foreach ($statusServices as $svc) {
     $svcTrackedState = $svc['error'] ? 'error' : $svc['state'];
 
@@ -197,8 +241,8 @@ $activityEntries = $activityLog->recent(10);
 $statusCritCount = count(array_filter($statusServices, static fn (array $s): bool => $s['state'] === 'crit'));
 $statusWarnCount = count(array_filter($statusServices, static fn (array $s): bool => $s['state'] === 'warn'));
 
-$criticalCount = ($ocState === 'crit' ? 1 : 0) + ($mapboxState === 'crit' ? 1 : 0) + $statusCritCount;
-$warnCount = ($ocState === 'warn' ? 1 : 0) + ($mapboxState === 'warn' ? 1 : 0) + $statusWarnCount;
+$criticalCount = ($ocState === 'crit' ? 1 : 0) + ($mapboxState === 'crit' ? 1 : 0) + ($mapboxSearchState === 'crit' ? 1 : 0) + $statusCritCount;
+$warnCount = ($ocState === 'warn' ? 1 : 0) + ($mapboxState === 'warn' ? 1 : 0) + ($mapboxSearchState === 'warn' ? 1 : 0) + $statusWarnCount;
 
 if ($criticalCount > 0) {
     $pillState = 'crit';
@@ -253,8 +297,12 @@ if ($criticalCount > 0) {
       <div class="value"><?= number_format($mb['used'], 0, ',', '.') ?> <span>/ <?= number_format($mb['limit'], 0, ',', '.') ?> <br>(Mapbox)</span></div>
     </div>
     <div class="summary-chip">
+      <div class="label">Mapbox Search</div>
+      <div class="value"><?= number_format($sr['used'], 0, ',', '.') ?> <span>/ <?= number_format($sr['limit'], 0, ',', '.') ?> <br>(Temp. Geocoding)</span></div>
+    </div>
+    <div class="summary-chip">
       <div class="label">APIs monitoradas</div>
-      <div class="value"><?= 2 + count($statusServices) ?> <span>ativas</span></div>
+      <div class="value"><?= 3 + count($statusServices) ?> <span>ativas</span></div>
     </div>
     <div class="summary-chip<?= $criticalCount + $warnCount > 0 ? ' alert' : '' ?>">
       <div class="label">Alertas ativos</div>
@@ -264,8 +312,17 @@ if ($criticalCount > 0) {
 
   <div class="section-label"><div class="bar"></div><h2>Status por serviço</h2></div>
 
+  <div class="cards-wrap">
+    <button type="button" class="cards-arrow cards-arrow-left" aria-label="Ver card anterior" data-dir="-1">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button type="button" class="cards-arrow cards-arrow-right" aria-label="Ver próximo card" data-dir="1">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
   <div class="cards">
 
+<?php ob_start(); ?>
     <!-- OPENCAGE CARD -->
     <div class="card<?= $ocCardStateClass ?>">
       <div class="card-top">
@@ -333,6 +390,7 @@ if ($criticalCount > 0) {
         <a href="https://opencagedata.com/dashboard" target="_blank">Ver dashboard →</a>
       </div>
     </div>
+<?php $ocCardHtml = ob_get_clean(); ob_start(); ?>
 
     <!-- MAPBOX CARD -->
     <div class="card<?= $mbCardStateClass ?>">
@@ -400,7 +458,94 @@ if ($criticalCount > 0) {
         <a href="https://console.mapbox.com/account/statistics/" target="_blank">Abrir Statistics ↗</a>
       </div>
     </div>
+<?php $mbCardHtml = ob_get_clean(); ob_start(); ?>
 
+    <!-- MAPBOX SEARCH CARD -->
+    <div class="card<?= $srCardStateClass ?>">
+      <div class="card-top">
+        <div class="service-id">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="<?= $srColorVar ?>" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          </div>
+          <div>
+            <div class="service-name">Mapbox Search</div>
+            <div class="service-meta">Temporary Geocoding API · Free Tier</div>
+          </div>
+        </div>
+        <div class="mode-tag <?= $mapboxSearchState ?>"><?= $srStatusLabel ?></div>
+      </div>
+
+      <?php if ($srError): ?>
+        <div class="login-error" style="margin-bottom:16px;">Sem leitura registrada ainda. <a href="mapbox-search-update.php" style="color:inherit;text-decoration:underline;">Cadastrar uso →</a></div>
+      <?php endif; ?>
+
+      <div class="gauge-row">
+        <div class="gauge">
+          <svg width="96" height="96" viewBox="0 0 96 96">
+            <circle cx="48" cy="48" r="40" fill="none" stroke="var(--bg-raised)" stroke-width="9"/>
+            <circle cx="48" cy="48" r="40" fill="none" stroke="<?= $srColorVar ?>" stroke-width="9"
+              stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="<?= $srDashOffset ?>"/>
+          </svg>
+          <div class="gauge-center">
+            <div class="pct"><?= $srPctLabel ?>%</div>
+            <div class="pct-label">usado</div>
+          </div>
+        </div>
+        <div class="usage-detail">
+          <div class="big-num"><?= number_format($sr['used'], 0, ',', '.') ?> <span class="of">/ <?= number_format($sr['limit'], 0, ',', '.') ?> requisições</span></div>
+          <div class="caption">Plano - Free Tier</div>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-box"><div class="label">Restantes</div><div class="val"><?= number_format(max(0, $sr['limit'] - $sr['used']), 0, ',', '.') ?></div></div>
+        <div class="stat-box"><div class="label">Atualizado em</div><div class="val"><?= htmlspecialchars($srUpdatedLabel, ENT_QUOTES, 'UTF-8') ?></div></div>
+      </div>
+
+      <?php if (count($srHistory) > 0): ?>
+        <div class="chart-toolbar">
+          <div class="oc-chart-label" id="mapbox-search-chart-label">Requisições entre leituras registradas</div>
+          <div class="chart-filter" data-chart-filter="mapbox-search-chart">
+            <button type="button" class="active" data-range="day">Dias</button>
+            <button type="button" data-range="month">Mês</button>
+            <button type="button" data-range="year">Ano</button>
+          </div>
+        </div>
+        <div class="oc-chart-wrap">
+          <canvas
+            id="mapbox-search-chart"
+            data-history="<?= htmlspecialchars(json_encode($srHistory), ENT_QUOTES, 'UTF-8') ?>"
+          ></canvas>
+        </div>
+      <?php else: ?>
+        <div class="oc-chart-label">Registre mais uma leitura pra ver a evolução aqui</div>
+      <?php endif; ?>
+
+      <div class="card-footer">
+        <span><a href="mapbox-search-update.php" style="color:var(--signal);">Atualizar uso →</a></span>
+        <a href="https://console.mapbox.com/account/statistics/" target="_blank">Abrir Statistics ↗</a>
+      </div>
+    </div>
+<?php
+$srCardHtml = ob_get_clean();
+
+// Ordena os cards: estados em alerta/crítico primeiro, depois por % do
+// gauge (maior uso primeiro) dentro do mesmo estado.
+$statePriority = ['crit' => 0, 'warn' => 1, 'ok' => 2];
+$sortedCards = [
+    ['state' => $ocState, 'pct' => $ocPct, 'html' => $ocCardHtml],
+    ['state' => $mapboxState, 'pct' => $mbPct, 'html' => $mbCardHtml],
+    ['state' => $mapboxSearchState, 'pct' => $srPct, 'html' => $srCardHtml],
+];
+usort($sortedCards, function (array $a, array $b) use ($statePriority): int {
+    $stateCompare = $statePriority[$a['state']] <=> $statePriority[$b['state']];
+    return $stateCompare !== 0 ? $stateCompare : ($b['pct'] <=> $a['pct']);
+});
+foreach ($sortedCards as $cardItem) {
+    echo $cardItem['html'];
+}
+?>
+  </div>
   </div>
 
   <div class="section-label"><div class="bar"></div><h2>Status LLM</h2></div>
@@ -490,6 +635,7 @@ if ($criticalCount > 0) {
 <script src="assets/js/vendor/chart.umd.js"></script>
 <script src="assets/js/opencage-chart.js?v=<?= filemtime(__DIR__ . '/assets/js/opencage-chart.js') ?>"></script>
 <script src="assets/js/mapbox-chart.js?v=<?= filemtime(__DIR__ . '/assets/js/mapbox-chart.js') ?>"></script>
+<script src="assets/js/cards-carousel.js?v=<?= filemtime(__DIR__ . '/assets/js/cards-carousel.js') ?>"></script>
 <script src="assets/js/auto-refresh.js?v=<?= filemtime(__DIR__ . '/assets/js/auto-refresh.js') ?>"></script>
 </body>
 </html>

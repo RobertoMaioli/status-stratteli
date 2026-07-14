@@ -9,7 +9,8 @@ login para acesso restrito.
 index.php            página principal (protegida por login)
 login.php            tela de login
 logout.php            encerra a sessão
-mapbox-update.php     tela para registrar manualmente o uso do Mapbox
+mapbox-update.php     tela para registrar manualmente o uso do Mapbox (Map Loads)
+mapbox-search-update.php  tela para registrar manualmente o uso do Mapbox Search
 assets/
   css/style.css       estilos do dashboard
   css/login.css       estilos da tela de login/formulários
@@ -108,6 +109,26 @@ O gráfico do card usa `MapboxService::getDailyHistory()`, que agrupa por dia
 e soma os deltas de leituras feitas no mesmo dia — uma barra por dia, não por
 leitura (evita ter 2+ barras coladas se você atualizar várias vezes no mesmo
 dia). Só aparece a partir da 2ª leitura no total (a 1ª não tem o que comparar).
+
+### Mapbox Search / Temporary Geocoding API (manual)
+
+Mesmo mecanismo do Map Loads acima, e pelo mesmo motivo: sem API de uso nem
+CSV oficiais, e o total mostrado no console do Mapbox não reseta mensalmente
+(pelo menos neste plano) — então o modelo de contador cumulativo + delta
+entre leituras é o correto aqui também, não uma leitura "por dia".
+
+`MapboxService` já é genérico (recebe `monthlyLimit` e `storageFile` no
+construtor), então é reaproveitado sem alteração: uma segunda instância
+aponta pra `data/mapbox-search-usage.json` e pro limite em
+`config.php` → `services.mapbox_search.monthly_limit` (100.000, o free tier
+da Temporary Geocoding API). Leitura registrada em
+`mapbox-search-update.php` (clone de `mapbox-update.php`), card e gráfico
+próprios em `index.php` (`mapbox-search-chart`), com chave de estado
+`mapbox_search` separada da `mapbox` no `StateTracker`/`ActivityLog`.
+
+`assets/js/mapbox-chart.js` deixou de estar hardcoded pra um único canvas:
+agora expõe `initMapboxChart(canvasId, unitLabel, dayCaption)`, chamada uma
+vez pra cada card (Map Loads e Search).
 
 ## Registro de atividade
 

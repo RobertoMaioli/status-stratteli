@@ -30,5 +30,10 @@ return [
             'monthly_limit' => 50000,
             // Mapbox nao expoe uso via API publica - leitura manual.
         ],
+        'mapbox_search' => [
+            'monthly_limit' => 100000,
+            // Temporary Geocoding API (Search) - mesmo esquema do Map Loads:
+            // sem API de uso oficial, leitura manual, total nao reseta.
+        ],
     ],
 ];
