@@ -40,6 +40,11 @@ return [
             'api_key' => '',    // gerada em aaPanel > Configuracoes > Interface (Open API)
             'disk_path' => '/', // particao principal exibida no card de disco
             'verify_ssl' => false,
+            // Opcional: prefixo da URL do popup de seguranca do aaPanel
+            // (DevTools > Network > .../v2/safecloud), pra testar se a
+            // assinatura do Open API tambem autentica esse modulo. Ver
+            // AapanelService::probeSecurityOverview().
+            'security_entrance' => '',
         ],
     ],
 ];

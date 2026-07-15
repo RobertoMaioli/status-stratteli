@@ -15,7 +15,8 @@ $aapanel = new AapanelService(
     apiKey: $aapanelConfig['api_key'],
     diskPath: $aapanelConfig['disk_path'],
     verifySsl: $aapanelConfig['verify_ssl'],
-    cacheFile: __DIR__ . '/../data/aapanel-cache.json'
+    cacheFile: __DIR__ . '/../data/aapanel-cache.json',
+    securityEntrance: $aapanelConfig['security_entrance'] ?? ''
 );
 
 function stateForPct(float $pct): string
@@ -37,6 +38,12 @@ try {
 
     if (($_GET['debug'] ?? '') === '1') {
         $payload['raw'] = $aapanel->getRaw();
+
+        try {
+            $payload['security_probe'] = $aapanel->probeSecurityOverview();
+        } catch (\Throwable $e) {
+            $payload['security_probe_error'] = $e->getMessage();
+        }
     }
 } catch (\Throwable $e) {
     $payload['ok'] = false;

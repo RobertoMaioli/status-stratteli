@@ -11,8 +11,28 @@ class AapanelService
         private readonly string $diskPath,
         private readonly bool $verifySsl,
         private readonly string $cacheFile,
-        private readonly int $cacheTtlSeconds = 4
+        private readonly int $cacheTtlSeconds = 4,
+        private readonly string $securityEntrance = ''
     ) {
+    }
+
+    /**
+     * Sonda se a assinatura do Open API (api_key) tambem autentica o modulo
+     * de seguranca (/v2/safecloud), que normalmente e uma chamada AJAX
+     * interna do painel (sessao logada), nao o Open API documentado. So
+     * usado no modo debug pra decidir se da pra automatizar o card de
+     * seguranca com a mesma assinatura ou se vai precisar de outra
+     * abordagem (login/cookie).
+     *
+     * @return array<string, mixed>|null null se securityEntrance nao configurado
+     */
+    public function probeSecurityOverview(): ?array
+    {
+        if ($this->securityEntrance === '') {
+            return null;
+        }
+
+        return $this->request('/' . trim($this->securityEntrance, '/') . '/v2/safecloud?action=get_safe_overview');
     }
 
     /**
