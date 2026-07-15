@@ -312,6 +312,28 @@ header::after{
 .chart-filter button:hover{color:var(--text-muted);}
 .chart-filter button.active{background:var(--signal);color:var(--bg-panel);}
 
+/* ---------- REDE (grafico de trafego) ---------- */
+.net-legend-row{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+  margin-bottom:16px;
+}
+.net-legend-item{
+  display:flex;align-items:flex-start;gap:8px;
+  background:var(--bg-panel-alt);
+  border:1px solid var(--line-soft);
+  border-radius:9px;padding:10px 12px;
+}
+.net-legend-item .label{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;}
+.net-legend-item .val{font-family:'JetBrains Mono',monospace;font-size:14px;margin-top:3px;font-weight:600;}
+.net-dot{width:8px;height:8px;border-radius:50%;margin-top:4px;flex-shrink:0;}
+.net-dot-up{background:var(--ok);}
+.net-dot-down{background:var(--signal);}
+.net-chart-wrap{position:relative;height:220px;}
+
+@media (max-width:640px){
+  .net-legend-row{grid-template-columns:repeat(2,1fr);}
+}
+
 /* ---------- HUB (selecao de dashboards) ---------- */
 .hub-cards{
   display:grid;
@@ -500,6 +522,7 @@ body.modal-open{overflow:hidden;}
   gap:18px;
 }
 .modal-cards .card{flex:none;min-width:0;scroll-snap-align:none;}
+.modal-cards #net-card{grid-column:1 / -1;}
 
 @media (max-width:640px){
   .modal-overlay{padding:0;}

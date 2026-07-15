@@ -168,9 +168,25 @@ auth_check();
         </div>
       </div>
 
-      <div class="stat-grid">
-        <div class="stat-box"><div class="label">↑ Upload</div><div class="val" id="net-up">—</div></div>
-        <div class="stat-box"><div class="label">↓ Download</div><div class="val" id="net-down">—</div></div>
+      <div class="net-legend-row">
+        <div class="net-legend-item">
+          <span class="net-dot net-dot-up"></span>
+          <div><div class="label">Upstream</div><div class="val" id="net-up">—</div></div>
+        </div>
+        <div class="net-legend-item">
+          <span class="net-dot net-dot-down"></span>
+          <div><div class="label">Downstream</div><div class="val" id="net-down">—</div></div>
+        </div>
+        <div class="net-legend-item">
+          <div><div class="label">Total enviado</div><div class="val" id="net-total-up">—</div></div>
+        </div>
+        <div class="net-legend-item">
+          <div><div class="label">Total recebido</div><div class="val" id="net-total-down">—</div></div>
+        </div>
+      </div>
+
+      <div class="net-chart-wrap">
+        <canvas id="net-chart"></canvas>
       </div>
     </div>
 
@@ -181,6 +197,8 @@ auth_check();
   </footer>
 
 </div>
+<script src="assets/js/vendor/chart.umd.js"></script>
+<script src="assets/js/net-chart.js?v=<?= filemtime(__DIR__ . '/assets/js/net-chart.js') ?>"></script>
 <script src="assets/js/host-monitor.js?v=<?= filemtime(__DIR__ . '/assets/js/host-monitor.js') ?>"></script>
 </body>
 </html>
