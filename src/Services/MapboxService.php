@@ -36,23 +36,25 @@ class MapboxService
 
     /**
      * Historico de leituras com o delta (loads desde a leitura anterior).
-     * A primeira leitura do periodo nao tem delta (nao ha o que comparar).
+     * A primeira leitura do historico usa 0 como base (nao ha leitura
+     * anterior), entao seu delta e o proprio valor lido - assim o total do
+     * grafico bate com o acumulado, em vez de perder essa leitura.
      *
-     * @return array<int, array{date:string, used:int, delta:int|null}>
+     * @return array<int, array{date:string, used:int, delta:int}>
      */
     public function getHistory(): array
     {
         $entries = $this->loadEntries();
 
         $history = [];
-        $previousUsed = null;
+        $previousUsed = 0;
 
         foreach ($entries as $entry) {
             $used = (int) $entry['used'];
             $history[] = [
                 'date' => (string) $entry['updated_at'],
                 'used' => $used,
-                'delta' => $previousUsed === null ? null : $used - $previousUsed,
+                'delta' => $used - $previousUsed,
             ];
             $previousUsed = $used;
         }
@@ -63,7 +65,7 @@ class MapboxService
     /**
      * Mesmo historico, mas agrupado por dia (soma os deltas de leituras
      * feitas no mesmo dia) — uma barra por dia no grafico, em vez de uma
-     * por leitura. A primeira leitura (sem delta) fica de fora.
+     * por leitura.
      *
      * @return array<int, array{date:string, used:int, delta:int}>
      */
@@ -72,10 +74,6 @@ class MapboxService
         $daily = [];
 
         foreach ($this->getHistory() as $entry) {
-            if ($entry['delta'] === null) {
-                continue;
-            }
-
             $day = (new \DateTimeImmutable($entry['date']))->format('Y-m-d');
 
             if (!isset($daily[$day])) {

@@ -108,7 +108,9 @@ naquele intervalo) e mostra isso na tela de atualização.
 O gráfico do card usa `MapboxService::getDailyHistory()`, que agrupa por dia
 e soma os deltas de leituras feitas no mesmo dia — uma barra por dia, não por
 leitura (evita ter 2+ barras coladas se você atualizar várias vezes no mesmo
-dia). Só aparece a partir da 2ª leitura no total (a 1ª não tem o que comparar).
+dia). A 1ª leitura do histórico usa 0 como base (sem leitura anterior pra
+comparar), então seu delta é o próprio valor lido — assim o total do gráfico
+sempre bate com o acumulado.
 
 ### Mapbox Search / Temporary Geocoding API (manual)
 
