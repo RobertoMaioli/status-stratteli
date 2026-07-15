@@ -80,7 +80,7 @@ auth_check();
       </div>
 
       <div class="stat-grid">
-        <div class="stat-box"><div class="label">Load (1 / 5 / 15min)</div><div class="val" id="cpu-load">— / — / —</div></div>
+        <div class="stat-box stat-box-full"><div class="label">Load (1 / 5 / 15min)</div><div class="val" id="cpu-load">— / — / —</div></div>
       </div>
     </div>
 

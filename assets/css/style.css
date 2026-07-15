@@ -282,6 +282,7 @@ header::after{
 }
 .stat-box .label{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;}
 .stat-box .val{font-family:'JetBrains Mono',monospace;font-size:14px;margin-top:3px;font-weight:600;}
+.stat-box-full{grid-column:1 / -1;}
 
 .spark{display:flex;align-items:flex-end;gap:4px;height:34px;margin-bottom:14px;}
 .spark .bar{flex:1;background:var(--bg-raised);border-radius:3px 3px 0 0;position:relative;min-height:4px;}
