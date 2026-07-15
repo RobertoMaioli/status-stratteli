@@ -28,6 +28,19 @@
     return date.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
   }
 
+  function fadeGradient(hex) {
+    return function (context) {
+      var chartArea = context.chart.chartArea;
+      if (!chartArea) {
+        return hexToRgba(hex, 0.18);
+      }
+      var gradient = context.chart.ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+      gradient.addColorStop(0, hexToRgba(hex, 0.35));
+      gradient.addColorStop(1, hexToRgba(hex, 0));
+      return gradient;
+    };
+  }
+
   var chart = new Chart(canvas, {
     type: 'line',
     data: {
@@ -37,20 +50,24 @@
           label: 'Upstream',
           data: [],
           borderColor: ok,
-          backgroundColor: hexToRgba(ok, 0.18),
+          backgroundColor: fadeGradient(ok),
           pointRadius: 0,
+          pointHoverRadius: 4,
+          pointHoverBackgroundColor: ok,
           borderWidth: 2,
-          tension: 0.35,
+          tension: 0.4,
           fill: true,
         },
         {
           label: 'Downstream',
           data: [],
           borderColor: signal,
-          backgroundColor: hexToRgba(signal, 0.18),
+          backgroundColor: fadeGradient(signal),
           pointRadius: 0,
+          pointHoverRadius: 4,
+          pointHoverBackgroundColor: signal,
           borderWidth: 2,
-          tension: 0.35,
+          tension: 0.4,
           fill: true,
         },
       ],
@@ -58,7 +75,10 @@
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      animation: { duration: 250 },
+      animation: { duration: 600, easing: 'easeOutQuart' },
+      transitions: {
+        active: { animation: { duration: 300, easing: 'easeOutQuart' } },
+      },
       interaction: { mode: 'index', intersect: false },
       plugins: {
         legend: { display: false },
@@ -102,6 +122,6 @@
       chart.data.datasets[1].data.shift();
     }
 
-    chart.update('none');
+    chart.update();
   };
 })();
