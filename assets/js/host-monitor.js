@@ -6,11 +6,22 @@
   var SECURITY_LEVEL_LABELS = { Good: 'Bom', Fair: 'Regular', Moderate: 'Regular', Poor: 'Fraco', Danger: 'Perigo', Critical: 'Crítico' };
   var SECURITY_BADGE_MAP = { high: 'crit', medium: 'warn', low: 'ok' };
   var SECURITY_BADGE_LABEL = { high: 'alto', medium: 'médio', low: 'baixo' };
+  var SECURITY_SEVERITY_PRIORITY = { high: 0, medium: 1, low: 2 };
+  var SECURITY_NEWS_PAGE_SIZE = 10;
 
   var errorBox = document.getElementById('host-error');
   var pill = document.getElementById('host-pill');
   var pillLabel = document.getElementById('host-pill-label');
   var lastRead = document.getElementById('host-last-read');
+
+  function pad2(n) {
+    return n < 10 ? '0' + n : String(n);
+  }
+
+  function formatBrDateTime(date) {
+    return pad2(date.getDate()) + '/' + pad2(date.getMonth() + 1) + '/' + date.getFullYear() +
+      ' ' + pad2(date.getHours()) + ':' + pad2(date.getMinutes());
+  }
 
   function setGaugeState(prefix, pct, state) {
     var fill = document.getElementById(prefix + '-gauge-fill');
@@ -126,8 +137,9 @@
       tag.classList.remove('ok', 'warn', 'crit');
       tag.classList.add('warn');
       tag.textContent = 'Indisponível';
-      description.textContent = error || 'Sem leitura do aaPanel.';
-      renderSecurityNews([], error || 'sem leitura do aaPanel');
+      description.textContent = error || 'Sem leitura do Servidor.';
+      lastSecurityEvents = [];
+      renderSecurityNews([], error || 'sem leitura do Servidor');
       return;
     }
 
@@ -164,7 +176,30 @@
     document.getElementById('security-medium').textContent = security.severity.medium;
     document.getElementById('security-low').textContent = security.severity.low;
 
-    renderSecurityNews(security.events || [], null);
+    lastSecurityEvents = security.events || [];
+    renderSecurityNews(lastSecurityEvents, null);
+  }
+
+  var securityNewsPage = 1;
+  var securityNewsPrevBtn = document.getElementById('security-news-prev');
+  var securityNewsNextBtn = document.getElementById('security-news-next');
+  var securityNewsPageLabel = document.getElementById('security-news-page-label');
+  var securityNewsPagination = document.getElementById('security-news-pagination');
+
+  function setPagination(totalPages) {
+    if (!securityNewsPagination) {
+      return;
+    }
+    securityNewsPagination.hidden = totalPages <= 1;
+    if (securityNewsPageLabel) {
+      securityNewsPageLabel.textContent = 'Página ' + securityNewsPage + ' de ' + totalPages;
+    }
+    if (securityNewsPrevBtn) {
+      securityNewsPrevBtn.disabled = securityNewsPage <= 1;
+    }
+    if (securityNewsNextBtn) {
+      securityNewsNextBtn.disabled = securityNewsPage >= totalPages;
+    }
   }
 
   function renderSecurityNews(events, error) {
@@ -179,6 +214,9 @@
     }
 
     if (error) {
+      if (securityNewsPagination) {
+        securityNewsPagination.hidden = true;
+      }
       list.innerHTML =
         '<div class="log-item"><div class="log-time">—</div><div class="log-badge warn">indisponível</div><div class="log-text"></div></div>';
       list.querySelector('.log-text').textContent = 'Falha ao buscar Security News: ' + error;
@@ -186,16 +224,36 @@
     }
 
     if (events.length === 0) {
+      if (securityNewsPagination) {
+        securityNewsPagination.hidden = true;
+      }
       list.innerHTML =
         '<div class="log-item"><div class="log-time">—</div><div class="log-badge sys">sistema</div><div class="log-text">Nenhum risco pendente encontrado.</div></div>';
       return;
     }
 
+    // Mais grave primeiro (high > medium > low); dentro da mesma
+    // severidade, o mais recente primeiro.
+    var sorted = events.slice().sort(function (a, b) {
+      var pa = SECURITY_SEVERITY_PRIORITY[a.severity];
+      var pb = SECURITY_SEVERITY_PRIORITY[b.severity];
+      pa = pa === undefined ? 1 : pa;
+      pb = pb === undefined ? 1 : pb;
+      return pa !== pb ? pa - pb : (b.time || 0) - (a.time || 0);
+    });
+
+    var totalPages = Math.max(1, Math.ceil(sorted.length / SECURITY_NEWS_PAGE_SIZE));
+    securityNewsPage = Math.min(Math.max(securityNewsPage, 1), totalPages);
+    setPagination(totalPages);
+
+    var start = (securityNewsPage - 1) * SECURITY_NEWS_PAGE_SIZE;
+    var pageEvents = sorted.slice(start, start + SECURITY_NEWS_PAGE_SIZE);
+
     list.innerHTML = '';
-    events.forEach(function (event) {
+    pageEvents.forEach(function (event) {
       var badge = SECURITY_BADGE_MAP[event.severity] || 'warn';
       var label = SECURITY_BADGE_LABEL[event.severity] || event.severity;
-      var timeLabel = event.time ? new Date(event.time * 1000).toLocaleString('pt-BR') : '—';
+      var timeLabel = event.time ? formatBrDateTime(new Date(event.time * 1000)) : '—';
 
       var row = document.createElement('div');
       row.className = 'log-item';
@@ -207,6 +265,21 @@
       row.querySelector('.log-badge').textContent = label;
       row.querySelector('.log-text').textContent = event.description;
       list.appendChild(row);
+    });
+  }
+
+  var lastSecurityEvents = [];
+
+  if (securityNewsPrevBtn) {
+    securityNewsPrevBtn.addEventListener('click', function () {
+      securityNewsPage -= 1;
+      renderSecurityNews(lastSecurityEvents, null);
+    });
+  }
+  if (securityNewsNextBtn) {
+    securityNewsNextBtn.addEventListener('click', function () {
+      securityNewsPage += 1;
+      renderSecurityNews(lastSecurityEvents, null);
     });
   }
 

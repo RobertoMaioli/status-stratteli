@@ -50,7 +50,7 @@ class AapanelService
             'levelDescription' => (string) ($overview['level_description'] ?? ''),
             'riskCount' => (int) ($overview['risk_count'] ?? 0),
             'protectDays' => (int) ($overview['protect_days'] ?? 0),
-            'riskScanTime' => (string) ($overview['risk_scan_time'] ?? ''),
+            'riskScanTime' => $this->formatBrDateTime((string) ($overview['risk_scan_time'] ?? '')),
             'severity' => [
                 'high' => (int) ($alarmTrend['high_risk'] ?? 0),
                 'medium' => (int) ($alarmTrend['medium_risk'] ?? 0),
@@ -69,6 +69,33 @@ class AapanelService
                 ];
             }, is_array($events) ? $events : []),
         ];
+    }
+
+    /**
+     * O aaPanel manda risk_scan_time como timestamp (segundos ou ms) ou como
+     * string de data — normaliza pro formato brasileiro dd/mm/aaaa hh:mm.
+     * Se nao conseguir interpretar, devolve o valor original sem quebrar.
+     */
+    private function formatBrDateTime(string $value): string
+    {
+        if ($value === '') {
+            return '';
+        }
+
+        if (ctype_digit($value)) {
+            $timestamp = strlen($value) >= 13 ? intdiv((int) $value, 1000) : (int) $value;
+        } else {
+            $parsed = strtotime($value);
+            $timestamp = $parsed !== false ? $parsed : null;
+        }
+
+        if (empty($timestamp)) {
+            return $value;
+        }
+
+        return (new \DateTimeImmutable('@' . $timestamp))
+            ->setTimezone(new \DateTimeZone('America/Sao_Paulo'))
+            ->format('d/m/Y H:i');
     }
 
     /**
@@ -206,7 +233,7 @@ class AapanelService
         if ($response === false) {
             $error = curl_error($ch);
             curl_close($ch);
-            throw new \RuntimeException("Falha ao conectar no aaPanel ({$path}): {$error}");
+            throw new \RuntimeException("Falha ao conectar no Servidor ({$path}): {$error}");
         }
 
         $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -215,18 +242,18 @@ class AapanelService
         if ($status !== 200) {
             $preview = trim(substr((string) $response, 0, 200));
             $suffix = $preview !== '' ? ": {$preview}" : ' (corpo vazio)';
-            throw new \RuntimeException("aaPanel ({$path}) retornou HTTP {$status}{$suffix}");
+            throw new \RuntimeException("Servidor ({$path}) retornou HTTP {$status}{$suffix}");
         }
 
         $data = json_decode((string) $response, true);
 
         if (!is_array($data)) {
-            throw new \RuntimeException("aaPanel ({$path}) retornou resposta invalida: " . substr((string) $response, 0, 200));
+            throw new \RuntimeException("Servidor ({$path}) retornou resposta invalida: " . substr((string) $response, 0, 200));
         }
 
         if (isset($data['status']) && $data['status'] === false) {
             $msg = (string) ($data['msg'] ?? 'erro desconhecido');
-            throw new \RuntimeException("aaPanel ({$path}) recusou a requisicao: {$msg}");
+            throw new \RuntimeException("Servidor ({$path}) recusou a requisicao: {$msg}");
         }
 
         return $data;

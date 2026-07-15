@@ -55,7 +55,7 @@ auth_check();
           </div>
           <div>
             <div class="service-name">Security Risk</div>
-            <div class="service-meta">aaPanel · Análise de risco</div>
+            <div class="service-meta">Servidor · Análise de risco</div>
           </div>
         </div>
         <div class="mode-tag ok" id="security-mode-tag">—</div>
@@ -250,7 +250,7 @@ auth_check();
 
   <div class="log-panel">
     <div class="log-header">
-      <h2 style="margin:0;">Riscos detectados pelo aaPanel</h2>
+      <h2 style="margin:0;">Riscos detectados pelo Servidor</h2>
       <div class="live-tag"><span class="dot"></span> <span id="security-news-count">0</span> itens</div>
     </div>
     <div class="log-list" id="security-news-list">
@@ -259,6 +259,11 @@ auth_check();
         <div class="log-badge sys">sistema</div>
         <div class="log-text">Carregando…</div>
       </div>
+    </div>
+    <div class="log-pagination" id="security-news-pagination" hidden>
+      <button type="button" class="page-btn" id="security-news-prev" aria-label="Página anterior">‹</button>
+      <span class="page-label" id="security-news-page-label">Página 1 de 1</span>
+      <button type="button" class="page-btn" id="security-news-next" aria-label="Próxima página">›</button>
     </div>
   </div>
 

@@ -15,7 +15,7 @@ return [
     [
         'key' => 'host-monitor',
         'name' => 'Host Monitor',
-        'description' => 'CPU, memória, disco e rede do servidor em tempo real (via aaPanel).',
+        'description' => 'CPU, memória, disco e rede do servidor em tempo real.',
         'link' => 'host-monitor.php',
         'icon' => '<rect x="2" y="4" width="20" height="6" rx="1.5"/><rect x="2" y="14" width="20" height="6" rx="1.5"/><circle cx="6" cy="7" r="0.5"/><circle cx="6" cy="17" r="0.5"/>',
     ],
