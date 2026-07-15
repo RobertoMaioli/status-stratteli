@@ -3,6 +3,9 @@
   var CIRCUMFERENCE = 251.3;
   var STATE_LABELS = { ok: 'Operacional', warn: 'Alerta', crit: 'Crítico' };
   var STATE_COLOR_VAR = { ok: 'var(--ok)', warn: 'var(--warn)', crit: 'var(--crit)' };
+  var SECURITY_LEVEL_LABELS = { Good: 'Bom', Fair: 'Regular', Moderate: 'Regular', Poor: 'Fraco', Danger: 'Perigo', Critical: 'Crítico' };
+  var SECURITY_BADGE_MAP = { high: 'crit', medium: 'warn', low: 'ok' };
+  var SECURITY_BADGE_LABEL = { high: 'alto', medium: 'médio', low: 'baixo' };
 
   var errorBox = document.getElementById('host-error');
   var pill = document.getElementById('host-pill');
@@ -112,8 +115,105 @@
     });
   }
 
+  function renderSecurity(security, error) {
+    var tag = document.getElementById('security-mode-tag');
+    var description = document.getElementById('security-description');
+    if (!tag || !description) {
+      return;
+    }
+
+    if (error || !security) {
+      tag.classList.remove('ok', 'warn', 'crit');
+      tag.classList.add('warn');
+      tag.textContent = 'Indisponível';
+      description.textContent = error || 'Sem leitura do aaPanel.';
+      renderSecurityNews([], error || 'sem leitura do aaPanel');
+      return;
+    }
+
+    var state = security.state;
+    var fill = document.getElementById('security-gauge-fill');
+    if (fill) {
+      var offset = CIRCUMFERENCE * (1 - Math.max(0, Math.min(100, security.score)) / 100);
+      fill.setAttribute('stroke-dashoffset', offset.toFixed(1));
+      fill.style.stroke = STATE_COLOR_VAR[state] || STATE_COLOR_VAR.ok;
+    }
+
+    document.getElementById('security-score').textContent = security.score;
+    document.getElementById('security-level').textContent = SECURITY_LEVEL_LABELS[security.level] || security.level || '—';
+
+    tag.classList.remove('ok', 'warn', 'crit');
+    tag.classList.add(state);
+    tag.textContent = STATE_LABELS[state] || state;
+
+    var card = document.getElementById('security-card');
+    if (card) {
+      card.classList.remove('state-warn', 'state-crit');
+      if (state !== 'ok') {
+        card.classList.add('state-' + state);
+      }
+    }
+
+    document.getElementById('security-risk-count').innerHTML =
+      security.riskCount + ' <span class="of">risks encontrados</span>';
+    description.textContent = security.levelDescription || 'Sem detalhes.';
+    document.getElementById('security-protect-days').textContent =
+      security.protectDays + (security.protectDays === 1 ? ' dia' : ' dias');
+    document.getElementById('security-scan-time').textContent = security.riskScanTime || '—';
+    document.getElementById('security-high').textContent = security.severity.high;
+    document.getElementById('security-medium').textContent = security.severity.medium;
+    document.getElementById('security-low').textContent = security.severity.low;
+
+    renderSecurityNews(security.events || [], null);
+  }
+
+  function renderSecurityNews(events, error) {
+    var list = document.getElementById('security-news-list');
+    var countEl = document.getElementById('security-news-count');
+    if (!list) {
+      return;
+    }
+
+    if (countEl) {
+      countEl.textContent = events.length;
+    }
+
+    if (error) {
+      list.innerHTML =
+        '<div class="log-item"><div class="log-time">—</div><div class="log-badge warn">indisponível</div><div class="log-text"></div></div>';
+      list.querySelector('.log-text').textContent = 'Falha ao buscar Security News: ' + error;
+      return;
+    }
+
+    if (events.length === 0) {
+      list.innerHTML =
+        '<div class="log-item"><div class="log-time">—</div><div class="log-badge sys">sistema</div><div class="log-text">Nenhum risco pendente encontrado.</div></div>';
+      return;
+    }
+
+    list.innerHTML = '';
+    events.forEach(function (event) {
+      var badge = SECURITY_BADGE_MAP[event.severity] || 'warn';
+      var label = SECURITY_BADGE_LABEL[event.severity] || event.severity;
+      var timeLabel = event.time ? new Date(event.time * 1000).toLocaleString('pt-BR') : '—';
+
+      var row = document.createElement('div');
+      row.className = 'log-item';
+      row.innerHTML =
+        '<div class="log-time"></div>' +
+        '<div class="log-badge ' + badge + '"></div>' +
+        '<div class="log-text"></div>';
+      row.querySelector('.log-time').textContent = timeLabel;
+      row.querySelector('.log-badge').textContent = label;
+      row.querySelector('.log-text').textContent = event.description;
+      list.appendChild(row);
+    });
+  }
+
   function render(data) {
     errorBox.hidden = true;
+
+    renderSecurity(data.security, data.securityError);
 
     var cpuState = data.cpu.state;
     var memState = data.mem.state;

@@ -405,6 +405,27 @@ header::after{
 .card-footer a{color:var(--signal);text-decoration:none;}
 .card-footer a:hover{text-decoration:underline;}
 
+/* ---------- SECURITY RISK ---------- */
+.severity-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+}
+.severity-item{
+  display:flex;align-items:flex-start;gap:8px;
+  background:var(--bg-panel-alt);
+  border:1px solid var(--line-soft);
+  border-radius:9px;padding:10px 12px;
+}
+.severity-item .label{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;}
+.severity-item .val{font-family:'JetBrains Mono',monospace;font-size:14px;margin-top:3px;font-weight:600;}
+.severity-dot{width:8px;height:8px;border-radius:50%;margin-top:4px;flex-shrink:0;}
+.severity-dot.crit{background:var(--crit);}
+.severity-dot.warn{background:var(--warn);}
+.severity-dot.ok{background:var(--ok);}
+
+@media (max-width:640px){
+  .severity-grid{grid-template-columns:repeat(2,1fr);}
+}
+
 /* ---------- LOG / ACTIVITY ---------- */
 .log-panel{
   background:var(--bg-panel);
@@ -524,6 +545,7 @@ body.modal-open{overflow:hidden;}
 }
 .modal-cards .card{flex:none;min-width:0;scroll-snap-align:none;}
 .modal-cards #net-card{grid-column:1 / -1;}
+.modal-cards #security-card{grid-column:1 / -1;}
 
 @media (max-width:640px){
   .modal-overlay{padding:0;}

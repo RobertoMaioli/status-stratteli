@@ -16,12 +16,18 @@ $aapanel = new AapanelService(
     diskPath: $aapanelConfig['disk_path'],
     verifySsl: $aapanelConfig['verify_ssl'],
     cacheFile: __DIR__ . '/../data/aapanel-cache.json',
-    securityEntrance: $aapanelConfig['security_entrance'] ?? ''
+    securityEntrance: $aapanelConfig['security_entrance'] ?? '',
+    securityCacheFile: __DIR__ . '/../data/aapanel-security-cache.json'
 );
 
 function stateForPct(float $pct): string
 {
     return $pct >= 90 ? 'crit' : ($pct >= 75 ? 'warn' : 'ok');
+}
+
+function stateForScore(int $score): string
+{
+    return $score >= 80 ? 'ok' : ($score >= 60 ? 'warn' : 'crit');
 }
 
 $payload = ['ok' => true, 'error' => null];
@@ -38,16 +44,24 @@ try {
 
     if (($_GET['debug'] ?? '') === '1') {
         $payload['raw'] = $aapanel->getRaw();
-
-        try {
-            $payload['security_probe'] = $aapanel->probeSecurityOverview();
-        } catch (\Throwable $e) {
-            $payload['security_probe_error'] = $e->getMessage();
-        }
     }
 } catch (\Throwable $e) {
     $payload['ok'] = false;
     $payload['error'] = $e->getMessage();
+}
+
+// Independente do status do host acima — o modulo de seguranca (/v2/safecloud)
+// e uma rota separada, entao uma falha aqui nao deve derrubar CPU/RAM/disco/rede.
+try {
+    $secSummary = $aapanel->getSecuritySummary();
+    $payload['security'] = $secSummary + ['state' => stateForScore($secSummary['score'])];
+
+    if (($_GET['debug'] ?? '') === '1') {
+        $payload['security_raw'] = $aapanel->getSecurityRaw();
+    }
+} catch (\Throwable $e) {
+    $payload['security'] = null;
+    $payload['securityError'] = $e->getMessage();
 }
 
 echo json_encode($payload);

@@ -173,6 +173,36 @@ após configurar as credenciais reais, acesse `api/host-status.php?debug=1`
 parsing em `AapanelService::parseCpu()/parseMem()/parseNetwork()/parseDisk()`
 de acordo.
 
+**Security Risk / Security News:** o mesmo `host-monitor.php` também mostra,
+via polling, um card com o score de segurança do aaPanel (gauge, risks
+encontrados, dias protegido, severidade High/Medium/Low) logo no topo, e uma
+seção "Security News" no final da página, 100% da largura, com a lista de
+riscos detectados — populados junto com CPU/RAM/disco/rede no mesmo
+`api/host-status.php`.
+
+Os dados vêm de `/v2/safecloud` (`get_safe_overview`, `get_pending_alarm_trend`,
+`get_security_dynamic`) — uma rota **interna** do painel (chamada AJAX da
+sessão logada do navegador), não o Open API documentado. Confirmado por
+teste manual que a mesma assinatura `api_key` do Open API também autentica
+essa rota. Precisa de mais uma chave em `config.php` → `services.aapanel`:
+
+```php
+'security_entrance' => '', // prefixo /apsess_.../ visto no DevTools ao abrir
+                            // o popup de seguranca no aaPanel (Network > v2/safecloud)
+```
+
+Pra capturar: logado no aaPanel, abra DevTools (F12) → Network, clique no
+ícone/escudo de segurança que abre o popup de score, e copie o primeiro
+segmento da URL das chamadas (`apsess_...`). Se esse valor for por sessão
+(mudar a cada novo login), o card vai parar de funcionar quando expirar —
+nesse caso a automação passa a exigir login por credenciais (mesmo risco
+que foi evitado no Mapbox), e não vale a pena sem necessidade real.
+
+Como o token de sessão do painel pode não ser permanente e o módulo de
+segurança não muda a cada segundo, essa parte cacheia por mais tempo que o
+resto do Host Monitor (`securityCacheTtlSeconds`, default 45s) mesmo com o
+polling do resto da página a cada 8s.
+
 ## Registro de atividade
 
 `ActivityLog` (`data/activity-log.json`) guarda os últimos 200 eventos; a

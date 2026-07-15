@@ -12,27 +12,109 @@ class AapanelService
         private readonly bool $verifySsl,
         private readonly string $cacheFile,
         private readonly int $cacheTtlSeconds = 4,
-        private readonly string $securityEntrance = ''
+        private readonly string $securityEntrance = '',
+        private readonly string $securityCacheFile = '',
+        private readonly int $securityCacheTtlSeconds = 45
     ) {
     }
 
     /**
-     * Sonda se a assinatura do Open API (api_key) tambem autentica o modulo
-     * de seguranca (/v2/safecloud), que normalmente e uma chamada AJAX
-     * interna do painel (sessao logada), nao o Open API documentado. So
-     * usado no modo debug pra decidir se da pra automatizar o card de
-     * seguranca com a mesma assinatura ou se vai precisar de outra
-     * abordagem (login/cookie).
+     * Modulo de seguranca (/v2/safecloud) — confirmado por teste manual que
+     * a mesma assinatura do Open API (api_key) autentica esse endpoint,
+     * apesar de ser uma rota interna do painel (nao documentada como Open
+     * API oficial). O prefixo `security_entrance` foi capturado direto do
+     * DevTools do navegador logado no aaPanel.
      *
-     * @return array<string, mixed>|null null se securityEntrance nao configurado
+     * @return array{
+     *     score: int,
+     *     level: string,
+     *     levelDescription: string,
+     *     riskCount: int,
+     *     protectDays: int,
+     *     riskScanTime: string,
+     *     severity: array{high: int, medium: int, low: int},
+     *     events: array<int, array{severity: string, description: string, time: int}>
+     * }
      */
-    public function probeSecurityOverview(): ?array
+    public function getSecuritySummary(): array
+    {
+        $raw = $this->loadSecurityRaw();
+
+        $overview = $raw['overview']['message'] ?? [];
+        $alarmTrend = $raw['alarmTrend']['message'] ?? [];
+        $events = $raw['events']['message']['events'] ?? [];
+
+        return [
+            'score' => (int) ($overview['score'] ?? 0),
+            'level' => (string) ($overview['level'] ?? ''),
+            'levelDescription' => (string) ($overview['level_description'] ?? ''),
+            'riskCount' => (int) ($overview['risk_count'] ?? 0),
+            'protectDays' => (int) ($overview['protect_days'] ?? 0),
+            'riskScanTime' => (string) ($overview['risk_scan_time'] ?? ''),
+            'severity' => [
+                'high' => (int) ($alarmTrend['high_risk'] ?? 0),
+                'medium' => (int) ($alarmTrend['medium_risk'] ?? 0),
+                'low' => (int) ($alarmTrend['low_risk'] ?? 0),
+            ],
+            'events' => array_map(static function (array $event): array {
+                // aaPanel usa 1=baixo, 2=medio, 3=alto (visto na amostra real:
+                // as contagens de level 1/2 batem exatamente com low_risk/medium_risk).
+                $level = (int) ($event['level'] ?? 2);
+                $severity = $level >= 3 ? 'high' : ($level <= 1 ? 'low' : 'medium');
+
+                return [
+                    'severity' => $severity,
+                    'description' => (string) ($event['description'] ?? ''),
+                    'time' => (int) ($event['time'] ?? 0),
+                ];
+            }, is_array($events) ? $events : []),
+        ];
+    }
+
+    /**
+     * Resposta bruta combinada do modulo de seguranca — usada so no modo
+     * debug (api/host-status.php?debug=1) pra calibrar getSecuritySummary()
+     * caso o aaPanel mude o formato de resposta.
+     *
+     * @return array{overview: array<string, mixed>, alarmTrend: array<string, mixed>, events: array<string, mixed>}
+     */
+    public function getSecurityRaw(): array
+    {
+        return $this->loadSecurityRaw();
+    }
+
+    /**
+     * @return array{overview: array<string, mixed>, alarmTrend: array<string, mixed>, events: array<string, mixed>}
+     */
+    private function loadSecurityRaw(): array
     {
         if ($this->securityEntrance === '') {
-            return null;
+            throw new \RuntimeException('security_entrance nao configurado em config.php');
         }
 
-        return $this->request('/' . trim($this->securityEntrance, '/') . '/v2/safecloud?action=get_safe_overview');
+        $isFresh = $this->securityCacheFile !== ''
+            && is_file($this->securityCacheFile)
+            && (time() - filemtime($this->securityCacheFile)) < $this->securityCacheTtlSeconds;
+
+        if ($isFresh) {
+            $cached = json_decode((string) file_get_contents($this->securityCacheFile), true);
+            if (is_array($cached) && isset($cached['overview'], $cached['alarmTrend'], $cached['events'])) {
+                return $cached;
+            }
+        }
+
+        $base = '/' . trim($this->securityEntrance, '/') . '/v2/safecloud?action=';
+        $raw = [
+            'overview' => $this->request($base . 'get_safe_overview'),
+            'alarmTrend' => $this->request($base . 'get_pending_alarm_trend'),
+            'events' => $this->request($base . 'get_security_dynamic'),
+        ];
+
+        if ($this->securityCacheFile !== '') {
+            file_put_contents($this->securityCacheFile, json_encode($raw));
+        }
+
+        return $raw;
     }
 
     /**

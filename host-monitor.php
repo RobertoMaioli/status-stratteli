@@ -46,6 +46,60 @@ auth_check();
 
   <div class="modal-cards">
 
+    <!-- SECURITY RISK -->
+    <div class="card security-card" id="security-card">
+      <div class="card-top">
+        <div class="service-id">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="1.8" id="security-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="service-name">Security Risk</div>
+            <div class="service-meta">aaPanel · Análise de risco</div>
+          </div>
+        </div>
+        <div class="mode-tag ok" id="security-mode-tag">—</div>
+      </div>
+
+      <div class="gauge-row">
+        <div class="gauge">
+          <svg width="96" height="96" viewBox="0 0 96 96">
+            <circle cx="48" cy="48" r="40" fill="none" stroke="var(--bg-raised)" stroke-width="9"/>
+            <circle cx="48" cy="48" r="40" fill="none" stroke="var(--ok)" stroke-width="9"
+              stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="251.3" id="security-gauge-fill"/>
+          </svg>
+          <div class="gauge-center">
+            <div class="pct" id="security-score">—</div>
+            <div class="pct-label" id="security-level">—</div>
+          </div>
+        </div>
+        <div class="usage-detail">
+          <div class="big-num" id="security-risk-count">—</div>
+          <div class="caption" id="security-description">Carregando…</div>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-box"><div class="label">Dias protegido</div><div class="val" id="security-protect-days">—</div></div>
+        <div class="stat-box"><div class="label">Última varredura</div><div class="val" id="security-scan-time">—</div></div>
+      </div>
+
+      <div class="severity-grid">
+        <div class="severity-item">
+          <span class="severity-dot crit"></span>
+          <div><div class="label">High</div><div class="val" id="security-high">—</div></div>
+        </div>
+        <div class="severity-item">
+          <span class="severity-dot warn"></span>
+          <div><div class="label">Medium</div><div class="val" id="security-medium">—</div></div>
+        </div>
+        <div class="severity-item">
+          <span class="severity-dot ok"></span>
+          <div><div class="label">Low</div><div class="val" id="security-low">—</div></div>
+        </div>
+      </div>
+    </div>
+
     <!-- CPU -->
     <div class="card" id="cpu-card">
       <div class="card-top">
@@ -190,6 +244,22 @@ auth_check();
       </div>
     </div>
 
+  </div>
+
+  <div class="section-label"><div class="bar"></div><h2>Security News</h2></div>
+
+  <div class="log-panel">
+    <div class="log-header">
+      <h2 style="margin:0;">Riscos detectados pelo aaPanel</h2>
+      <div class="live-tag"><span class="dot"></span> <span id="security-news-count">0</span> itens</div>
+    </div>
+    <div class="log-list" id="security-news-list">
+      <div class="log-item">
+        <div class="log-time">—</div>
+        <div class="log-badge sys">sistema</div>
+        <div class="log-text">Carregando…</div>
+      </div>
+    </div>
   </div>
 
   <footer>
