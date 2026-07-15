@@ -7,6 +7,8 @@ login para acesso restrito.
 
 ```
 index.php            página principal (protegida por login)
+hub.php               hub de dashboards pós-login (config/dashboards.php)
+host-monitor.php      dashboard "Host Monitor" — CPU/RAM/disco/rede ao vivo (aaPanel)
 login.php            tela de login
 logout.php            encerra a sessão
 mapbox-update.php     tela para registrar manualmente o uso do Mapbox (Map Loads)
@@ -16,6 +18,7 @@ assets/
   css/login.css       estilos da tela de login/formulários
   js/opencage-chart.js       gráfico de uso diário do OpenCage (Chart.js)
   js/mapbox-chart.js         gráfico de delta entre leituras do Mapbox (Chart.js)
+  js/host-monitor.js         polling AJAX (8s) do Host Monitor
   js/vendor/chart.umd.js     Chart.js (vendorizado, sem depender de CDN)
   img/                imagens/ícones (futuro)
 includes/
@@ -29,15 +32,18 @@ src/
   Auth/AuthService.php       valida usuário/senha contra a tabela users
   Services/OpenCageService.php   uso real via CSV do dashboard OpenCage
   Services/MapboxService.php     uso via leitura manual (data/mapbox-usage.json)
+  Services/AapanelService.php    CPU/RAM/disco/rede via Open API do aaPanel
 config/
   config.example.php  modelo de configuração (banco, chaves de API, limites)
   config.php          configuração local real (fora do git)
+  dashboards.php       lista de dashboards exibidos no hub pós-login
 sql/
   schema.sql           cria o banco `dashstatus` e a tabela `users`
 bin/
   create-admin.php     CLI para criar/atualizar um usuário
 api/
-  status.php           endpoint JSON com o uso real do OpenCage
+  status.php           endpoint JSON com o uso real do OpenCage (não usado hoje)
+  host-status.php       endpoint JSON polled pelo Host Monitor (CPU/RAM/disco/rede)
 data/                  cache do CSV do OpenCage, leituras do Mapbox, log de atividade
 logs/                  logs locais
 ```
@@ -131,6 +137,41 @@ próprios em `index.php` (`mapbox-search-chart`), com chave de estado
 `assets/js/mapbox-chart.js` deixou de estar hardcoded pra um único canvas:
 agora expõe `initMapboxChart(canvasId, unitLabel, dayCaption)`, chamada uma
 vez pra cada card (Map Loads e Search).
+
+### Host Monitor / aaPanel (automático, ao vivo)
+
+Dashboard separado (`host-monitor.php`, acessível pelo hub) que mostra CPU,
+RAM, disco e rede do servidor **ao vivo**, via polling AJAX a cada 8s
+(`assets/js/host-monitor.js` → `api/host-status.php`) — diferente do resto
+do app, que recarrega a página inteira a cada 2min.
+
+Os dados vêm da Open API do próprio aaPanel (`AapanelService`), que expõe
+`/system?action=GetNetWork` (CPU/memória/rede/load) e
+`/system?action=GetDiskInfo` (disco), autenticados por uma assinatura
+`request_token = md5(request_time . md5(api_key))`. Configuração em
+`config.php` → `services.aapanel`:
+
+```php
+'aapanel' => [
+    'base_url' => '',   // ex: http://127.0.0.1:8888
+    'api_key' => '',    // aaPanel > Configurações > Interface (Open API)
+    'disk_path' => '/', // particao principal exibida no card de disco
+    'verify_ssl' => false,
+],
+```
+
+Pra habilitar: no painel, vá em **Configurações > Interface** (Open API),
+ative e copie a chave gerada. Como o DashStatus roda no mesmo servidor, o
+IP a liberar no whitelist do painel deve ser só `127.0.0.1`.
+
+**Calibração:** os nomes de campo usados em `AapanelService` (`mem.memTotal`,
+`network.up/down`, `disk[].size`, etc.) são a melhor estimativa baseada na
+documentação pública e em bibliotecas de terceiros — o aaPanel não publica
+um schema de resposta formal. Se algum número aparecer zerado ou estranho
+após configurar as credenciais reais, acesse `api/host-status.php?debug=1`
+(autenticado) pra ver o JSON bruto retornado pelo painel e ajustar o
+parsing em `AapanelService::parseCpu()/parseMem()/parseNetwork()/parseDisk()`
+de acordo.
 
 ## Registro de atividade
 

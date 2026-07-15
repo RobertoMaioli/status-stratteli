@@ -35,5 +35,11 @@ return [
             // Temporary Geocoding API (Search) - mesmo esquema do Map Loads:
             // sem API de uso oficial, leitura manual, total nao reseta.
         ],
+        'aapanel' => [
+            'base_url' => '',   // ex: http://127.0.0.1:8888 (endereco do painel)
+            'api_key' => '',    // gerada em aaPanel > Configuracoes > Interface (Open API)
+            'disk_path' => '/', // particao principal exibida no card de disco
+            'verify_ssl' => false,
+        ],
     ],
 ];

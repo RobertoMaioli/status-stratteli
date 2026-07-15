@@ -397,11 +397,11 @@ header::after{
   font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;margin:0;
   text-transform:uppercase;letter-spacing:.6px;color:var(--text-muted);
 }
-.log-header .live-tag{
+.live-tag{
   font-size:10px;color:var(--ok);font-family:'JetBrains Mono',monospace;
   display:flex;align-items:center;gap:6px;
 }
-.log-header .live-tag .dot{width:5px;height:5px;border-radius:50%;background:var(--ok);animation:blink 1.8s ease-in-out infinite;}
+.live-tag .dot{width:5px;height:5px;border-radius:50%;background:var(--ok);animation:blink 1.8s ease-in-out infinite;}
 .log-list{padding:6px 0;}
 .log-item{
   display:flex;gap:14px;padding:11px 20px;
