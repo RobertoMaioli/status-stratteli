@@ -184,16 +184,18 @@ class AapanelService
     }
 
     /**
+     * $network['network'] e o detalhamento por interface (ex: "lo", "ens5")
+     * — os totais ja somados (o que a gente quer aqui) ficam soltos no nivel
+     * de cima, junto com cpu/mem/load.
+     *
      * @param array<string, mixed> $network
      * @return array{upKbps: float, downKbps: float}
      */
     private function parseNetwork(array $network): array
     {
-        $net = is_array($network['network'] ?? null) ? $network['network'] : $network;
-
         return [
-            'upKbps' => $this->numFrom($net, ['up', 'upTotal']),
-            'downKbps' => $this->numFrom($net, ['down', 'downTotal']),
+            'upKbps' => $this->numFrom($network, ['up', 'upTotal']),
+            'downKbps' => $this->numFrom($network, ['down', 'downTotal']),
         ];
     }
 
