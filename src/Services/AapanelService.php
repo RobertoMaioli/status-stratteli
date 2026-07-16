@@ -45,13 +45,14 @@ class AapanelService
         $alarmTrend = $raw['alarmTrend']['message'] ?? [];
         $events = $raw['events']['message']['events'] ?? [];
         $riskCount = (int) ($overview['risk_count'] ?? 0);
+        $trendList = is_array($alarmTrend['trend_list'] ?? null) ? $alarmTrend['trend_list'] : [];
 
         return [
             'score' => (int) ($overview['score'] ?? 0),
             'level' => (string) ($overview['level'] ?? ''),
             'levelDescription' => (string) ($overview['level_description'] ?? ''),
             'riskCount' => $riskCount,
-            'resolvedCount' => $this->trackResolvedRisks($riskCount),
+            'resolvedCount' => $this->trackResolvedRisks($riskCount, $trendList),
             'riskScanTime' => $this->formatBrDateTime((string) ($overview['risk_scan_time'] ?? '')),
             'severity' => [
                 'high' => (int) ($alarmTrend['high_risk'] ?? 0),
@@ -109,10 +110,17 @@ class AapanelService
      * O aaPanel nao expoe um contador de "riscos corrigidos" — so o total
      * de riscos pendentes agora (risk_count). Por isso rastreamos localmente:
      * cada vez que o total pendente cai em relacao a ultima leitura salva,
-     * soma a diferenca num contador acumulado. Primeira leitura so grava a
-     * linha de base (sem contar os riscos ja existentes como "corrigidos").
+     * soma a diferenca num contador acumulado.
+     *
+     * Na primeira leitura (sem estado salvo ainda), em vez de comecar do
+     * zero, usa o historico que o proprio aaPanel ja mantem
+     * (alarmTrend.trend_list) pra dar credito por correcoes feitas antes
+     * de essa funcionalidade existir: semente = maior contagem pendente
+     * ja registrada no historico menos o total pendente agora.
+     *
+     * @param array<int, array<string, mixed>> $trendHistory
      */
-    private function trackResolvedRisks(int $currentRiskCount): int
+    private function trackResolvedRisks(int $currentRiskCount, array $trendHistory = []): int
     {
         if ($this->resolvedRiskFile === '') {
             return 0;
@@ -123,12 +131,20 @@ class AapanelService
             : null;
 
         if (!is_array($state) || !isset($state['lastRiskCount'], $state['resolvedTotal'])) {
+            $peak = $currentRiskCount;
+            foreach ($trendHistory as $entry) {
+                if (is_array($entry) && isset($entry['count']) && is_numeric($entry['count'])) {
+                    $peak = max($peak, (int) $entry['count']);
+                }
+            }
+            $seed = max(0, $peak - $currentRiskCount);
+
             file_put_contents($this->resolvedRiskFile, json_encode([
                 'lastRiskCount' => $currentRiskCount,
-                'resolvedTotal' => 0,
+                'resolvedTotal' => $seed,
             ]));
 
-            return 0;
+            return $seed;
         }
 
         $lastRiskCount = (int) $state['lastRiskCount'];
