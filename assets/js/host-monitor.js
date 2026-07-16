@@ -3,7 +3,7 @@
   var CIRCUMFERENCE = 251.3;
   var STATE_LABELS = { ok: 'Operacional', warn: 'Alerta', crit: 'Crítico' };
   var STATE_COLOR_VAR = { ok: 'var(--ok)', warn: 'var(--warn)', crit: 'var(--crit)' };
-  var SECURITY_LEVEL_LABELS = { Good: 'Bom', Fair: 'Regular', Moderate: 'Regular', Poor: 'Fraco', Danger: 'Perigo', Critical: 'Crítico' };
+  var SECURITY_LEVEL_LABELS = { Good: 'Bom', Fair: 'Regular', Moderate: 'Regular', Poor: 'Fraco', Danger: 'Perigo', Critical: 'Crítico', Secure: 'Seguro', secure: 'Seguro', Safe: 'Seguro' };
   var SECURITY_BADGE_MAP = { high: 'crit', medium: 'warn', low: 'ok' };
   var SECURITY_BADGE_LABEL = { high: 'alto', medium: 'médio', low: 'baixo' };
   var SECURITY_SEVERITY_PRIORITY = { high: 0, medium: 1, low: 2 };

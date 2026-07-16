@@ -406,6 +406,73 @@ header::after{
 .card-footer a:hover{text-decoration:underline;}
 
 /* ---------- SECURITY RISK ---------- */
+.security-card{
+  position:relative;
+  border-color:rgba(52,211,153,0.35);
+  background:
+    radial-gradient(460px 240px at 100% -10%, rgba(52,211,153,0.12), transparent 62%),
+    var(--bg-panel);
+  transition:border-color .25s ease, background .25s ease;
+}
+.security-card.state-warn{
+  border-color:rgba(251,191,36,0.35);
+  background:
+    radial-gradient(460px 240px at 100% -10%, rgba(251,191,36,0.12), transparent 62%),
+    var(--bg-panel);
+}
+.security-card.state-crit{
+  border-color:rgba(248,113,113,0.4);
+  background:
+    radial-gradient(460px 240px at 100% -10%, rgba(248,113,113,0.14), transparent 62%),
+    var(--bg-panel);
+}
+.security-card .service-icon{
+  background:var(--ok-glow);
+  border-color:rgba(52,211,153,0.35);
+  box-shadow:0 0 0 1px rgba(52,211,153,0.12), 0 0 16px rgba(52,211,153,0.28);
+  transition:background .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.security-card #security-icon{stroke:var(--ok);transition:stroke .25s ease;}
+.security-card.state-warn .service-icon{
+  background:var(--warn-glow);border-color:rgba(251,191,36,0.35);
+  box-shadow:0 0 0 1px rgba(251,191,36,0.12), 0 0 16px rgba(251,191,36,0.28);
+}
+.security-card.state-warn #security-icon{stroke:var(--warn);}
+.security-card.state-crit .service-icon{
+  background:var(--crit-glow);border-color:rgba(248,113,113,0.4);
+  box-shadow:0 0 0 1px rgba(248,113,113,0.12), 0 0 16px rgba(248,113,113,0.3);
+}
+.security-card.state-crit #security-icon{stroke:var(--crit);}
+
+.security-card .gauge::after{
+  content:"";
+  position:absolute;inset:-6px;
+  border-radius:50%;
+  border:1px solid var(--ok);
+  opacity:0;
+}
+.security-card:not(.state-warn):not(.state-crit) .gauge::after{
+  opacity:.4;
+  animation:pulse-ring 2.6s ease-out infinite;
+}
+@media (prefers-reduced-motion:reduce){
+  .security-card .gauge::after{animation:none;}
+}
+
+.security-card .gauge-center .pct-label{
+  font-size:11px;font-weight:700;letter-spacing:.3px;
+  color:var(--ok);text-transform:none;
+}
+.security-card.state-warn .gauge-center .pct-label{color:var(--warn);}
+.security-card.state-crit .gauge-center .pct-label{color:var(--crit);}
+
+.security-card .mode-tag{
+  font-size:11px;padding:6px 12px;border-radius:999px;
+}
+.security-card .mode-tag.ok{box-shadow:0 0 14px rgba(52,211,153,0.25);}
+.security-card .mode-tag.warn{box-shadow:0 0 14px rgba(251,191,36,0.22);}
+.security-card .mode-tag.crit{box-shadow:0 0 14px rgba(248,113,113,0.25);}
+
 .severity-grid{
   display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
 }
