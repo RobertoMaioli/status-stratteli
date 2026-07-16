@@ -78,8 +78,8 @@ auth_check();
 
       <div class="security-stat-row">
         <div class="security-stat">
-          <div class="label">Dias protegido</div>
-          <div class="val" id="security-protect-days">—</div>
+          <div class="label">Riscos corrigidos</div>
+          <div class="val" id="security-resolved">—</div>
         </div>
         <div class="security-stat">
           <div class="label">Última varredura</div>

@@ -14,7 +14,8 @@ class AapanelService
         private readonly int $cacheTtlSeconds = 4,
         private readonly string $securityEntrance = '',
         private readonly string $securityCacheFile = '',
-        private readonly int $securityCacheTtlSeconds = 45
+        private readonly int $securityCacheTtlSeconds = 45,
+        private readonly string $resolvedRiskFile = ''
     ) {
     }
 
@@ -30,7 +31,7 @@ class AapanelService
      *     level: string,
      *     levelDescription: string,
      *     riskCount: int,
-     *     protectDays: int,
+     *     resolvedCount: int,
      *     riskScanTime: string,
      *     severity: array{high: int, medium: int, low: int},
      *     events: array<int, array{severity: string, description: string, time: int}>
@@ -43,13 +44,14 @@ class AapanelService
         $overview = $raw['overview']['message'] ?? [];
         $alarmTrend = $raw['alarmTrend']['message'] ?? [];
         $events = $raw['events']['message']['events'] ?? [];
+        $riskCount = (int) ($overview['risk_count'] ?? 0);
 
         return [
             'score' => (int) ($overview['score'] ?? 0),
             'level' => (string) ($overview['level'] ?? ''),
             'levelDescription' => (string) ($overview['level_description'] ?? ''),
-            'riskCount' => (int) ($overview['risk_count'] ?? 0),
-            'protectDays' => (int) ($overview['protect_days'] ?? 0),
+            'riskCount' => $riskCount,
+            'resolvedCount' => $this->trackResolvedRisks($riskCount),
             'riskScanTime' => $this->formatBrDateTime((string) ($overview['risk_scan_time'] ?? '')),
             'severity' => [
                 'high' => (int) ($alarmTrend['high_risk'] ?? 0),
@@ -101,6 +103,49 @@ class AapanelService
         return (new \DateTimeImmutable('@' . $timestamp))
             ->setTimezone(new \DateTimeZone('America/Sao_Paulo'))
             ->format('d/m/Y H:i');
+    }
+
+    /**
+     * O aaPanel nao expoe um contador de "riscos corrigidos" — so o total
+     * de riscos pendentes agora (risk_count). Por isso rastreamos localmente:
+     * cada vez que o total pendente cai em relacao a ultima leitura salva,
+     * soma a diferenca num contador acumulado. Primeira leitura so grava a
+     * linha de base (sem contar os riscos ja existentes como "corrigidos").
+     */
+    private function trackResolvedRisks(int $currentRiskCount): int
+    {
+        if ($this->resolvedRiskFile === '') {
+            return 0;
+        }
+
+        $state = is_file($this->resolvedRiskFile)
+            ? json_decode((string) file_get_contents($this->resolvedRiskFile), true)
+            : null;
+
+        if (!is_array($state) || !isset($state['lastRiskCount'], $state['resolvedTotal'])) {
+            file_put_contents($this->resolvedRiskFile, json_encode([
+                'lastRiskCount' => $currentRiskCount,
+                'resolvedTotal' => 0,
+            ]));
+
+            return 0;
+        }
+
+        $lastRiskCount = (int) $state['lastRiskCount'];
+        $resolvedTotal = (int) $state['resolvedTotal'];
+
+        if ($currentRiskCount < $lastRiskCount) {
+            $resolvedTotal += $lastRiskCount - $currentRiskCount;
+        }
+
+        if ($currentRiskCount !== $lastRiskCount) {
+            file_put_contents($this->resolvedRiskFile, json_encode([
+                'lastRiskCount' => $currentRiskCount,
+                'resolvedTotal' => $resolvedTotal,
+            ]));
+        }
+
+        return $resolvedTotal;
     }
 
     /**

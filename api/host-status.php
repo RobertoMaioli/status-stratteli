@@ -17,7 +17,8 @@ $aapanel = new AapanelService(
     verifySsl: $aapanelConfig['verify_ssl'],
     cacheFile: __DIR__ . '/../data/aapanel-cache.json',
     securityEntrance: $aapanelConfig['security_entrance'] ?? '',
-    securityCacheFile: __DIR__ . '/../data/aapanel-security-cache.json'
+    securityCacheFile: __DIR__ . '/../data/aapanel-security-cache.json',
+    resolvedRiskFile: __DIR__ . '/../data/aapanel-risk-resolved.json'
 );
 
 function stateForPct(float $pct): string

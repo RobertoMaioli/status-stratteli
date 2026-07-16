@@ -173,8 +173,8 @@
     document.getElementById('security-risk-count').innerHTML =
       security.riskCount + ' <span class="of">riscos encontrados</span>';
     description.textContent = security.levelDescription || 'Sem detalhes.';
-    document.getElementById('security-protect-days').textContent =
-      security.protectDays + (security.protectDays === 1 ? ' dia' : ' dias');
+    document.getElementById('security-resolved').textContent =
+      security.resolvedCount + (security.resolvedCount === 1 ? ' risco' : ' riscos');
     document.getElementById('security-scan-time').textContent = security.riskScanTime || '—';
     document.getElementById('security-high').textContent = security.severity.high;
     document.getElementById('security-medium').textContent = security.severity.medium;
