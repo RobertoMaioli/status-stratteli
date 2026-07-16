@@ -1,6 +1,10 @@
 (function () {
   var POLL_INTERVAL_MS = 8000;
   var CIRCUMFERENCE = 251.3;
+  // Anel do Security Risk usa um raio maior (r=52) pra dar mais destaque
+  // visual ao card — circunferencia propria, nao reaproveita a constante
+  // acima (calculada pro raio 40 dos outros gauges).
+  var SECURITY_CIRCUMFERENCE = 326.7;
   var STATE_LABELS = { ok: 'Operacional', warn: 'Alerta', crit: 'Crítico' };
   var STATE_COLOR_VAR = { ok: 'var(--ok)', warn: 'var(--warn)', crit: 'var(--crit)' };
   var SECURITY_LEVEL_LABELS = { Good: 'Bom', Fair: 'Regular', Moderate: 'Regular', Poor: 'Fraco', Danger: 'Perigo', Critical: 'Crítico', Secure: 'Seguro', secure: 'Seguro', Safe: 'Seguro' };
@@ -146,7 +150,7 @@
     var state = security.state;
     var fill = document.getElementById('security-gauge-fill');
     if (fill) {
-      var offset = CIRCUMFERENCE * (1 - Math.max(0, Math.min(100, security.score)) / 100);
+      var offset = SECURITY_CIRCUMFERENCE * (1 - Math.max(0, Math.min(100, security.score)) / 100);
       fill.setAttribute('stroke-dashoffset', offset.toFixed(1));
       fill.style.stroke = STATE_COLOR_VAR[state] || STATE_COLOR_VAR.ok;
     }
@@ -167,7 +171,7 @@
     }
 
     document.getElementById('security-risk-count').innerHTML =
-      security.riskCount + ' <span class="of">risks encontrados</span>';
+      security.riskCount + ' <span class="of">riscos encontrados</span>';
     description.textContent = security.levelDescription || 'Sem detalhes.';
     document.getElementById('security-protect-days').textContent =
       security.protectDays + (security.protectDays === 1 ? ' dia' : ' dias');

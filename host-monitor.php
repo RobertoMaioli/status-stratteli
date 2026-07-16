@@ -44,15 +44,12 @@ auth_check();
 
   <div id="host-error" class="login-error" style="margin-bottom:16px;" hidden></div>
 
-  <div class="modal-cards">
+  <div class="modal-cards host-grid">
 
     <!-- SECURITY RISK -->
     <div class="card security-card" id="security-card">
       <div class="card-top">
         <div class="service-id">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="1.8" id="security-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
           <div>
             <div class="service-name">Security Risk</div>
             <div class="service-meta">Servidor · Análise de risco</div>
@@ -61,44 +58,55 @@ auth_check();
         <div class="mode-tag ok" id="security-mode-tag">—</div>
       </div>
 
-      <div class="gauge-row">
-        <div class="gauge">
-          <svg width="96" height="96" viewBox="0 0 96 96">
-            <circle cx="48" cy="48" r="40" fill="none" stroke="var(--bg-raised)" stroke-width="9"/>
-            <circle cx="48" cy="48" r="40" fill="none" stroke="var(--ok)" stroke-width="9"
-              stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="251.3" id="security-gauge-fill"/>
+      <div class="security-hero">
+        <div class="security-shield">
+          <svg class="security-shield-ring" width="122" height="122" viewBox="0 0 122 122">
+            <circle cx="61" cy="61" r="52" fill="none" stroke="var(--bg-raised)" stroke-width="8"/>
+            <circle cx="61" cy="61" r="52" fill="none" stroke="var(--ok)" stroke-width="8"
+              stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7" id="security-gauge-fill"/>
           </svg>
-          <div class="gauge-center">
-            <div class="pct" id="security-score">—</div>
-            <div class="pct-label" id="security-level">—</div>
-          </div>
+          <svg class="security-shield-icon" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="1.6" id="security-icon">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
         </div>
-        <div class="usage-detail">
-          <div class="big-num" id="security-risk-count">—</div>
-          <div class="caption" id="security-description">Carregando…</div>
-        </div>
+
+        <div class="security-headline" id="security-level">—</div>
+        <div class="security-score-line">Pontuação <span id="security-score">—</span><span class="of">/ 100</span></div>
+        <div class="security-risk-badge" id="security-risk-count">—</div>
+        <p class="security-description" id="security-description">Carregando…</p>
       </div>
 
-      <div class="stat-grid">
-        <div class="stat-box"><div class="label">Dias protegido</div><div class="val" id="security-protect-days">—</div></div>
-        <div class="stat-box"><div class="label">Última varredura</div><div class="val" id="security-scan-time">—</div></div>
+      <div class="security-stat-row">
+        <div class="security-stat">
+          <div class="label">Dias protegido</div>
+          <div class="val" id="security-protect-days">—</div>
+        </div>
+        <div class="security-stat">
+          <div class="label">Última varredura</div>
+          <div class="val" id="security-scan-time">—</div>
+        </div>
       </div>
 
       <div class="severity-grid">
         <div class="severity-item">
           <span class="severity-dot crit"></span>
-          <div><div class="label">High</div><div class="val" id="security-high">—</div></div>
+          <span class="label">High</span>
+          <span class="val" id="security-high">—</span>
         </div>
         <div class="severity-item">
           <span class="severity-dot warn"></span>
-          <div><div class="label">Medium</div><div class="val" id="security-medium">—</div></div>
+          <span class="label">Medium</span>
+          <span class="val" id="security-medium">—</span>
         </div>
         <div class="severity-item">
           <span class="severity-dot ok"></span>
-          <div><div class="label">Low</div><div class="val" id="security-low">—</div></div>
+          <span class="label">Low</span>
+          <span class="val" id="security-low">—</span>
         </div>
       </div>
     </div>
+
+    <div class="host-grid-secondary">
 
     <!-- CPU -->
     <div class="card" id="cpu-card">
@@ -206,6 +214,8 @@ auth_check();
       </div>
 
       <div class="status-list" id="disk-others" style="margin-top:14px;"></div>
+    </div>
+
     </div>
 
     <!-- REDE -->

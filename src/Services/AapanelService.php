@@ -73,8 +73,13 @@ class AapanelService
 
     /**
      * O aaPanel manda risk_scan_time como timestamp (segundos ou ms) ou como
-     * string de data — normaliza pro formato brasileiro dd/mm/aaaa hh:mm.
-     * Se nao conseguir interpretar, devolve o valor original sem quebrar.
+     * string de data em UTC sem sufixo de fuso (ex: "2026-07-16 17:57:14")
+     * — confirmado comparando com o timestamp (epoch) dos eventos de risco
+     * da mesma varredura. Por isso a string e forcada a UTC explicitamente
+     * ao converter, em vez de deixar o strtotime() usar o fuso padrao do
+     * PHP no servidor (que pode nao ser UTC e gerar um horario errado).
+     * Normaliza pro formato brasileiro dd/mm/aaaa hh:mm; se nao conseguir
+     * interpretar, devolve o valor original sem quebrar.
      */
     private function formatBrDateTime(string $value): string
     {
@@ -85,7 +90,7 @@ class AapanelService
         if (ctype_digit($value)) {
             $timestamp = strlen($value) >= 13 ? intdiv((int) $value, 1000) : (int) $value;
         } else {
-            $parsed = strtotime($value);
+            $parsed = strtotime($value . ' UTC');
             $timestamp = $parsed !== false ? $parsed : null;
         }
 
