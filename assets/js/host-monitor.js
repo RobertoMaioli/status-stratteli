@@ -313,6 +313,11 @@
       return Object.assign({}, part, { state: part.pct >= 90 ? 'crit' : (part.pct >= 75 ? 'warn' : 'ok') });
     }));
 
+    document.getElementById('server-uptime').textContent = data.server.uptime;
+    document.getElementById('server-os').textContent = data.server.os;
+    document.getElementById('server-sites').textContent = data.server.sites;
+    document.getElementById('server-databases').textContent = data.server.databases;
+
     document.getElementById('net-up').textContent = formatRateKbps(data.network.upKbps);
     document.getElementById('net-down').textContent = formatRateKbps(data.network.downKbps);
 

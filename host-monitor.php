@@ -90,17 +90,17 @@ auth_check();
       <div class="severity-grid">
         <div class="severity-item">
           <span class="severity-dot crit"></span>
-          <span class="label">High</span>
+          <span class="label">Crítico</span>
           <span class="val" id="security-high">—</span>
         </div>
         <div class="severity-item">
           <span class="severity-dot warn"></span>
-          <span class="label">Medium</span>
+          <span class="label">Médio</span>
           <span class="val" id="security-medium">—</span>
         </div>
         <div class="severity-item">
           <span class="severity-dot ok"></span>
-          <span class="label">Low</span>
+          <span class="label">Baixo</span>
           <span class="val" id="security-low">—</span>
         </div>
       </div>
@@ -214,6 +214,28 @@ auth_check();
       </div>
 
       <div class="status-list" id="disk-others" style="margin-top:14px;"></div>
+    </div>
+
+    <!-- SERVIDOR (info geral) -->
+    <div class="card" id="server-card">
+      <div class="card-top">
+        <div class="service-id">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="1.8" id="server-icon"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><circle cx="7" cy="7" r="0.6" fill="var(--ok)" stroke="none"/><circle cx="7" cy="17" r="0.6" fill="var(--ok)" stroke="none"/></svg>
+          </div>
+          <div>
+            <div class="service-name">Servidor</div>
+            <div class="service-meta">Informações gerais</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-box"><div class="label">Uptime</div><div class="val" id="server-uptime">—</div></div>
+        <div class="stat-box"><div class="label">Sistema</div><div class="val" id="server-os">—</div></div>
+        <div class="stat-box"><div class="label">Sites</div><div class="val" id="server-sites">—</div></div>
+        <div class="stat-box"><div class="label">Bancos</div><div class="val" id="server-databases">—</div></div>
+      </div>
     </div>
 
     </div>

@@ -156,7 +156,8 @@ class AapanelService
      *     mem: array{usedMb: float, totalMb: float, pct: float},
      *     disk: array{path: string, usedGb: float, totalGb: float, pct: float, others: array<int, array{path: string, pct: float}>},
      *     network: array{upKbps: float, downKbps: float},
-     *     load: array{one: float, five: float, fifteen: float}
+     *     load: array{one: float, five: float, fifteen: float},
+     *     server: array{uptime: string, os: string, sites: int, databases: int}
      * }
      */
     public function getHostStatus(): array
@@ -170,6 +171,37 @@ class AapanelService
             'disk' => $this->parseDisk($raw['disk']),
             'network' => $this->parseNetwork($raw['network']),
             'load' => $this->parseLoad($raw['network']),
+            'server' => $this->parseServer($raw['network']),
+        ];
+    }
+
+    /**
+     * Informacoes gerais do host (uptime, SO, sites/bancos hospedados) — ja
+     * vem de graca no mesmo GetNetWork usado pra cpu/mem/load/rede, sem
+     * chamada extra ao Servidor.
+     *
+     * @param array<string, mixed> $network
+     * @return array{uptime: string, os: string, sites: int, databases: int}
+     */
+    private function parseServer(array $network): array
+    {
+        $uptimeRaw = (string) ($network['time'] ?? '');
+        $uptime = '—';
+        if (preg_match('/(\d+)/', $uptimeRaw, $m)) {
+            $days = (int) $m[1];
+            $uptime = $days . ($days === 1 ? ' dia' : ' dias');
+        } elseif ($uptimeRaw !== '') {
+            $uptime = $uptimeRaw;
+        }
+
+        $osRaw = (string) ($network['system'] ?? '');
+        $os = trim(explode('(', $osRaw, 2)[0]);
+
+        return [
+            'uptime' => $uptime,
+            'os' => $os !== '' ? $os : '—',
+            'sites' => (int) ($network['site_total'] ?? 0),
+            'databases' => (int) ($network['database_total'] ?? 0),
         ];
     }
 

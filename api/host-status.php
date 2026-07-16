@@ -41,6 +41,7 @@ try {
     $payload['disk'] = $status['disk'] + ['state' => stateForPct($status['disk']['pct'])];
     $payload['network'] = $status['network'];
     $payload['load'] = $status['load'];
+    $payload['server'] = $status['server'];
 
     if (($_GET['debug'] ?? '') === '1') {
         $payload['raw'] = $aapanel->getRaw();

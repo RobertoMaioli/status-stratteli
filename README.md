@@ -146,7 +146,7 @@ RAM, disco e rede do servidor **ao vivo**, via polling AJAX a cada 8s
 do app, que recarrega a página inteira a cada 2min.
 
 Os dados vêm da Open API do próprio aaPanel (`AapanelService`), que expõe
-`/system?action=GetNetWork` (CPU/memória/rede/load) e
+`/system?action=GetNetWork` (CPU/memória/rede/load/uptime/SO/sites/bancos) e
 `/system?action=GetDiskInfo` (disco), autenticados por uma assinatura
 `request_token = md5(request_time . md5(api_key))`. Configuração em
 `config.php` → `services.aapanel`:
