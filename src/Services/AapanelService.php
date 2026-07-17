@@ -216,7 +216,7 @@ class AapanelService
      *     cpu: array{pct: float, cores: int|null},
      *     mem: array{usedMb: float, totalMb: float, pct: float},
      *     disk: array{path: string, usedGb: float, totalGb: float, pct: float, others: array<int, array{path: string, pct: float}>},
-     *     network: array{upKbps: float, downKbps: float},
+     *     network: array{upKbps: float, downKbps: float, totalUpBytes: float, totalDownBytes: float},
      *     load: array{one: float, five: float, fifteen: float},
      *     server: array{uptime: string, os: string, sites: int, databases: int}
      * }
@@ -413,16 +413,22 @@ class AapanelService
     /**
      * $network['network'] e o detalhamento por interface (ex: "lo", "ens5")
      * — os totais ja somados (o que a gente quer aqui) ficam soltos no nivel
-     * de cima, junto com cpu/mem/load.
+     * de cima, junto com cpu/mem/load. `upTotal`/`downTotal` sao contadores
+     * cumulativos reais (bytes desde o boot do host, lidos direto da
+     * interface de rede) — confirmado batendo com o "Total sent/received"
+     * mostrado no proprio painel aaPanel — por isso sao usados como estao,
+     * sem estimar nada no cliente.
      *
      * @param array<string, mixed> $network
-     * @return array{upKbps: float, downKbps: float}
+     * @return array{upKbps: float, downKbps: float, totalUpBytes: float, totalDownBytes: float}
      */
     private function parseNetwork(array $network): array
     {
         return [
-            'upKbps' => $this->numFrom($network, ['up', 'upTotal']),
-            'downKbps' => $this->numFrom($network, ['down', 'downTotal']),
+            'upKbps' => $this->numFrom($network, ['up']),
+            'downKbps' => $this->numFrom($network, ['down']),
+            'totalUpBytes' => $this->numFrom($network, ['upTotal']),
+            'totalDownBytes' => $this->numFrom($network, ['downTotal']),
         ];
     }
 

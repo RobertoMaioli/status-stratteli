@@ -85,22 +85,6 @@
     return Math.round(bytes) + ' B';
   }
 
-  // Acumulado desde que a pagina foi carregada — o aaPanel so expoe taxa
-  // instantanea (KB/s), entao o "total" so existe integrando a taxa a cada
-  // poll; nao reflete o total real do host, so o total desta sessao aberta.
-  var totalUpBytes = 0;
-  var totalDownBytes = 0;
-  var lastSampleAt = null;
-
-  function accumulateNetworkTotals(upKbps, downKbps) {
-    var now = Date.now();
-    var elapsedSec = lastSampleAt ? Math.min((now - lastSampleAt) / 1000, POLL_INTERVAL_MS / 1000 * 3) : POLL_INTERVAL_MS / 1000;
-    lastSampleAt = now;
-
-    totalUpBytes += upKbps * 1024 * elapsedSec;
-    totalDownBytes += downKbps * 1024 * elapsedSec;
-  }
-
   function worstState(states) {
     if (states.indexOf('crit') !== -1) {
       return 'crit';
@@ -321,9 +305,8 @@
     document.getElementById('net-up').textContent = formatRateKbps(data.network.upKbps);
     document.getElementById('net-down').textContent = formatRateKbps(data.network.downKbps);
 
-    accumulateNetworkTotals(data.network.upKbps, data.network.downKbps);
-    document.getElementById('net-total-up').textContent = formatBytesTotal(totalUpBytes);
-    document.getElementById('net-total-down').textContent = formatBytesTotal(totalDownBytes);
+    document.getElementById('net-total-up').textContent = formatBytesTotal(data.network.totalUpBytes);
+    document.getElementById('net-total-down').textContent = formatBytesTotal(data.network.totalDownBytes);
 
     if (window.netChartPush) {
       window.netChartPush(new Date(data.updatedAt), data.network.upKbps, data.network.downKbps);
