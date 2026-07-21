@@ -51,7 +51,7 @@ auth_check();
       <div class="card-top">
         <div class="service-id">
           <div>
-            <div class="service-name">Security Risk</div>
+            <div class="service-name">AWS Security Server</div>
             <div class="service-meta">Servidor · Análise de risco</div>
           </div>
         </div>
