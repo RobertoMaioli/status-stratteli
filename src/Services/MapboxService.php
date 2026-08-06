@@ -15,9 +15,40 @@ class MapboxService
      * Mapbox nao expoe uso via API publica: o valor e lido de um historico
      * de leituras manuais salvo em data/mapbox-usage.json.
      *
+     * O numero que o Mapbox mostra no console e do periodo corrente (pode
+     * cair quando um novo periodo comeca com pouco uso ainda) — nao e um
+     * total vitalicio. `used` aqui soma tudo que ja foi visto, inclusive
+     * antes de cada queda desse tipo, pra refletir o total real de loads
+     * ja consumidos, nao so o que sobrou no periodo atual.
+     *
      * @return array{used:int, limit:int, updated_at:string}
      */
     public function getUsage(): array
+    {
+        $entries = $this->loadEntries();
+
+        if (empty($entries)) {
+            throw new \RuntimeException('Nenhuma leitura manual registrada ainda.');
+        }
+
+        $latest = end($entries);
+
+        return [
+            'used' => $this->calculateLifetimeTotal($entries),
+            'limit' => $this->monthlyLimit,
+            'updated_at' => (string) $latest['updated_at'],
+        ];
+    }
+
+    /**
+     * Ultima leitura crua, sem acumular o total — usada pelo formulario de
+     * atualizacao pra mostrar/pre-preencher o numero que foi digitado da
+     * ultima vez (o que o usuario ve agora no console do Mapbox), nao o
+     * total acumulado que o card mostra.
+     *
+     * @return array{used:int, limit:int, updated_at:string}
+     */
+    public function getLatestReading(): array
     {
         $entries = $this->loadEntries();
 
@@ -32,6 +63,28 @@ class MapboxService
             'limit' => $this->monthlyLimit,
             'updated_at' => (string) $latest['updated_at'],
         ];
+    }
+
+    /**
+     * Soma o uso acumulado ao longo de todo o historico. Quando uma leitura
+     * e menor que a anterior, trata como o Mapbox tendo reiniciado a
+     * contagem do periodo (nao como uma correcao) — o valor lido vira uso
+     * novo somado ao total, em vez de gerar um delta negativo.
+     *
+     * @param array<int, array{used:int, updated_at:string}> $entries
+     */
+    private function calculateLifetimeTotal(array $entries): int
+    {
+        $total = 0;
+        $previous = null;
+
+        foreach ($entries as $entry) {
+            $used = (int) $entry['used'];
+            $total += ($previous === null || $used < $previous) ? $used : $used - $previous;
+            $previous = $used;
+        }
+
+        return $total;
     }
 
     /**

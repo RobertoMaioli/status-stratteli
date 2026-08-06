@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $current = null;
 try {
-    $current = $mapboxSearch->getUsage();
+    $current = $mapboxSearch->getLatestReading();
 } catch (\Throwable $e) {
     // nenhuma leitura registrada ainda
 }

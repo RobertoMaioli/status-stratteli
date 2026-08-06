@@ -111,6 +111,17 @@ cada uma com `used` e `updated_at`. A cada nova leitura, `MapboxService`
 calcula o delta em relação à leitura anterior (ex: 263 → 268 = +5 requisições
 naquele intervalo) e mostra isso na tela de atualização.
 
+O número que o Mapbox mostra no console é do **período corrente**, não um
+total vitalício — ele cai quando um novo período começa com pouco uso ainda
+(não é erro nem correção). Por isso o gauge do card (`MapboxService::getUsage()`)
+não usa a última leitura crua: soma o histórico inteiro, e toda vez que uma
+leitura é menor que a anterior, trata como o período tendo reiniciado (soma
+o valor lido como uso novo, em vez de gerar um delta negativo) — assim o
+gauge reflete o total real já consumido, não só o que sobrou no período
+atual. Quem precisa da leitura crua (a tela de atualização, pra saber o que
+foi digitado da última vez) usa `MapboxService::getLatestReading()` em vez
+disso.
+
 O gráfico do card usa `MapboxService::getDailyHistory()`, que agrupa por dia
 e soma os deltas de leituras feitas no mesmo dia — uma barra por dia, não por
 leitura (evita ter 2+ barras coladas se você atualizar várias vezes no mesmo
