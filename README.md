@@ -9,6 +9,7 @@ login para acesso restrito.
 index.php            página principal (protegida por login)
 hub.php               hub de dashboards pós-login (config/dashboards.php)
 host-monitor.php      dashboard "Host Monitor" — CPU/RAM/disco/rede ao vivo (aaPanel)
+security-threats.php  dashboard "Ameaças (CrowdSec)" — mapa/gráficos/eventos ao vivo
 login.php            tela de login
 logout.php            encerra a sessão
 mapbox-update.php     tela para registrar manualmente o uso do Mapbox (Map Loads)
@@ -19,7 +20,10 @@ assets/
   js/opencage-chart.js       gráfico de uso diário do OpenCage (Chart.js)
   js/mapbox-chart.js         gráfico de delta entre leituras do Mapbox (Chart.js)
   js/host-monitor.js         polling AJAX (8s) do Host Monitor
+  js/security-threats.js     mapa/gráficos/tabela + polling do dashboard CrowdSec
   js/vendor/chart.umd.js     Chart.js (vendorizado, sem depender de CDN)
+  js/vendor/leaflet.js       Leaflet.js (vendorizado, sem depender de CDN)
+  css/vendor/leaflet.css     CSS do Leaflet (+ images/ com os ícones que ele referencia)
   img/                imagens/ícones (futuro)
 includes/
   bootstrap.php       carrega autoload + auth + config
@@ -33,6 +37,7 @@ src/
   Services/OpenCageService.php   uso real via CSV do dashboard OpenCage
   Services/MapboxService.php     uso via leitura manual (data/mapbox-usage.json)
   Services/AapanelService.php    CPU/RAM/disco/rede via Open API do aaPanel
+  Services/CrowdSecService.php   alertas de segurança via LAPI local do CrowdSec
 config/
   config.example.php  modelo de configuração (banco, chaves de API, limites)
   config.php          configuração local real (fora do git)
@@ -44,7 +49,9 @@ bin/
 api/
   status.php           endpoint JSON com o uso real do OpenCage (não usado hoje)
   host-status.php       endpoint JSON polled pelo Host Monitor (CPU/RAM/disco/rede)
-data/                  cache do CSV do OpenCage, leituras do Mapbox, log de atividade
+  security-threats.php  endpoint JSON polled pelo dashboard CrowdSec
+data/                  cache do CSV do OpenCage, leituras do Mapbox, log de atividade,
+                       token/cache do CrowdSec
 logs/                  logs locais
 ```
 
@@ -216,6 +223,55 @@ Como o token de sessão do painel pode não ser permanente e o módulo de
 segurança não muda a cada segundo, essa parte cacheia por mais tempo que o
 resto do Host Monitor (`securityCacheTtlSeconds`, default 45s) mesmo com o
 polling do resto da página a cada 8s.
+
+### Ameaças / CrowdSec (automático, ao vivo)
+
+Dashboard separado (`security-threats.php`, acessível pelo hub) que mostra
+um mapa mundial de origem dos ataques, gráfico por tipo de ataque, linha do
+tempo por hora, ranking de países e uma tabela paginada dos alertas mais
+recentes — via polling AJAX (`assets/js/security-threats.js` →
+`api/security-threats.php`), mesmo padrão do Host Monitor.
+
+Os dados vêm da LAPI local do CrowdSec (`http://127.0.0.1:8080`, só acessível
+via localhost — o app precisa rodar no mesmo servidor onde o CrowdSec está
+instalado): `POST /v1/watchers/login` gera um token JWT válido por ~1h,
+usado como `Authorization: Bearer` em `GET /v1/alerts`. `CrowdSecService`
+cacheia o token em `data/crowdsec-token.json` (renovando com 60s de folga
+antes de expirar, ou imediatamente se a LAPI responder 401) e cacheia a
+lista de alertas em `data/crowdsec-alerts-cache.json` por
+`cache_ttl_seconds` (default 20s) — assim a LAPI só é consultada quando o
+cache expira, não uma vez por usuário com a dashboard aberta.
+
+Configuração em `config.php` → `services.crowdsec`:
+
+```php
+'crowdsec' => [
+    'lapi_url' => 'http://127.0.0.1:8080',
+    'machine_id' => '',   // watcher criado com `cscli watchers add`
+    'password' => '',
+    'cache_ttl_seconds' => 20,  // intervalo minimo entre chamadas reais na LAPI
+    'poll_interval_ms' => 30000, // intervalo de polling do frontend contra a nossa API
+],
+```
+
+Cada alerta da LAPI vira um evento com `ip`, `country` (`source.cn`),
+`lat`/`lng` (`source.latitude`/`longitude` — ausentes em IPs privados, que
+por isso não aparecem no mapa mas continuam na tabela), `scenario` e uma
+versão amigável dele (`CrowdSecService::friendlyScenario()`, com uma tabela
+pequena de traduções tipo `http-sqli-probing` → "Tentativa de SQL
+Injection" e um fallback genérico pra cenários não mapeados) e a duração do
+primeiro ban em `decisions[]`. O mapa usa `L.circleMarker` (SVG/canvas, via
+Leaflet vendorizado) em vez do ícone padrão do Leaflet — evita ter que
+vendorizar os PNGs de marcador, já que os tiles de mapa em si (imagens)
+continuam vindo ao vivo de `tile.openstreetmap.org` (não tem como
+vendorizar tiles do mundo inteiro; mesma categoria de dependência externa
+que o Google Fonts que toda página já carrega).
+
+**Segurança**: `machine_id`/`password` ficam em `config.php` (gitignored),
+mesmo padrão de toda outra credencial do projeto — o app não usa
+`.env`/Composer. Se o watcher usado aqui foi exposto em algum momento (ex:
+colado em texto puro numa conversa), regenere com `cscli watchers delete` +
+`cscli watchers add` antes de configurar.
 
 ## Registro de atividade
 

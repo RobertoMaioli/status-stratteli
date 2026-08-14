@@ -46,5 +46,18 @@ return [
             // AapanelService::probeSecurityOverview().
             'security_entrance' => '',
         ],
+        'crowdsec' => [
+            'lapi_url' => 'http://127.0.0.1:8080',
+            'machine_id' => '',
+            'password' => '',
+            // Cache local dos alertas (evita bater na LAPI a cada
+            // requisicao do frontend, mesmo com varios usuarios com a
+            // dashboard aberta ao mesmo tempo).
+            'cache_ttl_seconds' => 20,
+            // So controla o intervalo de polling do frontend contra a
+            // nossa API — nao afeta a frequencia real de chamada na LAPI,
+            // que e limitada por cache_ttl_seconds acima.
+            'poll_interval_ms' => 30000,
+        ],
     ],
 ];
