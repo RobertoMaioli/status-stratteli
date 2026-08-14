@@ -295,6 +295,7 @@ class CrowdSecService
             CURLOPT_TIMEOUT => 8,
             CURLOPT_HTTPHEADER => $headers,
             CURLOPT_CUSTOMREQUEST => $method,
+            CURLOPT_USERAGENT => 'crowdsec-dashboard/1.0',
         ];
 
         if ($jsonBody !== null) {
