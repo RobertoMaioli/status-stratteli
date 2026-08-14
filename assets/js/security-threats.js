@@ -224,6 +224,20 @@
     ? new Intl.DisplayNames(['pt-BR'], { type: 'region' })
     : null;
 
+  // Emoji de bandeira a partir do código ISO alfa-2: cada letra vira um
+  // "Regional Indicator Symbol" (U+1F1E6 = 'A'), a combinação das duas
+  // já renderiza como bandeira nativamente (sem precisar de imagem/ícone
+  // vendorizado por país).
+  function countryFlag(code) {
+    if (!code || code.length !== 2) {
+      return '';
+    }
+    var points = code.toUpperCase().split('').map(function (c) {
+      return 127397 + c.charCodeAt(0);
+    });
+    return String.fromCodePoint.apply(null, points);
+  }
+
   function countryLabel(code) {
     if (!code) {
       return '—';
@@ -333,7 +347,15 @@
         '<div class="log-badge sys"></div>' +
         '<div class="log-text"></div>';
       row.querySelector('.log-time').textContent = timeLabel;
-      row.querySelector('.log-badge').textContent = event.country || '—';
+      var badge = row.querySelector('.log-badge');
+      var flag = countryFlag(event.country);
+      badge.textContent = flag || event.country || '—';
+      badge.title = countryLabel(event.country);
+      if (flag) {
+        // Emoji de bandeira fica ilegível no tamanho padrão do badge
+        // (10px, pensado pra texto tipo "alto"/"médio") — aumenta só aqui.
+        badge.style.fontSize = '16px';
+      }
 
       var text = row.querySelector('.log-text');
       var ipEl = document.createElement('b');
