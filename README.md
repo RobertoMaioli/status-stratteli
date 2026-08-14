@@ -235,12 +235,27 @@ recentes — via polling AJAX (`assets/js/security-threats.js` →
 Os dados vêm da LAPI local do CrowdSec (`http://127.0.0.1:8080`, só acessível
 via localhost — o app precisa rodar no mesmo servidor onde o CrowdSec está
 instalado): `POST /v1/watchers/login` gera um token JWT válido por ~1h,
-usado como `Authorization: Bearer` em `GET /v1/alerts`. `CrowdSecService`
-cacheia o token em `data/crowdsec-token.json` (renovando com 60s de folga
-antes de expirar, ou imediatamente se a LAPI responder 401) e cacheia a
-lista de alertas em `data/crowdsec-alerts-cache.json` por
-`cache_ttl_seconds` (default 20s) — assim a LAPI só é consultada quando o
-cache expira, não uma vez por usuário com a dashboard aberta.
+usado como `Authorization: Bearer` em
+`GET /v1/alerts?has_active_decision=true`. `CrowdSecService` cacheia o
+token em `data/crowdsec-token.json` (renovando com 60s de folga antes de
+expirar, ou imediatamente se a LAPI responder 401) e cacheia a lista de
+alertas em `data/crowdsec-alerts-cache.json` por `cache_ttl_seconds`
+(default 20s) — assim a LAPI só é consultada quando o cache expira, não
+uma vez por usuário com a dashboard aberta.
+
+O filtro `has_active_decision=true` é proposital: sem ele, `/v1/alerts`
+devolve todo o histórico que o CrowdSec ainda guarda no banco (a decisão/ban
+expira, mas o registro do alerta continua lá por dias, até a próxima poda
+interna do CrowdSec) — o dashboard inteiro (mapa, tabela, gráficos)
+acumularia ataques que já não estão mais banidos. Com o filtro, um alerta
+some do dashboard assim que o ban dele expira ou é removido manualmente
+(`cscli decisions delete`/`cscli alerts delete`), refletindo ameaça ativa
+agora, não um log histórico.
+
+**Requisições `POST /v1/watchers/login` e `GET /v1/alerts` sem
+`CURLOPT_USERAGENT` levam 401/bloqueio** — o próprio CrowdSec tem um
+cenário (`crowdsecurity/http-bad-user-agent`) que rejeita chamadas sem
+User-Agent, então `CrowdSecService::request()` sempre manda um fixo.
 
 Configuração em `config.php` → `services.crowdsec`:
 

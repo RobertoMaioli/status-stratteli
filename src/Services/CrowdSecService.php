@@ -222,19 +222,28 @@ class CrowdSecService
      */
     private function fetchAlerts(): array
     {
+        // has_active_decision=true: sem isso, /v1/alerts devolve todo o
+        // historico que o CrowdSec ainda guarda no banco (a decisao/ban
+        // expira, mas o registro do alerta continua la por dias, ate a
+        // proxima poda interna) — o mapa/tabela ficariam acumulando pontos
+        // de ataques que ja nao estao mais banidos. Com o filtro, um alerta
+        // some do dashboard assim que o ban dele expira, nao só quando o
+        // CrowdSec decide limpar o historico.
+        $path = '/v1/alerts?has_active_decision=true';
+
         $token = $this->getToken();
-        $result = $this->request('GET', '/v1/alerts', null, $token);
+        $result = $this->request('GET', $path, null, $token);
 
         if ($result['status'] === 401) {
             // Token pode ter expirado entre a checagem do cache e o uso
             // real — forca um novo login e tenta mais uma vez antes de
             // desistir.
             $token = $this->getToken(true);
-            $result = $this->request('GET', '/v1/alerts', null, $token);
+            $result = $this->request('GET', $path, null, $token);
         }
 
         if ($result['status'] !== 200) {
-            throw new \RuntimeException("LAPI do CrowdSec retornou HTTP {$result['status']} em /v1/alerts");
+            throw new \RuntimeException("LAPI do CrowdSec retornou HTTP {$result['status']} em {$path}");
         }
 
         return $result['body'];
