@@ -693,3 +693,40 @@ body.modal-open{overflow:hidden;}
 @media (max-width:640px){
   .host-grid-secondary{grid-template-columns:1fr;}
 }
+
+/* ---------- MAPA DE AMEACAS (CrowdSec) ---------- */
+#threat-map{background:#0a1420;}
+
+.threat-server-marker{
+  animation:threat-server-pulse 2.4s ease-in-out infinite;
+}
+@keyframes threat-server-pulse{
+  0%,100%{filter:drop-shadow(0 0 0 rgba(52,211,153,0.7));}
+  50%{filter:drop-shadow(0 0 7px rgba(52,211,153,0.9));}
+}
+
+/* Linha animada "viajando" do IP atacante ate o servidor — só nos alertas
+   novos desde o ultimo poll (ver security-threats.js), some sozinha depois
+   de alguns segundos. */
+.threat-attack-line{
+  stroke-dasharray:6 7;
+  animation:threat-line-flow 0.5s linear infinite, threat-line-fade 2.4s ease-in forwards;
+}
+@keyframes threat-line-flow{
+  to{stroke-dashoffset:-26;}
+}
+@keyframes threat-line-fade{
+  0%,55%{opacity:0.85;}
+  100%{opacity:0;}
+}
+.threat-attack-pulse{
+  animation:threat-pulse-dot 1s ease-out infinite;
+}
+@keyframes threat-pulse-dot{
+  0%{stroke-opacity:0.9;stroke-width:2;r:6;}
+  100%{stroke-opacity:0;stroke-width:2;r:16;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .threat-server-marker,.threat-attack-line,.threat-attack-pulse{animation:none;}
+}

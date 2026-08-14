@@ -80,7 +80,12 @@ $pollIntervalMs = (int) ($crowdsecConfig['poll_interval_ms'] ?? 30000);
         </div>
       </div>
     </div>
-    <div id="threat-map" style="height:420px;border-radius:10px;overflow:hidden;"></div>
+    <div
+      id="threat-map"
+      style="height:420px;border-radius:10px;overflow:hidden;"
+      data-server-lat="<?= htmlspecialchars((string) $crowdsecConfig['server_lat'], ENT_QUOTES, 'UTF-8') ?>"
+      data-server-lng="<?= htmlspecialchars((string) $crowdsecConfig['server_lng'], ENT_QUOTES, 'UTF-8') ?>"
+    ></div>
   </div>
 
   <!-- GRAFICOS + RANKING -->

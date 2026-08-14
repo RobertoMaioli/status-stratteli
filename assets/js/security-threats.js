@@ -31,14 +31,66 @@
   var map = null;
   var markerLayer = null;
   var mapEl = document.getElementById('threat-map');
+  var serverLat = mapEl ? parseFloat(mapEl.dataset.serverLat) : NaN;
+  var serverLng = mapEl ? parseFloat(mapEl.dataset.serverLng) : NaN;
+  var hasServerLocation = !isNaN(serverLat) && !isNaN(serverLng);
+  var seenEventIds = {};
+  var firstMapRender = true;
+  var ok = styles.getPropertyValue('--ok').trim() || '#34d399';
 
   if (mapEl && typeof L !== 'undefined') {
     map = L.map(mapEl, { worldCopyJump: true }).setView([20, 0], 2);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      maxZoom: 18,
+    // CARTO "dark matter" — mesmos dados do OpenStreetMap, estilo escuro
+    // pronto (sem precisar de filtro CSS gambiarra em cima do tile claro).
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19,
     }).addTo(map);
     markerLayer = L.layerGroup().addTo(map);
+
+    if (hasServerLocation) {
+      L.circleMarker([serverLat, serverLng], {
+        radius: 8,
+        color: ok,
+        fillColor: ok,
+        fillOpacity: 0.9,
+        weight: 2,
+        className: 'threat-server-marker',
+      })
+        .bindPopup('<b>Nosso servidor</b>')
+        .addTo(map);
+    }
+  }
+
+  // Linha + pulso animados do IP atacante ate o servidor — só disparado pra
+  // eventos que ainda nao tinham aparecido em nenhum poll anterior (ver
+  // seenEventIds), pra dar a sensacao de "ataque ao vivo" sem lotar o mapa
+  // de linha permanente pra cada alerta ja conhecido.
+  function spawnAttackAnimation(event) {
+    if (!map || !hasServerLocation) {
+      return;
+    }
+
+    var line = L.polyline([[event.lat, event.lng], [serverLat, serverLng]], {
+      color: crit,
+      weight: 1.6,
+      opacity: 0.85,
+      className: 'threat-attack-line',
+    }).addTo(map);
+
+    var pulse = L.circleMarker([event.lat, event.lng], {
+      radius: 6,
+      color: crit,
+      weight: 2,
+      fill: false,
+      className: 'threat-attack-pulse',
+    }).addTo(map);
+
+    setTimeout(function () {
+      map.removeLayer(line);
+      map.removeLayer(pulse);
+    }, 2500);
   }
 
   function renderMap(events) {
@@ -51,6 +103,7 @@
       if (typeof event.lat !== 'number' || typeof event.lng !== 'number') {
         return;
       }
+
       L.circleMarker([event.lat, event.lng], {
         radius: 6,
         color: crit,
@@ -64,7 +117,20 @@
           (event.country || '—') + (event.asName ? ' · ' + event.asName : '')
         )
         .addTo(markerLayer);
+
+      // No primeiro carregamento da pagina, so registra o que ja existe
+      // (sem animar tudo de uma vez) — a animacao acontece a partir do
+      // segundo poll, só pro que for genuinamente novo.
+      var key = event.id || (event.ip + '|' + event.createdAt);
+      if (!seenEventIds[key]) {
+        seenEventIds[key] = true;
+        if (!firstMapRender) {
+          spawnAttackAnimation(event);
+        }
+      }
     });
+
+    firstMapRender = false;
   }
 
   // ---------- GRAFICOS ----------

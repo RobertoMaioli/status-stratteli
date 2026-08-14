@@ -48,7 +48,7 @@ class CrowdSecService
      * @return array{
      *     updatedAt: string,
      *     totals: array{alerts: int, events: int, countries: int, uniqueIps: int},
-     *     events: array<int, array{ip: string, country: string, lat: float|null, lng: float|null, scenario: string, scenarioLabel: string, asName: string, createdAt: string, eventsCount: int, banDuration: string}>,
+     *     events: array<int, array{id: int, ip: string, country: string, lat: float|null, lng: float|null, scenario: string, scenarioLabel: string, asName: string, createdAt: string, eventsCount: int, banDuration: string}>,
      *     byScenario: array<int, array{scenario: string, label: string, count: int}>,
      *     byCountry: array<int, array{country: string, count: int}>,
      *     timeseries: array<int, array{bucket: string, count: int}>
@@ -80,6 +80,7 @@ class CrowdSecService
             $lng = isset($source['longitude']) && is_numeric($source['longitude']) ? (float) $source['longitude'] : null;
 
             $events[] = [
+                'id' => (int) ($alert['id'] ?? 0),
                 'ip' => $ip,
                 'country' => $country,
                 'lat' => $lat,
@@ -295,6 +296,9 @@ class CrowdSecService
             CURLOPT_TIMEOUT => 8,
             CURLOPT_HTTPHEADER => $headers,
             CURLOPT_CUSTOMREQUEST => $method,
+            // Sem User-Agent, a propria protecao do CrowdSec contra
+            // "bad user agent" rejeita a chamada — mesmo motivo documentado
+            // em AapanelService::request() pro nginx na frente do aaPanel.
             CURLOPT_USERAGENT => 'crowdsec-dashboard/1.0',
         ];
 

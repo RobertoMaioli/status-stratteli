@@ -58,6 +58,11 @@ return [
             // nossa API — nao afeta a frequencia real de chamada na LAPI,
             // que e limitada por cache_ttl_seconds acima.
             'poll_interval_ms' => 30000,
+            // Coordenadas aproximadas de onde o servidor esta hospedado —
+            // so usado pro ponto fixo (verde) no mapa de ameacas, nao vem
+            // do CrowdSec.
+            'server_lat' => 39.0438,
+            'server_lng' => -77.4874,
         ],
     ],
 ];
