@@ -91,7 +91,7 @@
     setTimeout(function () {
       map.removeLayer(line);
       map.removeLayer(pulse);
-    }, 2500);
+    }, 10000);
   }
 
   function renderMap(events) {

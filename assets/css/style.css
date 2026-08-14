@@ -710,13 +710,13 @@ body.modal-open{overflow:hidden;}
    de alguns segundos. */
 .threat-attack-line{
   stroke-dasharray:6 7;
-  animation:threat-line-flow 0.5s linear infinite, threat-line-fade 2.4s ease-in forwards;
+  animation:threat-line-flow 0.5s linear infinite, threat-line-fade 9.5s ease-in forwards;
 }
 @keyframes threat-line-flow{
   to{stroke-dashoffset:-26;}
 }
 @keyframes threat-line-fade{
-  0%,55%{opacity:0.85;}
+  0%,85%{opacity:0.85;}
   100%{opacity:0;}
 }
 .threat-attack-pulse{

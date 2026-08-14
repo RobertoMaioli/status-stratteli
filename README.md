@@ -309,7 +309,7 @@ categoria de dependência externa que o Google Fonts que toda página já
 carrega). Um marcador fixo verde (`server_lat`/`server_lng`) marca onde o
 servidor está; alertas genuinamente novos desde o último poll (não vistos
 antes nesta sessão do navegador) disparam uma linha + pulso vermelhos
-animados do IP atacante até o servidor, que somem sozinhos depois de ~2,5s
+animados do IP atacante até o servidor, que somem sozinhos depois de ~10s
 (`assets/js/security-threats.js`, classes `.threat-attack-line`/
 `.threat-attack-pulse` em `style.css`) — nada disso é persistido, é só
 efeito visual client-side.
