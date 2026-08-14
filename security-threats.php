@@ -43,7 +43,7 @@ $pollIntervalMs = (int) ($crowdsecConfig['poll_interval_ms'] ?? 30000);
 
   <div class="section-label">
     <div class="bar"></div><h2>Ameaças detectadas</h2>
-    <div class="live-tag" style="margin-left:auto;"><span class="dot"></span> ao vivo · a cada <?= (int) round($pollIntervalMs / 1000) ?>s</div>
+    <div class="live-tag" style="margin-left:auto;"><span class="dot"></span> ao vivo · a cada <?= (int) round($pollIntervalMs / 1000) ?>s · atualizado às <span id="threat-live-updated">—</span></div>
   </div>
 
   <div id="threat-error" class="login-error" style="margin-bottom:16px;" hidden></div>

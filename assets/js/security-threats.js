@@ -8,6 +8,7 @@
   var pill = document.getElementById('threat-pill');
   var pillLabel = document.getElementById('threat-pill-label');
   var lastRead = document.getElementById('threat-last-read');
+  var liveUpdated = document.getElementById('threat-live-updated');
 
   var styles = getComputedStyle(document.documentElement);
   var signal = styles.getPropertyValue('--signal').trim() || '#F97316';
@@ -216,6 +217,27 @@
   }
 
   // ---------- TOP PAISES ----------
+  // source.cn do CrowdSec vem como código ISO 3166-1 alfa-2 (ex: "US"),
+  // não o nome do país — Intl.DisplayNames já resolve isso pro nome em
+  // pt-BR sem precisar manter uma tabela de tradução própria.
+  var countryNames = (typeof Intl !== 'undefined' && Intl.DisplayNames)
+    ? new Intl.DisplayNames(['pt-BR'], { type: 'region' })
+    : null;
+
+  function countryLabel(code) {
+    if (!code) {
+      return '—';
+    }
+    if (countryNames) {
+      try {
+        return countryNames.of(code) || code;
+      } catch (e) {
+        return code;
+      }
+    }
+    return code;
+  }
+
   function renderCountries(byCountry) {
     var container = document.getElementById('threat-country-list');
     if (!container) {
@@ -235,7 +257,7 @@
         '<span class="status-dot ok"></span>' +
         '<span class="status-name"></span>' +
         '<span class="status-state ok"></span>';
-      row.querySelector('.status-name').textContent = entry.country || '—';
+      row.querySelector('.status-name').textContent = countryLabel(entry.country);
       row.querySelector('.status-state').textContent = entry.count;
       container.appendChild(row);
     });
@@ -359,7 +381,11 @@
     pillLabel.textContent = 'Monitorando';
 
     if (data.updatedAt) {
-      lastRead.textContent = new Date(data.updatedAt).toLocaleTimeString('pt-BR');
+      var updatedLabel = new Date(data.updatedAt).toLocaleTimeString('pt-BR');
+      lastRead.textContent = updatedLabel;
+      if (liveUpdated) {
+        liveUpdated.textContent = updatedLabel;
+      }
     }
   }
 
