@@ -51,7 +51,7 @@ api/
   host-status.php       endpoint JSON polled pelo Host Monitor (CPU/RAM/disco/rede)
   security-threats.php  endpoint JSON polled pelo dashboard CrowdSec
 data/                  cache do CSV do OpenCage, leituras do Mapbox, log de atividade,
-                       token/cache do CrowdSec
+                       token/cache/histórico cumulativo do CrowdSec
 logs/                  logs locais
 ```
 
@@ -243,14 +243,33 @@ alertas em `data/crowdsec-alerts-cache.json` por `cache_ttl_seconds`
 (default 20s) — assim a LAPI só é consultada quando o cache expira, não
 uma vez por usuário com a dashboard aberta.
 
-O filtro `has_active_decision=true` é proposital: sem ele, `/v1/alerts`
-devolve todo o histórico que o CrowdSec ainda guarda no banco (a decisão/ban
-expira, mas o registro do alerta continua lá por dias, até a próxima poda
-interna do CrowdSec) — o dashboard inteiro (mapa, tabela, gráficos)
-acumularia ataques que já não estão mais banidos. Com o filtro, um alerta
-some do dashboard assim que o ban dele expira ou é removido manualmente
-(`cscli decisions delete`/`cscli alerts delete`), refletindo ameaça ativa
-agora, não um log histórico.
+**Mapa (ativo agora) vs. resto do dashboard (histórico cumulativo)** — são
+duas fontes diferentes, de propósito:
+
+- O **mapa** usa `GET /v1/alerts?has_active_decision=true`: só ameaças com
+  ban ainda ativo. Sem esse filtro, `/v1/alerts` devolveria todo o
+  histórico que o CrowdSec ainda guarda no banco (a decisão expira, mas o
+  registro do alerta continua lá por dias, até a próxima poda interna do
+  CrowdSec) — o mapa ficaria cheio de pontos de ataques que já não estão
+  mais banidos. Com o filtro, um ponto some assim que o ban expira ou é
+  removido manualmente (`cscli decisions delete`/`cscli alerts delete`).
+- **Totais, gráfico por tipo de ataque, Top Países, linha do tempo e a
+  tabela de eventos recentes** são cumulativos e **nunca resetam**, mesmo
+  depois do ban expirar — guardados em `data/crowdsec-history.json`
+  (`CrowdSecService::updateHistory()`). Cada alerta novo (identificado pelo
+  `id`, sequencial no CrowdSec — só processa `id > last_processed_id`, pra
+  nunca contar o mesmo alerta duas vezes mesmo ele reaparecendo em vários
+  polls enquanto o ban continua ativo) soma nos totais e entra na lista de
+  eventos recentes (limitada a 500, mais novo primeiro). Os buckets por
+  hora da linha do tempo somem depois de 30 dias (só o detalhamento
+  hora-a-hora — os totais por cenário/país/geral continuam contando pra
+  sempre).
+
+Esse split só é possível porque `updateHistory()` roda sempre que
+`fetchAlerts()` busca dado novo na LAPI (não em toda leitura do cache) —
+como a janela de cache (`cache_ttl_seconds`) é bem menor que a duração
+típica de um ban (minutos/horas), todo alerta é visto e contado pelo menos
+uma vez antes de poder desaparecer da lista de ativos.
 
 **Requisições `POST /v1/watchers/login` e `GET /v1/alerts` sem
 `CURLOPT_USERAGENT` levam 401/bloqueio** — o próprio CrowdSec tem um
@@ -266,21 +285,34 @@ Configuração em `config.php` → `services.crowdsec`:
     'password' => '',
     'cache_ttl_seconds' => 20,  // intervalo minimo entre chamadas reais na LAPI
     'poll_interval_ms' => 30000, // intervalo de polling do frontend contra a nossa API
+    'server_lat' => 39.0438,   // coordenadas do servidor, só pro ponto
+    'server_lng' => -77.4874, // verde fixo no mapa (não vem do CrowdSec)
 ],
 ```
 
 Cada alerta da LAPI vira um evento com `ip`, `country` (`source.cn`),
 `lat`/`lng` (`source.latitude`/`longitude` — ausentes em IPs privados, que
-por isso não aparecem no mapa mas continuam na tabela), `scenario` e uma
-versão amigável dele (`CrowdSecService::friendlyScenario()`, com uma tabela
-pequena de traduções tipo `http-sqli-probing` → "Tentativa de SQL
-Injection" e um fallback genérico pra cenários não mapeados) e a duração do
-primeiro ban em `decisions[]`. O mapa usa `L.circleMarker` (SVG/canvas, via
-Leaflet vendorizado) em vez do ícone padrão do Leaflet — evita ter que
-vendorizar os PNGs de marcador, já que os tiles de mapa em si (imagens)
-continuam vindo ao vivo de `tile.openstreetmap.org` (não tem como
-vendorizar tiles do mundo inteiro; mesma categoria de dependência externa
-que o Google Fonts que toda página já carrega).
+por isso não aparecem no mapa mas continuam na tabela/histórico),
+`scenario` e uma versão amigável dele (`CrowdSecService::friendlyScenario()`,
+com uma tabela pequena de traduções tipo `http-sqli-probing` → "Tentativa
+de SQL Injection" e um fallback genérico pra cenários não mapeados) e a
+duração do primeiro ban em `decisions[]`. `country` chega como código ISO
+alfa-2 (`US`, `SG`); o frontend resolve pro nome completo em pt-BR via
+`Intl.DisplayNames`, sem precisar manter uma tabela de tradução própria.
+
+O mapa usa `L.circleMarker` (SVG/canvas, via Leaflet vendorizado) em vez do
+ícone padrão do Leaflet — evita ter que vendorizar os PNGs de marcador.
+Tiles em modo escuro via CARTO (`basemaps.cartocdn.com/dark_all`, mesmos
+dados do OpenStreetMap com estilo escuro pronto), que continuam vindo ao
+vivo da CDN deles (não tem como vendorizar tiles do mundo inteiro; mesma
+categoria de dependência externa que o Google Fonts que toda página já
+carrega). Um marcador fixo verde (`server_lat`/`server_lng`) marca onde o
+servidor está; alertas genuinamente novos desde o último poll (não vistos
+antes nesta sessão do navegador) disparam uma linha + pulso vermelhos
+animados do IP atacante até o servidor, que somem sozinhos depois de ~2,5s
+(`assets/js/security-threats.js`, classes `.threat-attack-line`/
+`.threat-attack-pulse` em `style.css`) — nada disso é persistido, é só
+efeito visual client-side.
 
 **Segurança**: `machine_id`/`password` ficam em `config.php` (gitignored),
 mesmo padrão de toda outra credencial do projeto — o app não usa

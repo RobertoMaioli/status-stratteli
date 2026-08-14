@@ -369,7 +369,7 @@
     document.getElementById('threat-total-countries').textContent = data.totals.countries;
     document.getElementById('threat-total-ips').textContent = data.totals.uniqueIps;
 
-    renderMap(data.events);
+    renderMap(data.activeThreats);
     renderCharts(data.byScenario, data.timeseries);
     renderCountries(data.byCountry);
 

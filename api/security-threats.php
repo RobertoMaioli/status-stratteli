@@ -16,6 +16,7 @@ $crowdsec = new CrowdSecService(
     password: $crowdsecConfig['password'],
     tokenFile: __DIR__ . '/../data/crowdsec-token.json',
     alertsCacheFile: __DIR__ . '/../data/crowdsec-alerts-cache.json',
+    historyFile: __DIR__ . '/../data/crowdsec-history.json',
     cacheTtlSeconds: $crowdsecConfig['cache_ttl_seconds']
 );
 
@@ -29,6 +30,7 @@ try {
     $payload['error'] = $e->getMessage();
     $payload['updatedAt'] = null;
     $payload['totals'] = ['alerts' => 0, 'events' => 0, 'countries' => 0, 'uniqueIps' => 0];
+    $payload['activeThreats'] = [];
     $payload['events'] = [];
     $payload['byScenario'] = [];
     $payload['byCountry'] = [];
