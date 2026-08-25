@@ -34,6 +34,16 @@ class CrowdSecService
     /** Quantos eventos recentes manter na tabela (historico cumulativo). */
     private const MAX_RECENT_EVENTS = 500;
 
+    /**
+     * Cenarios que NAO sao ataques de verdade e por isso ficam de fora do
+     * mapa e do historico cumulativo. "update" e o que o aaPanel gera
+     * quando ele so reconfirma/reaplica o ban de um IP que ja estava
+     * banido (nao e uma deteccao nova) — sem esse filtro, isso inflava o
+     * grafico "por tipo de ataque" com milhares de eventos sem nenhum IP
+     * novo, dando a falsa impressao de um ataque em massa.
+     */
+    private const IGNORED_SCENARIOS = ['update'];
+
     /** Buckets horarios mais antigos que isso somem do grafico de linha do
      *  tempo (os totais cumulativos por cenario/pais/geral NAO dependem
      *  disso — continuam contando pra sempre). */
@@ -73,7 +83,7 @@ class CrowdSecService
         $activeAlerts = $this->getAlerts();
         $activeThreats = array_values(array_map(
             fn (array $alert): array => $this->alertToEvent($alert),
-            array_filter($activeAlerts, 'is_array')
+            array_filter($activeAlerts, fn (mixed $alert): bool => is_array($alert) && !$this->isIgnoredScenario((string) ($alert['scenario'] ?? '')))
         ));
 
         $history = $this->loadHistory();
@@ -181,6 +191,13 @@ class CrowdSecService
         return $date->setTimezone(new \DateTimeZone('America/Sao_Paulo'))->format('Y-m-d\TH:00');
     }
 
+    private function isIgnoredScenario(string $scenario): bool
+    {
+        $slug = str_starts_with($scenario, 'crowdsecurity/') ? substr($scenario, strlen('crowdsecurity/')) : $scenario;
+
+        return in_array(strtolower($slug), self::IGNORED_SCENARIOS, true);
+    }
+
     private function friendlyScenario(string $scenario): string
     {
         $slug = str_starts_with($scenario, 'crowdsecurity/') ? substr($scenario, strlen('crowdsecurity/')) : $scenario;
@@ -245,7 +262,16 @@ class CrowdSecService
                 continue;
             }
 
+            // Marca como processado mesmo ignorando, senao o mesmo alerta
+            // "update" ficaria sendo reavaliado (e descartado) em todo poll
+            // futuro enquanto o ban dele continuar ativo.
+            $maxId = max($maxId, $id);
             $changed = true;
+
+            if ($this->isIgnoredScenario((string) ($alert['scenario'] ?? ''))) {
+                continue;
+            }
+
             $event = $this->alertToEvent($alert);
 
             $history['total_alerts'] += 1;
@@ -264,7 +290,6 @@ class CrowdSecService
             }
 
             array_unshift($history['recent_events'], $event);
-            $maxId = max($maxId, $id);
         }
 
         if (!$changed) {
