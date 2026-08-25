@@ -477,6 +477,62 @@
       });
   }
 
+  // ---------- TESTE MANUAL DA ANIMACAO (?fake_attack=cn na URL) ----------
+  // So dispara se o parametro estiver presente — nao mexe em dado real
+  // (CrowdSec, historico), so simula visualmente pra conferir a animacao.
+  // Coordenadas de algumas capitais pra facilitar; aceita tambem
+  // "lat,lng" direto (ex.: ?fake_attack=48.85,2.35).
+  var FAKE_ATTACK_PRESETS = {
+    cn: [39.9042, 116.4074],
+    ru: [55.7558, 37.6173],
+    us: [38.9072, -77.0369],
+    br: [-15.7939, -47.8828],
+    kp: [39.0392, 125.7625],
+  };
+
+  function spawnFakeAttack(value) {
+    if (!map || !hasServerLocation) {
+      return;
+    }
+
+    var coords = FAKE_ATTACK_PRESETS[value.toLowerCase()];
+    if (!coords) {
+      var parts = value.split(',').map(parseFloat);
+      if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+        coords = parts;
+      }
+    }
+    if (!coords) {
+      return;
+    }
+
+    var lat = coords[0];
+    var lng = coords[1];
+
+    var marker = L.circleMarker([lat, lng], {
+      radius: 6,
+      color: crit,
+      fillColor: crit,
+      fillOpacity: 0.55,
+      weight: 1,
+    })
+      .bindPopup('<b>Teste (fake)</b><br>Ataque simulado só pra conferir a animação')
+      .addTo(map);
+
+    spawnAttackAnimation({ lat: lat, lng: lng });
+
+    setTimeout(function () {
+      map.removeLayer(marker);
+    }, 10000);
+  }
+
+  var fakeAttackParam = new URLSearchParams(window.location.search).get('fake_attack');
+  if (fakeAttackParam) {
+    setTimeout(function () {
+      spawnFakeAttack(fakeAttackParam);
+    }, 500);
+  }
+
   initCharts();
   poll();
   pollTimer = setInterval(poll, POLL_INTERVAL_MS);
