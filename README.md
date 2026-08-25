@@ -265,11 +265,14 @@ duas fontes diferentes, de propósito:
   hora-a-hora — os totais por cenário/país/geral continuam contando pra
   sempre).
 
-Alertas com cenário `update` são descartados tanto do mapa quanto do
-histórico (`CrowdSecService::IGNORED_SCENARIOS`) — é o que o aaPanel gera
-quando só reconfirma/reaplica o ban de um IP já banido (não é uma detecção
-nova), e sem esse filtro inflava o gráfico "por tipo de ataque" com
-milhares de eventos sem nenhum IP novo.
+Alertas com cenário começando em `update` (ex.: `update : +15000/-0 IPs`)
+são descartados tanto do mapa quanto do histórico
+(`CrowdSecService::IGNORED_SCENARIO_PREFIXES`) — é o próprio CrowdSec
+sincronizando periodicamente a blocklist comunitária central (CAPI), não
+uma detecção de ataque contra este servidor; o "N" é só o tamanho da lista
+importada. Sem esse filtro inflava o gráfico "por tipo de ataque" com uma
+entrada gigante e enganosa. `bin/cleanup-crowdsec-history.php` remove
+retroativamente o que já tinha sido contado antes do filtro existir.
 
 Esse split só é possível porque `updateHistory()` roda sempre que
 `fetchAlerts()` busca dado novo na LAPI (não em toda leitura do cache) —

@@ -3,10 +3,11 @@ declare(strict_types=1);
 
 /**
  * Remove do historico cumulativo do CrowdSec (data/crowdsec-history.json)
- * os alertas do cenario "update" que ja tinham sido contados antes do
- * CrowdSecService passar a ignora-los (ver IGNORED_SCENARIOS). So precisa
- * rodar uma vez, depois do deploy do filtro — daqui pra frente esses
- * alertas nem entram no arquivo.
+ * os alertas de cenario "update : +N/-M IPs" (sincronizacao periodica da
+ * blocklist comunitaria central do CrowdSec — nao um ataque local) que ja
+ * tinham sido contados antes do CrowdSecService passar a ignora-los (ver
+ * IGNORED_SCENARIO_PREFIXES). So precisa rodar uma vez, depois do deploy
+ * do filtro — daqui pra frente esses alertas nem entram no arquivo.
  *
  * Ajusta com precisao: scenario_totals (a chave inteira e' removida) e
  * total_alerts (decrementado na mesma contagem — todo alerta soma 1 nos
@@ -26,13 +27,20 @@ if (PHP_SAPI !== 'cli') {
     exit('Este script só pode ser executado via linha de comando (CLI).' . PHP_EOL);
 }
 
-const IGNORED_SCENARIOS = ['update'];
+const IGNORED_SCENARIO_PREFIXES = ['update'];
 
-function normalizeScenario(string $scenario): string
+function isIgnoredScenario(string $scenario): bool
 {
     $slug = str_starts_with($scenario, 'crowdsecurity/') ? substr($scenario, strlen('crowdsecurity/')) : $scenario;
+    $slug = strtolower($slug);
 
-    return strtolower($slug);
+    foreach (IGNORED_SCENARIO_PREFIXES as $prefix) {
+        if (str_starts_with($slug, $prefix)) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 function hourBucket(string $createdAt): ?string
@@ -63,7 +71,7 @@ if (!is_array($history)) {
 
 $removedAlerts = 0;
 foreach ($history['scenario_totals'] ?? [] as $scenario => $count) {
-    if (in_array(normalizeScenario((string) $scenario), IGNORED_SCENARIOS, true)) {
+    if (isIgnoredScenario((string) $scenario)) {
         $removedAlerts += (int) $count;
         unset($history['scenario_totals'][$scenario]);
     }
@@ -73,7 +81,7 @@ $removedEvents = 0;
 $recentEvents = $history['recent_events'] ?? [];
 $keptEvents = [];
 foreach ($recentEvents as $event) {
-    if (!is_array($event) || !in_array(normalizeScenario((string) ($event['scenario'] ?? '')), IGNORED_SCENARIOS, true)) {
+    if (!is_array($event) || !isIgnoredScenario((string) ($event['scenario'] ?? ''))) {
         $keptEvents[] = $event;
         continue;
     }

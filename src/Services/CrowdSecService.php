@@ -35,14 +35,16 @@ class CrowdSecService
     private const MAX_RECENT_EVENTS = 500;
 
     /**
-     * Cenarios que NAO sao ataques de verdade e por isso ficam de fora do
-     * mapa e do historico cumulativo. "update" e o que o aaPanel gera
-     * quando ele so reconfirma/reaplica o ban de um IP que ja estava
-     * banido (nao e uma deteccao nova) — sem esse filtro, isso inflava o
-     * grafico "por tipo de ataque" com milhares de eventos sem nenhum IP
-     * novo, dando a falsa impressao de um ataque em massa.
+     * Prefixos de cenario que NAO sao ataques de verdade contra este
+     * servidor e por isso ficam de fora do mapa e do historico cumulativo.
+     * "update : +N/-M IPs" e o proprio CrowdSec sincronizando a blocklist
+     * comunitaria central (CAPI) periodicamente — nao e uma deteccao local,
+     * e o "N" (~15000) e so o tamanho da lista importada, nao IPs atacando
+     * este servidor. Sem esse filtro isso inflava o grafico "por tipo de
+     * ataque" com uma entrada gigante, dando a falsa impressao de um
+     * ataque em massa.
      */
-    private const IGNORED_SCENARIOS = ['update'];
+    private const IGNORED_SCENARIO_PREFIXES = ['update'];
 
     /** Buckets horarios mais antigos que isso somem do grafico de linha do
      *  tempo (os totais cumulativos por cenario/pais/geral NAO dependem
@@ -194,8 +196,15 @@ class CrowdSecService
     private function isIgnoredScenario(string $scenario): bool
     {
         $slug = str_starts_with($scenario, 'crowdsecurity/') ? substr($scenario, strlen('crowdsecurity/')) : $scenario;
+        $slug = strtolower($slug);
 
-        return in_array(strtolower($slug), self::IGNORED_SCENARIOS, true);
+        foreach (self::IGNORED_SCENARIO_PREFIXES as $prefix) {
+            if (str_starts_with($slug, $prefix)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private function friendlyScenario(string $scenario): string
