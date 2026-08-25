@@ -90,6 +90,15 @@ class CrowdSecService
 
         $history = $this->loadHistory();
 
+        // Garante mais-recente-primeiro mesmo em historico ja salvo com a
+        // ordem antiga (baseada em insercao, nao em createdAt) — ver
+        // updateHistory() pro motivo. Custo desprezivel: no maximo
+        // MAX_RECENT_EVENTS itens.
+        usort(
+            $history['recent_events'],
+            static fn (array $a, array $b): int => strcmp((string) ($b['createdAt'] ?? ''), (string) ($a['createdAt'] ?? ''))
+        );
+
         $scenarioCounts = $history['scenario_totals'];
         arsort($scenarioCounts);
         $byScenario = [];
@@ -260,6 +269,7 @@ class CrowdSecService
         $history = $this->loadHistory();
         $maxId = $history['last_processed_id'];
         $changed = false;
+        $newEvents = [];
 
         foreach ($freshAlerts as $alert) {
             if (!is_array($alert)) {
@@ -298,7 +308,7 @@ class CrowdSecService
                 $history['hourly_totals'][$hourBucket] = ($history['hourly_totals'][$hourBucket] ?? 0) + 1;
             }
 
-            array_unshift($history['recent_events'], $event);
+            $newEvents[] = $event;
         }
 
         if (!$changed) {
@@ -306,6 +316,19 @@ class CrowdSecService
         }
 
         $history['last_processed_id'] = $maxId;
+
+        // A LAPI nao garante ordem cronologica em /v1/alerts (varia entre
+        // ascendente/descendente por id), entao nao dava pra confiar na
+        // ordem de $freshAlerts pra montar a lista mais-recente-primeiro —
+        // resultava em eventos fora de ordem na tabela quando um poll
+        // trazia varios alertas novos de uma vez. Ordena explicitamente
+        // por createdAt (ISO 8601, ordena certo como string) em vez de
+        // depender da ordem de insercao.
+        $history['recent_events'] = array_merge($newEvents, $history['recent_events']);
+        usort(
+            $history['recent_events'],
+            static fn (array $a, array $b): int => strcmp((string) ($b['createdAt'] ?? ''), (string) ($a['createdAt'] ?? ''))
+        );
         $history['recent_events'] = array_slice($history['recent_events'], 0, self::MAX_RECENT_EVENTS);
 
         file_put_contents($this->historyFile, json_encode($history));
