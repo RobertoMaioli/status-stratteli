@@ -566,6 +566,17 @@ header::after{
 .log-text{color:var(--text-muted);}
 .log-text b{color:var(--text-primary);font-weight:600;}
 
+.flag-icon{
+  width:20px;height:15px;border-radius:2px;object-fit:cover;
+  vertical-align:middle;margin-right:6px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08);
+}
+.flag-fallback{
+  display:inline-block;min-width:20px;text-align:center;
+  font-size:10px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;
+  color:var(--text-dim);margin-right:6px;vertical-align:middle;
+}
+
 #security-news-list .log-time{width:150px;}
 
 .log-pagination{

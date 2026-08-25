@@ -224,18 +224,40 @@
     ? new Intl.DisplayNames(['pt-BR'], { type: 'region' })
     : null;
 
-  // Emoji de bandeira a partir do código ISO alfa-2: cada letra vira um
-  // "Regional Indicator Symbol" (U+1F1E6 = 'A'), a combinação das duas
-  // já renderiza como bandeira nativamente (sem precisar de imagem/ícone
-  // vendorizado por país).
-  function countryFlag(code) {
+  // Bandeira via SVG vendorizado (assets/img/flags, de flag-icons/MIT)
+  // em vez de emoji: bandeira-emoji depende de fonte do SO pra desenhar o
+  // "Regional Indicator Symbol" e boa parte das combinações não renderiza
+  // no Windows (cai pra texto tipo "US"), então preferimos um <img> com
+  // fallback pro código em texto se o arquivo não existir.
+  var FLAG_ICON_PATH = 'assets/img/flags/4x3/';
+
+  function buildFlagIcon(code) {
+    var label = countryLabel(code);
+
     if (!code || code.length !== 2) {
-      return '';
+      var fallback = document.createElement('span');
+      fallback.className = 'flag-fallback';
+      fallback.textContent = code || '—';
+      fallback.title = label;
+      return fallback;
     }
-    var points = code.toUpperCase().split('').map(function (c) {
-      return 127397 + c.charCodeAt(0);
-    });
-    return String.fromCodePoint.apply(null, points);
+
+    var img = document.createElement('img');
+    img.className = 'flag-icon';
+    img.src = FLAG_ICON_PATH + code.toLowerCase() + '.svg';
+    img.alt = code;
+    img.title = label;
+    img.loading = 'lazy';
+    img.onerror = function () {
+      var span = document.createElement('span');
+      span.className = 'flag-fallback';
+      span.textContent = code;
+      span.title = label;
+      if (img.parentNode) {
+        img.parentNode.replaceChild(span, img);
+      }
+    };
+    return img;
   }
 
   function countryLabel(code) {
@@ -271,7 +293,9 @@
         '<span class="status-dot ok"></span>' +
         '<span class="status-name"></span>' +
         '<span class="status-state ok"></span>';
-      row.querySelector('.status-name').textContent = countryLabel(entry.country);
+      var nameEl = row.querySelector('.status-name');
+      nameEl.appendChild(buildFlagIcon(entry.country));
+      nameEl.appendChild(document.createTextNode(' ' + countryLabel(entry.country)));
       row.querySelector('.status-state').textContent = entry.count;
       container.appendChild(row);
     });
@@ -348,14 +372,7 @@
         '<div class="log-text"></div>';
       row.querySelector('.log-time').textContent = timeLabel;
       var badge = row.querySelector('.log-badge');
-      var flag = countryFlag(event.country);
-      badge.textContent = flag || event.country || '—';
-      badge.title = countryLabel(event.country);
-      if (flag) {
-        // Emoji de bandeira fica ilegível no tamanho padrão do badge
-        // (10px, pensado pra texto tipo "alto"/"médio") — aumenta só aqui.
-        badge.style.fontSize = '16px';
-      }
+      badge.appendChild(buildFlagIcon(event.country));
 
       var text = row.querySelector('.log-text');
       var ipEl = document.createElement('b');

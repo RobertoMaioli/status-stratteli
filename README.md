@@ -24,7 +24,8 @@ assets/
   js/vendor/chart.umd.js     Chart.js (vendorizado, sem depender de CDN)
   js/vendor/leaflet.js       Leaflet.js (vendorizado, sem depender de CDN)
   css/vendor/leaflet.css     CSS do Leaflet (+ images/ com os ícones que ele referencia)
-  img/                imagens/ícones (futuro)
+  img/                imagens/ícones
+  img/flags/4x3/*.svg        bandeiras por país ISO 3166-1 alfa-2 (vendorizado de flag-icons/MIT, sem CDN)
 includes/
   bootstrap.php       carrega autoload + auth + config
   autoload.php        autoload PSR-4-like para DashStatus\... em src/
