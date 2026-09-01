@@ -4,7 +4,8 @@ declare(strict_types=1);
 /**
  * Importa os mandados em aberto (Maringá/PR) da base do mandados-system
  * (SQLite, mantida localmente por outra ferramenta) para
- * assets/data/procurados.json, que o painel de procurados lê em produção.
+ * data/procurados.json (fora do webroot público — .htaccess bloqueia
+ * acesso direto), que procurados.php e api/procurados.php leem em produção.
  *
  * Roda só localmente, na máquina onde o mandados-system existe — o SQLite e
  * as fotos não existem no servidor. O resultado (JSON + fotos copiadas) é
@@ -31,7 +32,7 @@ if (!is_dir($photosDir)) {
     exit(1);
 }
 
-$outputJson = __DIR__ . '/../assets/data/procurados.json';
+$outputJson = __DIR__ . '/../data/procurados.json';
 $outputPhotosDir = __DIR__ . '/../assets/img/procurados';
 if (!is_dir($outputPhotosDir)) {
     mkdir($outputPhotosDir, 0775, true);

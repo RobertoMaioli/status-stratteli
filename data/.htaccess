@@ -1,0 +1,10 @@
+# Bloqueia acesso HTTP direto a tudo nesta pasta (Apache 2.4+ e 2.2).
+# Arquivos aqui (procurados.json, caches, logs) só devem ser lidos pelo
+# PHP via file_get_contents, nunca servidos direto pelo navegador.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>

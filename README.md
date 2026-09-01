@@ -48,14 +48,16 @@ sql/
   schema.sql           cria o banco `dashstatus` e a tabela `users`
 bin/
   create-admin.php     CLI para criar/atualizar um usuário
-  import-procurados.php  CLI local que gera assets/data/procurados.json a partir
+  import-procurados.php  CLI local que gera data/procurados.json a partir
                           do SQLite do mandados-system (ver seção "Procurados")
 api/
   status.php           endpoint JSON com o uso real do OpenCage (não usado hoje)
   host-status.php       endpoint JSON polled pelo Host Monitor (CPU/RAM/disco/rede)
   security-threats.php  endpoint JSON polled pelo dashboard CrowdSec
+  procurados.php         API REST com token (X-Api-Key) pra integração externa
 data/                  cache do CSV do OpenCage, leituras do Mapbox, log de atividade,
-                       token/cache/histórico cumulativo do CrowdSec
+                       token/cache/histórico cumulativo do CrowdSec, procurados.json
+                       (.htaccess bloqueia acesso HTTP direto a esta pasta)
 logs/                  logs locais
 ```
 
@@ -403,6 +405,63 @@ pedir outro critério.
 observações/histórico não existem na base do BNMP, então a ficha lateral não
 mostra esses campos — no lugar entraram campos reais disponíveis (tipo de
 prisão, data de expedição, comarca/vara).
+
+**Onde o JSON mora de verdade:** `data/procurados.json`, não
+`assets/data/`. Ficou fora do `assets/` de propósito — tudo em `assets/` é
+servido direto pelo Apache sem passar pelo `auth_check()` do PHP, então um
+JSON com nome completo, mandado, categoria etc. ali ficaria acessível sem
+login pra quem soubesse a URL. `data/` tem um `.htaccess` (`Require all
+denied`) — mas **o servidor de produção é nginx, que ignora `.htaccess`
+completamente**. O bloqueio real precisa ser feito manualmente no `.conf`
+do nginx (nginx não lê nada do que sobe pelo `git pull`, isso não chega
+sozinho):
+
+```nginx
+location ^~ /data/ {
+    deny all;
+    return 404;
+}
+```
+
+Cole dentro do `server { }` do site (no aaPanel: Site → domínio → botão de
+Configuração do nginx), teste com `nginx -t` e recarregue. **Isso protege
+todo mundo que está em `data/`, não só `procurados.json`** — inclui, se o
+CrowdSec já estiver configurado no servidor, o `crowdsec-token.json` (token
+JWT da LAPI). Até esse bloco entrar no nginx, essa pasta fica acessível sem
+login pra quem souber a URL.
+
+### API REST (`api/procurados.php`)
+
+Endpoint pra integração externa (outra plataforma consumindo os dados),
+separado do painel visual. Não usa a sessão de login (`auth_check()`) porque
+é pensado pra ser chamado servidor-a-servidor, sem navegador — em vez disso,
+exige um token fixo:
+
+```
+GET /api/procurados.php
+Header: X-Api-Key: <token>
+```
+
+O token fica em `config.php` → `services.procurados.api_key` (gerar com
+`php -r "echo bin2hex(random_bytes(32));"`). **Como `config.php` não é
+versionado (está no `.gitignore`), esse valor não chega em produção pelo
+`git pull` — precisa ser adicionado manualmente no `config.php` do
+servidor**, copiando a mesma chave usada aqui (ou gerando uma nova só de
+produção, desde que a plataforma consumidora use o valor certo).
+
+Sem token ou com token errado → `401`. Com token certo, filtros opcionais
+via query string:
+
+| Parâmetro | Efeito |
+|---|---|
+| `risco` | `alta` \| `media` \| `baixa` \| `altissima` \| `sem` |
+| `categoria` | valor exato do campo `categoria` |
+| `todos=1` | inclui também os sem foto (por padrão só os com foto, igual o painel) |
+| `page`, `per_page` | paginação (`per_page` máx. 500, padrão 100) |
+
+O campo `foto` na resposta vem como URL absoluta (monta o domínio a partir
+do próprio request), não o caminho relativo salvo no JSON interno — quem
+consome de fora não tem como adivinhar nosso domínio.
 
 ## Registro de atividade
 

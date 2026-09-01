@@ -5,7 +5,7 @@ require_once __DIR__ . '/includes/bootstrap.php';
 
 auth_check();
 
-$dataFile = __DIR__ . '/assets/data/procurados.json';
+$dataFile = __DIR__ . '/data/procurados.json';
 $dataFileExists = is_file($dataFile);
 $procurados = $dataFileExists ? json_decode((string) file_get_contents($dataFile), true) : [];
 if (!is_array($procurados)) {

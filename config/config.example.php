@@ -64,5 +64,11 @@ return [
             'server_lat' => 39.0438,
             'server_lng' => -77.4874,
         ],
+        'procurados' => [
+            // Token pra integracao externa (api/procurados.php). Gere com:
+            // php -r "echo bin2hex(random_bytes(32));"
+            // Mandar no header: X-Api-Key: <token>
+            'api_key' => '',
+        ],
     ],
 ];
