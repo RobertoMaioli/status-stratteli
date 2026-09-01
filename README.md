@@ -10,6 +10,7 @@ index.php            página principal (protegida por login)
 hub.php               hub de dashboards pós-login (config/dashboards.php)
 host-monitor.php      dashboard "Host Monitor" — CPU/RAM/disco/rede ao vivo (aaPanel)
 security-threats.php  dashboard "Ameaças (CrowdSec)" — mapa/gráficos/eventos ao vivo
+procurados.php         dashboard "Painel de Procurados" — mandados em aberto (Maringá/PR)
 login.php            tela de login
 logout.php            encerra a sessão
 mapbox-update.php     tela para registrar manualmente o uso do Mapbox (Map Loads)
@@ -47,6 +48,8 @@ sql/
   schema.sql           cria o banco `dashstatus` e a tabela `users`
 bin/
   create-admin.php     CLI para criar/atualizar um usuário
+  import-procurados.php  CLI local que gera assets/data/procurados.json a partir
+                          do SQLite do mandados-system (ver seção "Procurados")
 api/
   status.php           endpoint JSON com o uso real do OpenCage (não usado hoje)
   host-status.php       endpoint JSON polled pelo Host Monitor (CPU/RAM/disco/rede)
@@ -329,6 +332,77 @@ mesmo padrão de toda outra credencial do projeto — o app não usa
 `.env`/Composer. Se o watcher usado aqui foi exposto em algum momento (ex:
 colado em texto puro numa conversa), regenere com `cscli watchers delete` +
 `cscli watchers add` antes de configurar.
+
+### Painel de Procurados (BNMP / mandados-system)
+
+Dashboard separado (`procurados.php`, acessível pelo hub) que lista os mandados
+em aberto na comarca de Maringá/PR, com busca, filtros (categoria,
+periculosidade, cidade) e ficha lateral por pessoa.
+
+**Fonte dos dados — decisão importante:** os dados NÃO vêm de uma tabela no
+MySQL do DashStatus nem são lidos ao vivo de outro sistema. Eles vêm do banco
+SQLite (`mandados_mgr.db`) mantido pelo `mandados-system`, uma ferramenta
+**local** (roda no Windows de quem opera, com Playwright abrindo um Chrome de
+verdade pra resolver o captcha do BNMP na mão) — esse arquivo só existe na
+máquina de quem roda a ferramenta, nunca no servidor de produção. Como o
+deploy do DashStatus é `git pull` no servidor (sem acesso remoto ao MySQL de
+produção nem execução de scripts do outro sistema lá), a única forma prática
+de levar esses dados pro ar é gerar um arquivo estático e versioná-lo:
+
+- `bin/import-procurados.php` roda **localmente**, lê `mandados_mgr.db` (só os
+  mandados com `MANDADO_SITUACAO = 'Pendente de Cumprimento'` — os "Baixados"
+  ficam de fora de propósito, porque baixa não é sinônimo de captura: pode ser
+  extinção de pena, recurso, etc., e rotular alguém como "capturado" sem
+  certeza é um risco jurídico desnecessário), copia as fotos correspondentes
+  de `uploads/procurados/mgr/` (quando o arquivo existe de fato — a maioria
+  dos registros ainda não tem foto baixada) para `assets/img/procurados/`, e
+  grava `assets/data/procurados.json`.
+- `procurados.php` só lê esse JSON (`file_get_contents` + `json_decode`) e
+  embute o array como `window.WANTED_DADOS` na página — sem API, sem polling,
+  sem tabela nova. `assets/js/procurados.js` cuida de filtro/busca/ordenação/
+  paginação (24 por página) no client.
+- Pra atualizar os dados: rode `php bin/import-procurados.php` de novo sempre
+  que o cliente atualizar a base no `mandados-system` (o import é idempotente,
+  sobrescreve o JSON inteiro) e suba o resultado (`assets/data/procurados.json`
+  + fotos novas em `assets/img/procurados/`) com um commit + `git pull` no
+  servidor, do mesmo jeito que qualquer outra mudança de código.
+
+**O que NÃO vai pro painel público**, mesmo existindo na base de origem:
+CPF e RG (dado sensível, LGPD) — nunca chegam a sair do SQLite, nem
+passageiramente. Endereço completo também não é exibido, só a cidade (extraída
+por regex do campo de endereço bruto, que vem de OCR/scrape e por isso é
+inconsistente — às vezes sem acentuação, às vezes com mais de um endereço
+concatenado na mesma string; quando não dá pra extrair, cai em "Não
+informado").
+
+**Periculosidade (sem/baixa/média/alta/altíssima)** não existe como campo
+pronto na fonte — é derivada de `CLASSIFIC_CRIMINOSO` (ex: "07.
+Homicida/Latrocida", "05. Traficante") pelo mapa em `RISCO_POR_CODIGO`, dentro
+do script de importação. A tabela de corte foi definida pelo cliente, não por
+nós:
+
+| Código | Classificação | Periculosidade |
+|---|---|---|
+| 01 | Devedor de Pensão Alimentícia | Sem periculosidade |
+| 03 | Agressor Doméstico | Média |
+| 04 | Furtador, Receptador e Similares | Baixa |
+| 05 | Traficante | Média |
+| 06 | Roubador, Porte Ilegal de Arma ou Furtador por Destruição | Alta |
+| 07 | Homicida/Latrocida | Alta |
+| 08 | Agressor Sexual | Alta |
+| 09 | Múltiplas Condenações | Altíssima |
+| 10 | Criminoso de ORCRIM | Altíssima |
+| 11 | Condutor de Veículo Sob Efeito de Álcool | Baixa |
+| 12 | Ameaça, Dano, Desacato e Similares | Média |
+| (sem código / `?`) | Não classificado | Sem periculosidade |
+
+Ajustável em `RISCO_POR_CODIGO` (`bin/import-procurados.php`) se o cliente
+pedir outro critério.
+
+**Campos que o design original previa mas a fonte real não tem:** altura e
+observações/histórico não existem na base do BNMP, então a ficha lateral não
+mostra esses campos — no lugar entraram campos reais disponíveis (tipo de
+prisão, data de expedição, comarca/vara).
 
 ## Registro de atividade
 

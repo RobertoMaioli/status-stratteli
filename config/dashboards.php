@@ -26,4 +26,11 @@ return [
         'link' => 'security-threats.php',
         'icon' => '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9s1.3-6.5 3.8-9z"/>',
     ],
+    [
+        'key' => 'procurados',
+        'name' => 'Painel de Procurados',
+        'description' => 'Busca e ficha de pessoas procuradas em Maringá/PR, com filtros por categoria, periculosidade, situação e região.',
+        'link' => 'procurados.php',
+        'icon' => '<path d="M12 12a4.5 4.5 0 100-9 4.5 4.5 0 000 9z"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>',
+    ],
 ];
