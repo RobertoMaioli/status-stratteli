@@ -2,6 +2,22 @@
 declare(strict_types=1);
 
 if (session_status() === PHP_SESSION_NONE) {
+    // Em produção (stratelli.com.br), escopa o cookie pro domínio raiz —
+    // não só o host exato — pra mesma sessão valer em outros subdomínios
+    // (ex: mandados.stratelli.com.br), permitindo SSO via nginx auth_request
+    // (ver api/check-session.php). Em dev local (localhost etc.) mantém o
+    // comportamento padrão do PHP, senão a sessão não funciona sem HTTPS.
+    $host = $_SERVER['HTTP_HOST'] ?? '';
+    if (str_ends_with($host, 'stratelli.com.br')) {
+        session_set_cookie_params([
+            'lifetime' => 0,
+            'path' => '/',
+            'domain' => '.stratelli.com.br',
+            'secure' => true,
+            'httponly' => true,
+            'samesite' => 'Lax',
+        ]);
+    }
     session_start();
 }
 
