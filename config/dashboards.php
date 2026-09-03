@@ -33,4 +33,11 @@ return [
         'link' => 'procurados.php',
         'icon' => '<path d="M12 12a4.5 4.5 0 100-9 4.5 4.5 0 000 9z"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>',
     ],
+    [
+        'key' => 'mandados',
+        'name' => 'Mandados',
+        'description' => 'Sistema de coleta e tratamento de mandados do BNMP — importação de base, PDFs e exportação por cliente.',
+        'link' => 'https://mandados.stratelli.com.br',
+        'icon' => '<path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/>',
+    ],
 ];
