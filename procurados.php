@@ -8,7 +8,7 @@ auth_check();
 
 $procuradosResultado = procuradosCarregar($config);
 $procurados = $procuradosResultado['registros'] ?? [];
-$updatedAt = 'ATUALIZADO ' . strtoupper(date('d M Y', $procuradosResultado['gerado_em'] ?: time()));
+$updatedAt = 'ATUALIZADO ' . date('d/m/Y', $procuradosResultado['gerado_em'] ?: time());
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
