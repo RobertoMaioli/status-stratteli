@@ -70,5 +70,15 @@ return [
             // Mandar no header: X-Api-Key: <token>
             'api_key' => '',
         ],
+        'mandados' => [
+            // Consumo ao vivo de /api/publico/procurados no mandados-system
+            // (substitui o antigo data/procurados.json gerado por
+            // bin/import-procurados.php). api_key precisa ser IGUAL ao
+            // PUBLIC_API_KEY do .env do mandados-system.
+            'base_url' => 'https://mandados.stratelli.com.br',
+            'api_key' => '',
+            'cliente' => 'MGR',
+            'cache_ttl_seconds' => 60,
+        ],
     ],
 ];

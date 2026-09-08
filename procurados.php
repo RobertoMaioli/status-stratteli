@@ -2,16 +2,13 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/includes/bootstrap.php';
+require_once __DIR__ . '/includes/procurados-source.php';
 
 auth_check();
 
-$dataFile = __DIR__ . '/data/procurados.json';
-$dataFileExists = is_file($dataFile);
-$procurados = $dataFileExists ? json_decode((string) file_get_contents($dataFile), true) : [];
-if (!is_array($procurados)) {
-    $procurados = [];
-}
-$updatedAt = 'ATUALIZADO ' . strtoupper(date('d M Y', $dataFileExists ? filemtime($dataFile) : time()));
+$procuradosResultado = procuradosCarregar($config);
+$procurados = $procuradosResultado['registros'] ?? [];
+$updatedAt = 'ATUALIZADO ' . strtoupper(date('d M Y', $procuradosResultado['gerado_em'] ?: time()));
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

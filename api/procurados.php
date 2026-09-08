@@ -18,6 +18,7 @@ declare(strict_types=1);
  */
 
 require_once __DIR__ . '/../includes/bootstrap.php';
+require_once __DIR__ . '/../includes/procurados-source.php';
 
 header('Content-Type: application/json; charset=utf-8');
 
@@ -30,11 +31,8 @@ if ($apiKey === '' || !hash_equals($apiKey, $provided)) {
     exit;
 }
 
-$dataFile = __DIR__ . '/../data/procurados.json';
-$dados = is_file($dataFile) ? json_decode((string) file_get_contents($dataFile), true) : [];
-if (!is_array($dados)) {
-    $dados = [];
-}
+$procuradosResultado = procuradosCarregar($config);
+$dados = $procuradosResultado['registros'] ?? [];
 
 if (($_GET['todos'] ?? '') !== '1') {
     $dados = array_values(array_filter($dados, fn ($p) => !empty($p['foto'])));
@@ -64,7 +62,7 @@ $apiPos = strrpos($scriptPath, '/api/');
 $appRoot = $apiPos !== false ? rtrim(substr($scriptPath, 0, $apiPos), '/') : '';
 $baseUrl = $scheme . '://' . $_SERVER['HTTP_HOST'] . $appRoot;
 foreach ($pagina as &$registro) {
-    if (!empty($registro['foto'])) {
+    if (!empty($registro['foto']) && !preg_match('#^https?://#i', $registro['foto'])) {
         $registro['foto'] = $baseUrl . '/' . $registro['foto'];
     }
 }
@@ -76,6 +74,6 @@ echo json_encode([
     'pagina' => $page,
     'por_pagina' => $perPage,
     'total_paginas' => (int) max(1, ceil($total / $perPage)),
-    'atualizado_em' => is_file($dataFile) ? date('c', filemtime($dataFile)) : null,
+    'atualizado_em' => !empty($procuradosResultado['gerado_em']) ? date('c', $procuradosResultado['gerado_em']) : null,
     'dados' => $pagina,
 ], JSON_UNESCAPED_UNICODE);
