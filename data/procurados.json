@@ -80,6 +80,24 @@
         "expedicao": "31/10/2023"
     },
     {
+        "id": "0012205-23.2022.8.16.0017.01.0008-03",
+        "nome": "LUIZ HENRIQUE DA SILVA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": "assets/img/procurados/0012205-23_2022_8_16_0017_01_0008-03.jpg",
+        "risco": "sem",
+        "categoria": "Não classificado",
+        "tags": [
+            "Lei: 11343, Artigo: 33"
+        ],
+        "cidade": "Querencia Do Norte",
+        "situacao": "EM ABERTO",
+        "idade": 29,
+        "mandado": "0012205-23.2022.8.16.0017.01.0008-03",
+        "vara": "MARINGÁ - 2ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
+        "expedicao": "31/08/2026"
+    },
+    {
         "id": "0014752-94.2026.8.16.0017.01.0005-06",
         "nome": "HUDSON GALDINO LODDO",
         "vulgo": "Sem alcunha registrada",
@@ -117,42 +135,6 @@
         "expedicao": "31/08/2026"
     },
     {
-        "id": "0012205-23.2022.8.16.0017.01.0008-03",
-        "nome": "LUIZ HENRIQUE DA SILVA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/0012205-23_2022_8_16_0017_01_0008-03.jpg",
-        "risco": "sem",
-        "categoria": "Não classificado",
-        "tags": [
-            "Lei: 11343, Artigo: 33"
-        ],
-        "cidade": "Querencia Do Norte",
-        "situacao": "EM ABERTO",
-        "idade": 29,
-        "mandado": "0012205-23.2022.8.16.0017.01.0008-03",
-        "vara": "MARINGÁ - 2ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
-        "expedicao": "31/08/2026"
-    },
-    {
-        "id": "0012205-23.2022.8.16.0017.01.0009-05",
-        "nome": "RENAN CORDEIRO DE AQUINO",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Não classificado",
-        "tags": [
-            "Lei: 11343, Artigo: 33"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 28,
-        "mandado": "0012205-23.2022.8.16.0017.01.0009-05",
-        "vara": "MARINGÁ - 2ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
-        "expedicao": "31/08/2026"
-    },
-    {
         "id": "0015218-06.2017.8.16.0017.01.0002-00",
         "nome": "IVANILDO DA SILVA",
         "vulgo": "Sem alcunha registrada",
@@ -175,7 +157,7 @@
         "id": "0002581-81.2021.8.16.0017.01.0007-08",
         "nome": "CARLOS SERGIO BORGES DA SILVA",
         "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/0002581-81_2021_8_16_0017_01_0004-02.jpg",
+        "foto": "assets/img/procurados/0002581-81_2021_8_16_0017_01_0007-08.jpg",
         "risco": "media",
         "categoria": "Traficante",
         "tags": [
@@ -184,29 +166,10 @@
         ],
         "cidade": "Sarandi",
         "situacao": "EM ABERTO",
-        "idade": 57,
+        "idade": 58,
         "mandado": "0002581-81.2021.8.16.0017.01.0007-08",
         "vara": "MARINGÁ - 2ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
-        "expedicao": "31/07/2026"
-    },
-    {
-        "id": "0015998-62.2025.8.16.0017.01.0001-01",
-        "nome": "ODAIR LOURENCO BARBOSA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 34,
-        "mandado": "0015998-62.2025.8.16.0017.01.0001-01",
-        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
-        "especie_prisao": "Civil",
         "expedicao": "31/07/2026"
     },
     {
@@ -268,21 +231,20 @@
         "expedicao": "31/03/2026"
     },
     {
-        "id": "0003445-70.2022.8.16.0119.26.0004-17",
-        "nome": "MARCELO DOS SANTOS",
+        "id": "0001062-04.2020.8.16.0180.26.0003-05",
+        "nome": "ERIK JULLIO GUIMARÃES FRANÇA",
         "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
+        "foto": "assets/img/procurados/0001062-04_2020_8_16_0180_26_0003-05.jpg",
+        "risco": "media",
+        "categoria": "Traficante",
         "tags": [
-            "Lei: 3688, Artigo: 21, Crime tentato: Não                 Violência Doméstica: Não",
-            "Lei: 2848, Artigo: 147, Artigo: 157, Parágrafo: 3, Crime tentato: Não                 Violência Doméstica: Não",
-            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
+            "Lei: 11343, Artigo: 33, Complemento: caput, Crime tentato: Não                 Violência Doméstica: Não",
+            "Traficante"
         ],
-        "cidade": "Nova Esperanca",
+        "cidade": "Sarandi",
         "situacao": "EM ABERTO",
-        "idade": 47,
-        "mandado": "0003445-70.2022.8.16.0119.26.0004-17",
+        "idade": 27,
+        "mandado": "0001062-04.2020.8.16.0180.26.0003-05",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Recaptura",
         "expedicao": "31/03/2026"
@@ -307,20 +269,21 @@
         "expedicao": "31/03/2026"
     },
     {
-        "id": "0001062-04.2020.8.16.0180.26.0003-05",
-        "nome": "ERIK JULLIO GUIMARÃES FRANÇA",
+        "id": "0003445-70.2022.8.16.0119.26.0004-17",
+        "nome": "MARCELO DOS SANTOS",
         "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/0001062-04_2020_8_16_0180_26_0003-05.jpg",
-        "risco": "media",
-        "categoria": "Traficante",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
         "tags": [
-            "Lei: 11343, Artigo: 33, Complemento: caput, Crime tentato: Não                 Violência Doméstica: Não",
-            "Traficante"
+            "Lei: 3688, Artigo: 21, Crime tentato: Não                 Violência Doméstica: Não",
+            "Lei: 2848, Artigo: 147, Artigo: 157, Parágrafo: 3, Crime tentato: Não                 Violência Doméstica: Não",
+            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
         ],
-        "cidade": "Sarandi",
+        "cidade": "Nova Esperanca",
         "situacao": "EM ABERTO",
-        "idade": 26,
-        "mandado": "0001062-04.2020.8.16.0180.26.0003-05",
+        "idade": 47,
+        "mandado": "0003445-70.2022.8.16.0119.26.0004-17",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Recaptura",
         "expedicao": "31/03/2026"
@@ -384,20 +347,20 @@
         "expedicao": "30/10/2025"
     },
     {
-        "id": "0013635-44.2021.8.16.0017.01.0012-24",
-        "nome": "DIEGO PEREIRA GOMES",
+        "id": "0013635-44.2021.8.16.0017.01.0001-19",
+        "nome": "RAFHAEL DA CRUZ XAVIER",
         "vulgo": "Sem alcunha registrada",
-        "foto": null,
+        "foto": "assets/img/procurados/0027239-43_2019_8_16_0017_01_0005-01.jpg",
         "risco": "media",
         "categoria": "Traficante",
         "tags": [
             "Lei: 11343, art. 33",
             "Traficante"
         ],
-        "cidade": "Nova Esperanca",
+        "cidade": "Sarandi",
         "situacao": "EM ABERTO",
         "idade": 36,
-        "mandado": "0013635-44.2021.8.16.0017.01.0012-24",
+        "mandado": "0013635-44.2021.8.16.0017.01.0001-19",
         "vara": "MARINGÁ - 3ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Preventiva",
         "expedicao": "30/09/2022"
@@ -422,20 +385,20 @@
         "expedicao": "30/09/2022"
     },
     {
-        "id": "0013635-44.2021.8.16.0017.01.0001-19",
-        "nome": "RAFHAEL DA CRUZ XAVIER",
+        "id": "0013635-44.2021.8.16.0017.01.0012-24",
+        "nome": "DIEGO PEREIRA GOMES",
         "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/0027239-43_2019_8_16_0017_01_0005-01.jpg",
+        "foto": null,
         "risco": "media",
         "categoria": "Traficante",
         "tags": [
             "Lei: 11343, art. 33",
             "Traficante"
         ],
-        "cidade": "Sarandi",
+        "cidade": "Nova Esperanca",
         "situacao": "EM ABERTO",
         "idade": 36,
-        "mandado": "0013635-44.2021.8.16.0017.01.0001-19",
+        "mandado": "0013635-44.2021.8.16.0017.01.0012-24",
         "vara": "MARINGÁ - 3ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Preventiva",
         "expedicao": "30/09/2022"
@@ -517,44 +480,6 @@
         "expedicao": "30/07/2026"
     },
     {
-        "id": "5002897-35.2022.4.04.7003.01.0001-02",
-        "nome": "BRUNO HENRIQUE DA SILVA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Homicida/Latrocida",
-        "tags": [
-            "Lei: 2848, Artigo: 129, Parágrafo: 1",
-            "Homicida/Latrocida"
-        ],
-        "cidade": "Jataizinho",
-        "situacao": "EM ABERTO",
-        "idade": 39,
-        "mandado": "5002897-35.2022.4.04.7003.01.0001-02",
-        "vara": "3ª VARA FEDERAL DE MARINGÁ - TRF4",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
-        "expedicao": "30/07/2026"
-    },
-    {
-        "id": "0025318-54.2016.8.16.0017.01.0008-23",
-        "nome": "LEONARDO DE OLIVEIRA CORREA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Homicida/Latrocida",
-        "tags": [
-            "Lei: 2848, Artigo: 157, Parágrafo: 3",
-            "Homicida/Latrocida"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 32,
-        "mandado": "0025318-54.2016.8.16.0017.01.0008-23",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Regressão cautelar",
-        "expedicao": "30/07/2026"
-    },
-    {
         "id": "0008652-36.2019.8.16.0190.01.0009-07",
         "nome": "IGOR NEPOMUCENO ALVES",
         "vulgo": "Sem alcunha registrada",
@@ -614,23 +539,42 @@
         "expedicao": "30/07/2026"
     },
     {
-        "id": "0023335-05.2025.8.16.0017.01.0001-02",
-        "nome": "IGOR FELIPE DE MOURA FELIX",
+        "id": "0025318-54.2016.8.16.0017.01.0008-23",
+        "nome": "LEONARDO DE OLIVEIRA CORREA",
         "vulgo": "Sem alcunha registrada",
         "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
+        "risco": "alta",
+        "categoria": "Homicida/Latrocida",
         "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
+            "Lei: 2848, Artigo: 157, Parágrafo: 3",
+            "Homicida/Latrocida"
         ],
         "cidade": "Maringa",
         "situacao": "EM ABERTO",
-        "idade": 27,
-        "mandado": "0023335-05.2025.8.16.0017.01.0001-02",
-        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
-        "especie_prisao": "Civil",
-        "expedicao": "30/06/2026"
+        "idade": 32,
+        "mandado": "0025318-54.2016.8.16.0017.01.0008-23",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Regressão cautelar",
+        "expedicao": "30/07/2026"
+    },
+    {
+        "id": "5002897-35.2022.4.04.7003.01.0001-02",
+        "nome": "BRUNO HENRIQUE DA SILVA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Homicida/Latrocida",
+        "tags": [
+            "Lei: 2848, Artigo: 129, Parágrafo: 1",
+            "Homicida/Latrocida"
+        ],
+        "cidade": "Jataizinho",
+        "situacao": "EM ABERTO",
+        "idade": 39,
+        "mandado": "5002897-35.2022.4.04.7003.01.0001-02",
+        "vara": "3ª VARA FEDERAL DE MARINGÁ - TRF4",
+        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
+        "expedicao": "30/07/2026"
     },
     {
         "id": "0006524-67.2025.8.16.0017.01.0001-17",
@@ -652,24 +596,22 @@
         "expedicao": "30/06/2026"
     },
     {
-        "id": "4001163-35.2023.8.16.0190.01.0001-18",
-        "nome": "Afonso Samuel Vida",
+        "id": "0023335-05.2025.8.16.0017.01.0001-02",
+        "nome": "IGOR FELIPE DE MOURA FELIX",
         "vulgo": "Sem alcunha registrada",
         "foto": null,
-        "risco": "media",
-        "categoria": "Agressor Doméstico",
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
         "tags": [
-            "Lei: 11340, Artigo: 24A, Parágrafo: caput",
-            "Lei: 2848, Artigo: 147A, Parágrafo: caput",
-            "Lei: 2848, Artigo: 147, Parágrafo: caput",
-            "Agressor Doméstico"
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
         ],
-        "cidade": "Não informado",
+        "cidade": "Maringa",
         "situacao": "EM ABERTO",
-        "idade": 41,
-        "mandado": "4001163-35.2023.8.16.0190.01.0001-18",
-        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
-        "especie_prisao": "Suspensão de regime",
+        "idade": 27,
+        "mandado": "0023335-05.2025.8.16.0017.01.0001-02",
+        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
+        "especie_prisao": "Civil",
         "expedicao": "30/06/2026"
     },
     {
@@ -687,6 +629,27 @@
         "situacao": "EM ABERTO",
         "idade": 50,
         "mandado": "4000141-68.2025.8.16.0190.01.0001-27",
+        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
+        "especie_prisao": "Suspensão de regime",
+        "expedicao": "30/06/2026"
+    },
+    {
+        "id": "4001163-35.2023.8.16.0190.01.0001-18",
+        "nome": "Afonso Samuel Vida",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "media",
+        "categoria": "Agressor Doméstico",
+        "tags": [
+            "Lei: 11340, Artigo: 24A, Parágrafo: caput",
+            "Lei: 2848, Artigo: 147A, Parágrafo: caput",
+            "Lei: 2848, Artigo: 147, Parágrafo: caput",
+            "Agressor Doméstico"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 41,
+        "mandado": "4001163-35.2023.8.16.0190.01.0001-18",
         "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
         "especie_prisao": "Suspensão de regime",
         "expedicao": "30/06/2026"
@@ -730,6 +693,25 @@
         "expedicao": "30/06/2014"
     },
     {
+        "id": "0000075-98.2022.8.16.0017.01.0001-07",
+        "nome": "RENAN SALU GOMES",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "baixa",
+        "categoria": "Furtador, Receptador e Similares",
+        "tags": [
+            "Lei: 2848, Artigo: 155, Parágrafo: 4",
+            "Furtador, Receptador e Similares"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 33,
+        "mandado": "0000075-98.2022.8.16.0017.01.0001-07",
+        "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
+        "expedicao": "30/04/2026"
+    },
+    {
         "id": "0000999-54.2023.8.16.0121.26.0011-23",
         "nome": "FERNANDO HENRIQUE DA SLVA GIUFRIDA",
         "vulgo": "Sem alcunha registrada",
@@ -746,25 +728,6 @@
         "mandado": "0000999-54.2023.8.16.0121.26.0011-23",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Recaptura",
-        "expedicao": "30/04/2026"
-    },
-    {
-        "id": "0000075-98.2022.8.16.0017.01.0001-07",
-        "nome": "RENAN SALU GOMES",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "baixa",
-        "categoria": "Furtador, Receptador e Similares",
-        "tags": [
-            "Lei: 2848, Artigo: 155, Parágrafo: 4",
-            "Furtador, Receptador e Similares"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 32,
-        "mandado": "0000075-98.2022.8.16.0017.01.0001-07",
-        "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
         "expedicao": "30/04/2026"
     },
     {
@@ -789,25 +752,6 @@
         "expedicao": "30/04/2024"
     },
     {
-        "id": "0001156-58.2017.8.16.0017.01.0002-12",
-        "nome": "SANDRA JAZMIN GUERRERO CHUQUITARCO",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "baixa",
-        "categoria": "Furtador, Receptador e Similares",
-        "tags": [
-            "Lei: 2848, Artigo: 155",
-            "Furtador, Receptador e Similares"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 31,
-        "mandado": "0001156-58.2017.8.16.0017.01.0002-12",
-        "vara": "MARINGÁ - 3ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Preventiva",
-        "expedicao": "30/01/2026"
-    },
-    {
         "id": "0001156-58.2017.8.16.0017.01.0001-10",
         "nome": "SANDRA ELIZABETH SANCHEZ NASEVILLA",
         "vulgo": "Sem alcunha registrada",
@@ -827,6 +771,25 @@
         "expedicao": "30/01/2026"
     },
     {
+        "id": "0001156-58.2017.8.16.0017.01.0002-12",
+        "nome": "SANDRA JAZMIN GUERRERO CHUQUITARCO",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "baixa",
+        "categoria": "Furtador, Receptador e Similares",
+        "tags": [
+            "Lei: 2848, Artigo: 155",
+            "Furtador, Receptador e Similares"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 31,
+        "mandado": "0001156-58.2017.8.16.0017.01.0002-12",
+        "vara": "MARINGÁ - 3ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Preventiva",
+        "expedicao": "30/01/2026"
+    },
+    {
         "id": "0015142-16.2016.8.16.0017.01.0005-12",
         "nome": "Ademir dos Santos",
         "vulgo": "Sem alcunha registrada",
@@ -841,25 +804,6 @@
         "situacao": "EM ABERTO",
         "idade": null,
         "mandado": "0015142-16.2016.8.16.0017.01.0005-12",
-        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
-        "especie_prisao": "Civil",
-        "expedicao": "29/11/2024"
-    },
-    {
-        "id": "0018945-94.2022.8.16.0017.01.0001-09",
-        "nome": "LAUDNEY VIEIRA DE SOUZA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 47,
-        "mandado": "0018945-94.2022.8.16.0017.01.0001-09",
         "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
         "especie_prisao": "Civil",
         "expedicao": "29/11/2024"
@@ -960,20 +904,20 @@
         "expedicao": "29/08/2023"
     },
     {
-        "id": "0017349-12.2021.8.16.0017.01.0004-04",
-        "nome": "MAYCON DE OLIVEIRA",
+        "id": "0000018-56.2017.8.16.0017.01.0001-19",
+        "nome": "WELLINGTON LEANDRO SILVA DO AMARAL",
         "vulgo": "Sem alcunha registrada",
         "foto": null,
-        "risco": "media",
-        "categoria": "Traficante",
+        "risco": "alta",
+        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
         "tags": [
-            "Lei: 11343, Artigo: 33",
-            "Traficante"
+            "Lei: 2848, Artigo: 157, Parágrafo: 2",
+            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
         ],
         "cidade": "Maringa",
         "situacao": "EM ABERTO",
-        "idade": 38,
-        "mandado": "0017349-12.2021.8.16.0017.01.0004-04",
+        "idade": 42,
+        "mandado": "0000018-56.2017.8.16.0017.01.0001-19",
         "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
         "expedicao": "29/07/2026"
@@ -1017,20 +961,39 @@
         "expedicao": "29/07/2026"
     },
     {
-        "id": "0000018-56.2017.8.16.0017.01.0001-19",
-        "nome": "WELLINGTON LEANDRO SILVA DO AMARAL",
+        "id": "0012713-03.2021.8.16.0017.01.0002-03",
+        "nome": "JEAN CARLOS DAS NEVES",
+        "vulgo": "Sem alcunha registrada",
+        "foto": "assets/img/procurados/0012713-03_2021_8_16_0017_01_0002-03.jpg",
+        "risco": "media",
+        "categoria": "Traficante",
+        "tags": [
+            "Lei: 11343, Artigo: 33",
+            "Traficante"
+        ],
+        "cidade": "Rio De Janeiro",
+        "situacao": "EM ABERTO",
+        "idade": 34,
+        "mandado": "0012713-03.2021.8.16.0017.01.0002-03",
+        "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
+        "expedicao": "29/07/2026"
+    },
+    {
+        "id": "0017349-12.2021.8.16.0017.01.0004-04",
+        "nome": "MAYCON DE OLIVEIRA",
         "vulgo": "Sem alcunha registrada",
         "foto": null,
-        "risco": "alta",
-        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
+        "risco": "media",
+        "categoria": "Traficante",
         "tags": [
-            "Lei: 2848, Artigo: 157, Parágrafo: 2",
-            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
+            "Lei: 11343, Artigo: 33",
+            "Traficante"
         ],
         "cidade": "Maringa",
         "situacao": "EM ABERTO",
-        "idade": 42,
-        "mandado": "0000018-56.2017.8.16.0017.01.0001-19",
+        "idade": 38,
+        "mandado": "0017349-12.2021.8.16.0017.01.0004-04",
         "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
         "expedicao": "29/07/2026"
@@ -1051,25 +1014,6 @@
         "idade": 52,
         "mandado": "4000080-13.2025.8.16.0190.01.0003-20",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
-        "expedicao": "29/07/2026"
-    },
-    {
-        "id": "0012713-03.2021.8.16.0017.01.0002-03",
-        "nome": "JEAN CARLOS DAS NEVES",
-        "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/0012713-03_2021_8_16_0017_01_0002-03.jpg",
-        "risco": "media",
-        "categoria": "Traficante",
-        "tags": [
-            "Lei: 11343, Artigo: 33",
-            "Traficante"
-        ],
-        "cidade": "Rio De Janeiro",
-        "situacao": "EM ABERTO",
-        "idade": 34,
-        "mandado": "0012713-03.2021.8.16.0017.01.0002-03",
-        "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
         "expedicao": "29/07/2026"
     },
@@ -1112,25 +1056,6 @@
         "expedicao": "29/07/2024"
     },
     {
-        "id": "4000827-25.2024.8.16.0019.26.0003-16",
-        "nome": "KESSY JHONES LEODORO",
-        "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/4000827-25_2024_8_16_0019_01_0001-24.png",
-        "risco": "alta",
-        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
-        "tags": [
-            "Lei: 2848, Artigo: 330, Parágrafo: caput, Artigo: 157, Parágrafo: 2, Crime tentato: Não                 Violência Doméstica: Não",
-            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 23,
-        "mandado": "4000827-25.2024.8.16.0019.26.0003-16",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Recaptura",
-        "expedicao": "29/06/2026"
-    },
-    {
         "id": "0025311-47.2025.8.16.0017.01.0001-12",
         "nome": "RAFAEL DOS SANTOS BORCEM",
         "vulgo": "Sem alcunha registrada",
@@ -1147,6 +1072,25 @@
         "mandado": "0025311-47.2025.8.16.0017.01.0001-12",
         "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
         "especie_prisao": "Civil",
+        "expedicao": "29/06/2026"
+    },
+    {
+        "id": "4000827-25.2024.8.16.0019.26.0003-16",
+        "nome": "KESSY JHONES LEODORO",
+        "vulgo": "Sem alcunha registrada",
+        "foto": "assets/img/procurados/4000827-25_2024_8_16_0019_01_0001-24.png",
+        "risco": "alta",
+        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
+        "tags": [
+            "Lei: 2848, Artigo: 330, Parágrafo: caput, Artigo: 157, Parágrafo: 2, Crime tentato: Não                 Violência Doméstica: Não",
+            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 23,
+        "mandado": "4000827-25.2024.8.16.0019.26.0003-16",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Recaptura",
         "expedicao": "29/06/2026"
     },
     {
@@ -1342,25 +1286,6 @@
         "expedicao": "28/08/2026"
     },
     {
-        "id": "4000051-65.2022.8.16.0190.01.0007-20",
-        "nome": "MOISES MOREIRA DA SILVA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "baixa",
-        "categoria": "Furtador, Receptador e Similares",
-        "tags": [
-            "Lei: 2848, Artigo: 155, Parágrafo: 4",
-            "Furtador, Receptador e Similares"
-        ],
-        "cidade": "Cambe",
-        "situacao": "EM ABERTO",
-        "idade": 31,
-        "mandado": "4000051-65.2022.8.16.0190.01.0007-20",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Regressão de regime",
-        "expedicao": "28/08/2026"
-    },
-    {
         "id": "0005824-33.2020.8.16.0190.01.0001-17",
         "nome": "TIAGO FRAGA DE OLIVEIRA",
         "vulgo": "Sem alcunha registrada",
@@ -1476,6 +1401,25 @@
         "expedicao": "28/05/2026"
     },
     {
+        "id": "0001665-19.1999.8.16.0017.01.0002-24",
+        "nome": "Antonio dos Santos",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Agressor Sexual",
+        "tags": [
+            "Lei: 2848, Artigo: 214, Parágrafo: caput, Artigo: 213, Parágrafo: caput",
+            "Agressor Sexual"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": null,
+        "mandado": "0001665-19.1999.8.16.0017.01.0002-24",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
+        "expedicao": "28/05/2025"
+    },
+    {
         "id": "0003845-60.2025.8.16.0190.01.0001-00",
         "nome": "FRANCISTONI DIAS DOS SANTOS",
         "vulgo": "Sem alcunha registrada",
@@ -1493,25 +1437,6 @@
         "mandado": "0003845-60.2025.8.16.0190.01.0001-00",
         "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
         "especie_prisao": "Preventiva",
-        "expedicao": "28/05/2025"
-    },
-    {
-        "id": "0001665-19.1999.8.16.0017.01.0002-24",
-        "nome": "Antonio dos Santos",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Agressor Sexual",
-        "tags": [
-            "Lei: 2848, Artigo: 214, Parágrafo: caput, Artigo: 213, Parágrafo: caput",
-            "Agressor Sexual"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": null,
-        "mandado": "0001665-19.1999.8.16.0017.01.0002-24",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
         "expedicao": "28/05/2025"
     },
     {
@@ -1681,7 +1606,7 @@
         ],
         "cidade": "Não informado",
         "situacao": "EM ABERTO",
-        "idade": 28,
+        "idade": 29,
         "mandado": "0011838-72.2017.8.16.0017.01.0014-17",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Por condenação transitada em julgado",
@@ -1746,25 +1671,6 @@
         "expedicao": "27/08/2020"
     },
     {
-        "id": "4000785-45.2024.8.16.0190.26.0002-19",
-        "nome": "CLAUDEMIR ANTUNES DE ANDRADE",
-        "vulgo": "Vulgo \"VOVO\"",
-        "foto": null,
-        "risco": "baixa",
-        "categoria": "Furtador, Receptador e Similares",
-        "tags": [
-            "Lei: 2848, Artigo: 157, Parágrafo: 2, Artigo: 155, Parágrafo: caput, Crime tentato: Não                 Violência Doméstica: Não",
-            "Furtador, Receptador e Similares"
-        ],
-        "cidade": "Rosana",
-        "situacao": "EM ABERTO",
-        "idade": 43,
-        "mandado": "4000785-45.2024.8.16.0190.26.0002-19",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Recaptura",
-        "expedicao": "27/07/2026"
-    },
-    {
         "id": "0011220-20.2023.8.16.0017.01.0001-02",
         "nome": "LUIS EDUARDO DE SOUZA PARDIM",
         "vulgo": "Sem alcunha registrada",
@@ -1781,6 +1687,25 @@
         "mandado": "0011220-20.2023.8.16.0017.01.0001-02",
         "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
+        "expedicao": "27/07/2026"
+    },
+    {
+        "id": "4000785-45.2024.8.16.0190.26.0002-19",
+        "nome": "CLAUDEMIR ANTUNES DE ANDRADE",
+        "vulgo": "Vulgo \"VOVO\"",
+        "foto": null,
+        "risco": "baixa",
+        "categoria": "Furtador, Receptador e Similares",
+        "tags": [
+            "Lei: 2848, Artigo: 157, Parágrafo: 2, Artigo: 155, Parágrafo: caput, Crime tentato: Não                 Violência Doméstica: Não",
+            "Furtador, Receptador e Similares"
+        ],
+        "cidade": "Rosana",
+        "situacao": "EM ABERTO",
+        "idade": 43,
+        "mandado": "4000785-45.2024.8.16.0190.26.0002-19",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Recaptura",
         "expedicao": "27/07/2026"
     },
     {
@@ -1841,6 +1766,25 @@
         "expedicao": "27/06/2024"
     },
     {
+        "id": "0003029-21.2002.8.16.0017.01.0001-00",
+        "nome": "JOSE BRANDAO DA SILVA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Homicida/Latrocida",
+        "tags": [
+            "Lei: 2848, art. 121 - Homicídio",
+            "Homicida/Latrocida"
+        ],
+        "cidade": "Santo Antonio Do Caiua",
+        "situacao": "EM ABERTO",
+        "idade": 57,
+        "mandado": "0003029-21.2002.8.16.0017.01.0001-00",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Por condenação transitada em julgado",
+        "expedicao": "27/06/2022"
+    },
+    {
         "id": "0006624-52.2017.8.16.0130.01.0003-27",
         "nome": "MARCOS ROSA DA SILVA",
         "vulgo": "Sem alcunha registrada",
@@ -1857,25 +1801,6 @@
         "situacao": "EM ABERTO",
         "idade": 40,
         "mandado": "0006624-52.2017.8.16.0130.01.0003-27",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Por condenação transitada em julgado",
-        "expedicao": "27/06/2022"
-    },
-    {
-        "id": "0003029-21.2002.8.16.0017.01.0001-00",
-        "nome": "JOSE BRANDAO DA SILVA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Homicida/Latrocida",
-        "tags": [
-            "Lei: 2848, art. 121 - Homicídio",
-            "Homicida/Latrocida"
-        ],
-        "cidade": "Santo Antonio Do Caiua",
-        "situacao": "EM ABERTO",
-        "idade": 57,
-        "mandado": "0003029-21.2002.8.16.0017.01.0001-00",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Por condenação transitada em julgado",
         "expedicao": "27/06/2022"
@@ -2093,25 +2018,6 @@
         "expedicao": "27/03/2015"
     },
     {
-        "id": "0011125-49.2017.8.16.0130.01.0002-05",
-        "nome": "OSMAR VIANA DOS SANTOS",
-        "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/0011125-49_2017_8_16_0130_01_0002-05.jpg",
-        "risco": "alta",
-        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
-        "tags": [
-            "Lei: 2848, Artigo: 157, Parágrafo: 1",
-            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 54,
-        "mandado": "0011125-49.2017.8.16.0130.01.0002-05",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
-        "expedicao": "27/02/2026"
-    },
-    {
         "id": "0000174-54.2011.8.16.0017.01.0001-18",
         "nome": "JOSE RICARDO CAVALCANTE",
         "vulgo": "Sem alcunha registrada",
@@ -2128,6 +2034,25 @@
         "mandado": "0000174-54.2011.8.16.0017.01.0001-18",
         "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
         "especie_prisao": "Civil",
+        "expedicao": "27/02/2026"
+    },
+    {
+        "id": "0011125-49.2017.8.16.0130.01.0002-05",
+        "nome": "OSMAR VIANA DOS SANTOS",
+        "vulgo": "Sem alcunha registrada",
+        "foto": "assets/img/procurados/0011125-49_2017_8_16_0130_01_0002-05.jpg",
+        "risco": "alta",
+        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
+        "tags": [
+            "Lei: 2848, Artigo: 157, Parágrafo: 1",
+            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 54,
+        "mandado": "0011125-49.2017.8.16.0130.01.0002-05",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
         "expedicao": "27/02/2026"
     },
     {
@@ -2249,6 +2174,78 @@
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Por condenação transitada em julgado",
         "expedicao": "26/09/2019"
+    },
+    {
+        "id": "0004588-70.2026.8.16.0017.01.0001-03",
+        "nome": "EZEQUIEL DOS SANTOS MAGALHAES",
+        "vulgo": "Vulgo \"FRANJINHA\"",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Não classificado",
+        "tags": [
+            "CPC, Artigo: 528"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 43,
+        "mandado": "0004588-70.2026.8.16.0017.01.0001-03",
+        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
+        "especie_prisao": "Civil",
+        "expedicao": "26/08/2026"
+    },
+    {
+        "id": "0008176-90.2023.8.16.0017.01.0001-22",
+        "nome": "MURILO CARLOS NEPONUCENA NOGUEIRA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Não classificado",
+        "tags": [
+            "CPC, Artigo: 528"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 25,
+        "mandado": "0008176-90.2023.8.16.0017.01.0001-22",
+        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
+        "especie_prisao": "Civil",
+        "expedicao": "26/08/2026"
+    },
+    {
+        "id": "0021696-15.2026.8.16.0017.01.0001-15",
+        "nome": "VICTOR LEANDRO NUNES MACIEL",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Não classificado",
+        "tags": [
+            "CPC, Artigo: 528"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 32,
+        "mandado": "0021696-15.2026.8.16.0017.01.0001-15",
+        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
+        "especie_prisao": "Civil",
+        "expedicao": "26/08/2026"
+    },
+    {
+        "id": "0034327-25.2025.8.16.0017.01.0001-27",
+        "nome": "RAFAEL DOS SANTOS",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Não classificado",
+        "tags": [
+            "CPC, Artigo: 528"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 37,
+        "mandado": "0034327-25.2025.8.16.0017.01.0001-27",
+        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
+        "especie_prisao": "Civil",
+        "expedicao": "26/08/2026"
     },
     {
         "id": "4000652-32.2026.8.16.0190.01.0001-26",
@@ -2438,7 +2435,7 @@
         ],
         "cidade": "Londrina",
         "situacao": "EM ABERTO",
-        "idade": 39,
+        "idade": 40,
         "mandado": "0013542-67.2010.8.16.0017.01.0001-21",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Por condenação transitada em julgado",
@@ -2464,25 +2461,6 @@
         "expedicao": "26/02/2014"
     },
     {
-        "id": "0013428-06.2025.8.16.0017.01.0001-04",
-        "nome": "DANNY SULLYVAN DOS SANTOS",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 37,
-        "mandado": "0013428-06.2025.8.16.0017.01.0001-04",
-        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
-        "especie_prisao": "Civil",
-        "expedicao": "25/11/2025"
-    },
-    {
         "id": "0007949-32.2025.8.16.0017.01.0001-15",
         "nome": "ROBERTO MARTINS DA SILVA",
         "vulgo": "Sem alcunha registrada",
@@ -2497,6 +2475,25 @@
         "situacao": "EM ABERTO",
         "idade": 50,
         "mandado": "0007949-32.2025.8.16.0017.01.0001-15",
+        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
+        "especie_prisao": "Civil",
+        "expedicao": "25/11/2025"
+    },
+    {
+        "id": "0013428-06.2025.8.16.0017.01.0001-04",
+        "nome": "DANNY SULLYVAN DOS SANTOS",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
+        "tags": [
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 37,
+        "mandado": "0013428-06.2025.8.16.0017.01.0001-04",
         "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
         "especie_prisao": "Civil",
         "expedicao": "25/11/2025"
@@ -2537,44 +2534,6 @@
         "mandado": "0012469-98.2026.8.16.0017.01.0002-16",
         "vara": "MARINGÁ - 2ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Preventiva",
-        "expedicao": "25/08/2026"
-    },
-    {
-        "id": "0005420-26.2014.8.16.0017.01.0012-13",
-        "nome": "ADRIANO GUILHERME CATIONI",
-        "vulgo": "Vulgo \"ADRIANO GUILHERME CATIONE\"",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
-        "tags": [
-            "Lei: 2848, Artigo: 157, Parágrafo: 2",
-            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
-        ],
-        "cidade": "Ibaiti",
-        "situacao": "EM ABERTO",
-        "idade": 41,
-        "mandado": "0005420-26.2014.8.16.0017.01.0012-13",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
-        "expedicao": "25/08/2026"
-    },
-    {
-        "id": "0005420-26.2014.8.16.0017.01.0013-15",
-        "nome": "ADRIANO GUILHERME CATIONI",
-        "vulgo": "Vulgo \"ADRIANO GUILHERME CATIONE\"",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
-        "tags": [
-            "Lei: 2848, Artigo: 157, Parágrafo: 2",
-            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
-        ],
-        "cidade": "Ibaiti",
-        "situacao": "EM ABERTO",
-        "idade": 41,
-        "mandado": "0005420-26.2014.8.16.0017.01.0013-15",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
         "expedicao": "25/08/2026"
     },
     {
@@ -2864,22 +2823,22 @@
         "expedicao": "25/01/2011"
     },
     {
-        "id": "4000867-76.2024.8.16.0190.01.0001-17",
-        "nome": "TIAGO LEITE GUISELINI",
+        "id": "0016842-12.2025.8.16.0017.01.0032-13",
+        "nome": "RENAN MAXIMO DA SILVA",
         "vulgo": "Sem alcunha registrada",
         "foto": null,
-        "risco": "alta",
-        "categoria": "Agressor Sexual",
+        "risco": "media",
+        "categoria": "Traficante",
         "tags": [
-            "Lei: 2848, Artigo: 217A, Parágrafo: caput",
-            "Agressor Sexual"
+            "Lei: 11343, Artigo: 33",
+            "Traficante"
         ],
         "cidade": "Não informado",
         "situacao": "EM ABERTO",
-        "idade": 37,
-        "mandado": "4000867-76.2024.8.16.0190.01.0001-17",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
+        "idade": 30,
+        "mandado": "0016842-12.2025.8.16.0017.01.0032-13",
+        "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Preventiva",
         "expedicao": "24/11/2025"
     },
     {
@@ -2902,25 +2861,6 @@
         "expedicao": "24/11/2025"
     },
     {
-        "id": "0016842-12.2025.8.16.0017.01.0032-13",
-        "nome": "RENAN MAXIMO DA SILVA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "media",
-        "categoria": "Traficante",
-        "tags": [
-            "Lei: 11343, Artigo: 33",
-            "Traficante"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 30,
-        "mandado": "0016842-12.2025.8.16.0017.01.0032-13",
-        "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Preventiva",
-        "expedicao": "24/11/2025"
-    },
-    {
         "id": "4000064-45.2024.8.16.0109.01.0005-26",
         "nome": "LEONARDO DA SILVA FREITAS",
         "vulgo": "Sem alcunha registrada",
@@ -2937,6 +2877,25 @@
         "mandado": "4000064-45.2024.8.16.0109.01.0005-26",
         "vara": "MANDAGUARI - VARA CRIMINAL, FAMÍLIA E SUCESSÕES, INFÂNCIA E JUVENTUDE E JUIZADO",
         "especie_prisao": "Regressão de regime",
+        "expedicao": "24/11/2025"
+    },
+    {
+        "id": "4000867-76.2024.8.16.0190.01.0001-17",
+        "nome": "TIAGO LEITE GUISELINI",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Agressor Sexual",
+        "tags": [
+            "Lei: 2848, Artigo: 217A, Parágrafo: caput",
+            "Agressor Sexual"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 37,
+        "mandado": "4000867-76.2024.8.16.0190.01.0001-17",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
         "expedicao": "24/11/2025"
     },
     {
@@ -2980,6 +2939,26 @@
         "expedicao": "24/10/2023"
     },
     {
+        "id": "0007417-20.2019.8.16.0130.01.0003-06",
+        "nome": "Fabio Santim Ortiz",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "media",
+        "categoria": "Traficante",
+        "tags": [
+            "Lei: 10826, art. 16",
+            "Lei: 11343, art. 33, Mandado de prisão alcançado:, Prazo da Prisão: null",
+            "Traficante"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 44,
+        "mandado": "0007417-20.2019.8.16.0130.01.0003-06",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Recaptura",
+        "expedicao": "24/10/2023"
+    },
+    {
         "id": "0032564-77.2011.8.16.0017.01.0005-08",
         "nome": "ADRIANO GOMES DA SILVA",
         "vulgo": "Sem alcunha registrada",
@@ -3001,26 +2980,6 @@
         "expedicao": "24/10/2023"
     },
     {
-        "id": "0007417-20.2019.8.16.0130.01.0003-06",
-        "nome": "Fabio Santim Ortiz",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "media",
-        "categoria": "Traficante",
-        "tags": [
-            "Lei: 10826, art. 16",
-            "Lei: 11343, art. 33, Mandado de prisão alcançado:, Prazo da Prisão: null",
-            "Traficante"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 44,
-        "mandado": "0007417-20.2019.8.16.0130.01.0003-06",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Recaptura",
-        "expedicao": "24/10/2023"
-    },
-    {
         "id": "0009328-76.2023.8.16.0017.01.0006-24",
         "nome": "LEANDRO RODRIGUES DE ARAUJO",
         "vulgo": "Sem alcunha registrada",
@@ -3033,7 +2992,7 @@
         ],
         "cidade": "Não informado",
         "situacao": "EM ABERTO",
-        "idade": 35,
+        "idade": 36,
         "mandado": "0009328-76.2023.8.16.0017.01.0006-24",
         "vara": "MARINGÁ - 3ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
@@ -3092,7 +3051,7 @@
         ],
         "cidade": "Osasco",
         "situacao": "EM ABERTO",
-        "idade": 48,
+        "idade": 49,
         "mandado": "5002306-59.2016.4.04.7011.01.0002-19",
         "vara": "3ª VARA FEDERAL DE MARINGÁ - TRF4",
         "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
@@ -3118,25 +3077,6 @@
         "expedicao": "24/07/2025"
     },
     {
-        "id": "4001292-40.2023.8.16.0190.01.0005-19",
-        "nome": "GILSON GONÇALVES",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "media",
-        "categoria": "Agressor Doméstico",
-        "tags": [
-            "Lei: 2848, Artigo: 129, Parágrafo: 9",
-            "Agressor Doméstico"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 53,
-        "mandado": "4001292-40.2023.8.16.0190.01.0005-19",
-        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
-        "especie_prisao": "Suspensão de regime",
-        "expedicao": "24/06/2026"
-    },
-    {
         "id": "4000633-60.2025.8.16.0190.01.0003-14",
         "nome": "RAUNAN JUNIOR ALVES",
         "vulgo": "Sem alcunha registrada",
@@ -3156,23 +3096,23 @@
         "expedicao": "24/06/2026"
     },
     {
-        "id": "0015486-80.2015.8.16.0130.26.0005-00",
-        "nome": "LUCAS GONÇALVES FRANCEZ",
+        "id": "4001292-40.2023.8.16.0190.01.0005-19",
+        "nome": "GILSON GONÇALVES",
         "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/0015486-80_2015_8_16_0130_26_0005-00.jpg",
+        "foto": null,
         "risco": "media",
-        "categoria": "Traficante",
+        "categoria": "Agressor Doméstico",
         "tags": [
-            "Lei: 11343, Artigo: 33, Crime tentato: Não                 Violência Doméstica: Não",
-            "Traficante"
+            "Lei: 2848, Artigo: 129, Parágrafo: 9",
+            "Agressor Doméstico"
         ],
-        "cidade": "Não informado",
+        "cidade": "Maringa",
         "situacao": "EM ABERTO",
-        "idade": 30,
-        "mandado": "0015486-80.2015.8.16.0130.26.0005-00",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Recaptura",
-        "expedicao": "24/06/2025"
+        "idade": 53,
+        "mandado": "4001292-40.2023.8.16.0190.01.0005-19",
+        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
+        "especie_prisao": "Suspensão de regime",
+        "expedicao": "24/06/2026"
     },
     {
         "id": "0000688-17.2020.8.16.0041.26.0003-20",
@@ -3208,6 +3148,25 @@
         "situacao": "EM ABERTO",
         "idade": 30,
         "mandado": "0000766-11.2020.8.16.0041.26.0002-09",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Recaptura",
+        "expedicao": "24/06/2025"
+    },
+    {
+        "id": "0015486-80.2015.8.16.0130.26.0005-00",
+        "nome": "LUCAS GONÇALVES FRANCEZ",
+        "vulgo": "Sem alcunha registrada",
+        "foto": "assets/img/procurados/0015486-80_2015_8_16_0130_26_0005-00.jpg",
+        "risco": "media",
+        "categoria": "Traficante",
+        "tags": [
+            "Lei: 11343, Artigo: 33, Crime tentato: Não                 Violência Doméstica: Não",
+            "Traficante"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 30,
+        "mandado": "0015486-80.2015.8.16.0130.26.0005-00",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Recaptura",
         "expedicao": "24/06/2025"
@@ -3488,7 +3447,7 @@
         "id": "0005173-93.2024.8.16.0017.01.0001-15",
         "nome": "ALLAN JUNIO FERNANDES",
         "vulgo": "Vulgo \"PREJUDICADO\"",
-        "foto": "assets/img/procurados/0005173-93_2024_8_16_0017_01_0001-15.jpg",
+        "foto": "assets/img/procurados/0005173-93_2024_8_16_0017_01_0001-15.png",
         "risco": "baixa",
         "categoria": "Furtador, Receptador e Similares",
         "tags": [
@@ -3523,25 +3482,6 @@
         "expedicao": "23/07/2026"
     },
     {
-        "id": "4000710-69.2025.8.16.0190.01.0001-13",
-        "nome": "MARCOS LINCOLN MARTINS DE SOUSA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "media",
-        "categoria": "Agressor Doméstico",
-        "tags": [
-            "Lei: 2848, Artigo: 129, Parágrafo: 13",
-            "Agressor Doméstico"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 33,
-        "mandado": "4000710-69.2025.8.16.0190.01.0001-13",
-        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
-        "especie_prisao": "Suspensão de regime",
-        "expedicao": "23/06/2026"
-    },
-    {
         "id": "4000191-42.2020.8.16.0167.01.0001-21",
         "nome": "ARIANA VIAN",
         "vulgo": "Sem alcunha registrada",
@@ -3556,6 +3496,25 @@
         "situacao": "EM ABERTO",
         "idade": 41,
         "mandado": "4000191-42.2020.8.16.0167.01.0001-21",
+        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
+        "especie_prisao": "Suspensão de regime",
+        "expedicao": "23/06/2026"
+    },
+    {
+        "id": "4000710-69.2025.8.16.0190.01.0001-13",
+        "nome": "MARCOS LINCOLN MARTINS DE SOUSA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "media",
+        "categoria": "Agressor Doméstico",
+        "tags": [
+            "Lei: 2848, Artigo: 129, Parágrafo: 13",
+            "Agressor Doméstico"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 33,
+        "mandado": "4000710-69.2025.8.16.0190.01.0001-13",
         "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
         "especie_prisao": "Suspensão de regime",
         "expedicao": "23/06/2026"
@@ -3600,25 +3559,6 @@
         "expedicao": "23/04/2026"
     },
     {
-        "id": "0017091-60.2025.8.16.0017.01.0003-25",
-        "nome": "LUCIO DOS SANTOS",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Sarandi",
-        "situacao": "EM ABERTO",
-        "idade": 32,
-        "mandado": "0017091-60.2025.8.16.0017.01.0003-25",
-        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
-        "especie_prisao": "Civil",
-        "expedicao": "23/04/2026"
-    },
-    {
         "id": "0009483-79.2023.8.16.0017.01.0002-11",
         "nome": "DANILO BENITES DE ALMEIDA",
         "vulgo": "Sem alcunha registrada",
@@ -3635,6 +3575,25 @@
         "mandado": "0009483-79.2023.8.16.0017.01.0002-11",
         "vara": "MARINGÁ - 2ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
+        "expedicao": "23/04/2026"
+    },
+    {
+        "id": "0017091-60.2025.8.16.0017.01.0003-25",
+        "nome": "LUCIO DOS SANTOS",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
+        "tags": [
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
+        ],
+        "cidade": "Sarandi",
+        "situacao": "EM ABERTO",
+        "idade": 32,
+        "mandado": "0017091-60.2025.8.16.0017.01.0003-25",
+        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
+        "especie_prisao": "Civil",
         "expedicao": "23/04/2026"
     },
     {
@@ -3926,6 +3885,25 @@
         "expedicao": "22/05/2025"
     },
     {
+        "id": "0013634-59.2021.8.16.0017.01.0016-14",
+        "nome": "RAFHAEL DA CRUZ XAVIER",
+        "vulgo": "Vulgo \"Beiço\"",
+        "foto": null,
+        "risco": "media",
+        "categoria": "Traficante",
+        "tags": [
+            "Lei: 11343, Artigo: 33",
+            "Traficante"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 36,
+        "mandado": "0013634-59.2021.8.16.0017.01.0016-14",
+        "vara": "MARINGÁ - 3ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
+        "expedicao": "22/04/2026"
+    },
+    {
         "id": "0022485-24.2020.8.16.0017.01.0001-01",
         "nome": "RAFHAEL DA CRUZ XAVIER",
         "vulgo": "Vulgo \"Beiço\"",
@@ -3966,25 +3944,6 @@
         "expedicao": "22/04/2026"
     },
     {
-        "id": "0013634-59.2021.8.16.0017.01.0016-14",
-        "nome": "RAFHAEL DA CRUZ XAVIER",
-        "vulgo": "Vulgo \"Beiço\"",
-        "foto": null,
-        "risco": "media",
-        "categoria": "Traficante",
-        "tags": [
-            "Lei: 11343, Artigo: 33",
-            "Traficante"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 36,
-        "mandado": "0013634-59.2021.8.16.0017.01.0016-14",
-        "vara": "MARINGÁ - 3ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
-        "expedicao": "22/04/2026"
-    },
-    {
         "id": "0030009-67.2023.8.16.0017.01.0001-04",
         "nome": "LUAN LUCAS CARDOSO DE OLIVEIRA",
         "vulgo": "Sem alcunha registrada",
@@ -4004,25 +3963,6 @@
         "expedicao": "22/04/2025"
     },
     {
-        "id": "0001890-63.2004.8.16.0017.01.0002-27",
-        "nome": "JULIANA FERREIRA DA SILVA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "baixa",
-        "categoria": "Furtador, Receptador e Similares",
-        "tags": [
-            "Lei: 2848, art. 155 - Furto",
-            "Furtador, Receptador e Similares"
-        ],
-        "cidade": "Uberlandia",
-        "situacao": "EM ABERTO",
-        "idade": 47,
-        "mandado": "0001890-63.2004.8.16.0017.01.0002-27",
-        "vara": "MARINGÁ - 3ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Preventiva",
-        "expedicao": "22/03/2017"
-    },
-    {
         "id": "0001890-63.2004.8.16.0017.01.0001-25",
         "nome": "SALETE DE ALMEIDA SANTOS",
         "vulgo": "Sem alcunha registrada",
@@ -4037,6 +3977,25 @@
         "situacao": "EM ABERTO",
         "idade": 56,
         "mandado": "0001890-63.2004.8.16.0017.01.0001-25",
+        "vara": "MARINGÁ - 3ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Preventiva",
+        "expedicao": "22/03/2017"
+    },
+    {
+        "id": "0001890-63.2004.8.16.0017.01.0002-27",
+        "nome": "JULIANA FERREIRA DA SILVA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "baixa",
+        "categoria": "Furtador, Receptador e Similares",
+        "tags": [
+            "Lei: 2848, art. 155 - Furto",
+            "Furtador, Receptador e Similares"
+        ],
+        "cidade": "Uberlandia",
+        "situacao": "EM ABERTO",
+        "idade": 47,
+        "mandado": "0001890-63.2004.8.16.0017.01.0002-27",
         "vara": "MARINGÁ - 3ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Preventiva",
         "expedicao": "22/03/2017"
@@ -4331,25 +4290,6 @@
         "expedicao": "21/06/2022"
     },
     {
-        "id": "0017137-74.2010.8.16.0017.01.0004-21",
-        "nome": "MARCOS CUSTODIO",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
-        "tags": [
-            "Lei: 2848, Artigo: 157, Parágrafo: 2",
-            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
-        ],
-        "cidade": "Cafeara",
-        "situacao": "EM ABERTO",
-        "idade": 38,
-        "mandado": "0017137-74.2010.8.16.0017.01.0004-21",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Regressão de regime",
-        "expedicao": "21/05/2026"
-    },
-    {
         "id": "0002811-26.2021.8.16.0017.26.0030-21",
         "nome": "PAULO CEZAR ROMERO",
         "vulgo": "Sem alcunha registrada",
@@ -4407,6 +4347,25 @@
         "expedicao": "21/05/2026"
     },
     {
+        "id": "0011040-96.2026.8.16.0017.01.0001-19",
+        "nome": "BIANCA DE ARAUJO ROSA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
+        "tags": [
+            "Lei: 2848, Artigo: 157, Parágrafo: 2, Prazo da Prisão: 30",
+            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 24,
+        "mandado": "0011040-96.2026.8.16.0017.01.0001-19",
+        "vara": "MARINGÁ - 2ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Temporária",
+        "expedicao": "21/05/2026"
+    },
+    {
         "id": "0011040-96.2026.8.16.0017.01.0002-21",
         "nome": "MARCELO NOGUEIRA",
         "vulgo": "Sem alcunha registrada",
@@ -4426,22 +4385,22 @@
         "expedicao": "21/05/2026"
     },
     {
-        "id": "0011040-96.2026.8.16.0017.01.0001-19",
-        "nome": "BIANCA DE ARAUJO ROSA",
+        "id": "0017137-74.2010.8.16.0017.01.0004-21",
+        "nome": "MARCOS CUSTODIO",
         "vulgo": "Sem alcunha registrada",
         "foto": null,
         "risco": "alta",
         "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
         "tags": [
-            "Lei: 2848, Artigo: 157, Parágrafo: 2, Prazo da Prisão: 30",
+            "Lei: 2848, Artigo: 157, Parágrafo: 2",
             "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
         ],
-        "cidade": "Maringa",
+        "cidade": "Cafeara",
         "situacao": "EM ABERTO",
-        "idade": 24,
-        "mandado": "0011040-96.2026.8.16.0017.01.0001-19",
-        "vara": "MARINGÁ - 2ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Temporária",
+        "idade": 38,
+        "mandado": "0017137-74.2010.8.16.0017.01.0004-21",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Regressão de regime",
         "expedicao": "21/05/2026"
     },
     {
@@ -4502,6 +4461,26 @@
         "expedicao": "21/05/2015"
     },
     {
+        "id": "0011356-35.2016.8.16.0058.01.0004-19",
+        "nome": "ROBERTO MATIAS DE SOUZA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "altissima",
+        "categoria": "Múltiplas Condenações",
+        "tags": [
+            "Lei: 2848, art. 157 - Roubo",
+            "Lei: 2848, art. 136",
+            "Múltiplas Condenações"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 47,
+        "mandado": "0011356-35.2016.8.16.0058.01.0004-19",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Por condenação transitada em julgado",
+        "expedicao": "21/03/2022"
+    },
+    {
         "id": "4000011-88.2022.8.16.0156.01.0001-01",
         "nome": "JOSE APARECIDO DA SILVA",
         "vulgo": "Sem alcunha registrada",
@@ -4516,26 +4495,6 @@
         "situacao": "EM ABERTO",
         "idade": 76,
         "mandado": "4000011-88.2022.8.16.0156.01.0001-01",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Por condenação transitada em julgado",
-        "expedicao": "21/03/2022"
-    },
-    {
-        "id": "0011356-35.2016.8.16.0058.01.0004-19",
-        "nome": "ROBERTO MATIAS DE SOUZA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "altissima",
-        "categoria": "Múltiplas Condenações",
-        "tags": [
-            "Lei: 2848, art. 157 - Roubo",
-            "Lei: 2848, art. 136",
-            "Múltiplas Condenações"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 46,
-        "mandado": "0011356-35.2016.8.16.0058.01.0004-19",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Por condenação transitada em julgado",
         "expedicao": "21/03/2022"
@@ -4581,25 +4540,6 @@
         "expedicao": "21/01/2021"
     },
     {
-        "id": "4000140-91.2025.8.16.0058.01.0005-15",
-        "nome": "GUILHERME HENRIQUE BOARAO",
-        "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/4000140-91_2025_8_16_0058_01_0005-15.jpg",
-        "risco": "media",
-        "categoria": "Traficante",
-        "tags": [
-            "Lei: 11343, Artigo: 33, Parágrafo: caput",
-            "Traficante"
-        ],
-        "cidade": "Campo Mourao",
-        "situacao": "EM ABERTO",
-        "idade": 22,
-        "mandado": "4000140-91.2025.8.16.0058.01.0005-15",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
-        "expedicao": "20/08/2026"
-    },
-    {
         "id": "0001110-31.2001.8.16.0017.01.0001-21",
         "nome": "JOSENILDO CAETANO DA SILVA",
         "vulgo": "Sem alcunha registrada",
@@ -4636,6 +4576,25 @@
         "mandado": "0022887-95.2026.8.16.0017.01.0001-20",
         "vara": "MARINGÁ - 2ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Preventiva",
+        "expedicao": "20/08/2026"
+    },
+    {
+        "id": "4000140-91.2025.8.16.0058.01.0005-15",
+        "nome": "GUILHERME HENRIQUE BOARAO",
+        "vulgo": "Sem alcunha registrada",
+        "foto": "assets/img/procurados/4000140-91_2025_8_16_0058_01_0005-15.jpg",
+        "risco": "media",
+        "categoria": "Traficante",
+        "tags": [
+            "Lei: 11343, Artigo: 33, Parágrafo: caput",
+            "Traficante"
+        ],
+        "cidade": "Campo Mourao",
+        "situacao": "EM ABERTO",
+        "idade": 22,
+        "mandado": "4000140-91.2025.8.16.0058.01.0005-15",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
         "expedicao": "20/08/2026"
     },
     {
@@ -4679,25 +4638,6 @@
         "expedicao": "20/07/2021"
     },
     {
-        "id": "4003183-38.2020.8.16.0017.01.0002-14",
-        "nome": "ROGERIO DA SILVA COSTA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
-        "tags": [
-            "Lei: 2848, Artigo: 157, Parágrafo: 2",
-            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 33,
-        "mandado": "4003183-38.2020.8.16.0017.01.0002-14",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Suspensão de regime",
-        "expedicao": "20/05/2026"
-    },
-    {
         "id": "0001904-75.2026.8.16.0017.01.0001-26",
         "nome": "ALVINO HONORATO DE ALMEIDA",
         "vulgo": "Sem alcunha registrada",
@@ -4717,25 +4657,23 @@
         "expedicao": "20/05/2026"
     },
     {
-        "id": "5014877-76.2022.4.04.7003.01.0002-20",
-        "nome": "MARCELO SHOJI KAWANISHI",
+        "id": "4003183-38.2020.8.16.0017.01.0002-14",
+        "nome": "ROGERIO DA SILVA COSTA",
         "vulgo": "Sem alcunha registrada",
         "foto": null,
         "risco": "alta",
         "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
         "tags": [
-            "Lei: 2848, art. 157, § 2º, I",
-            "Lei: 2848, art. 157, § 2º, V",
-            "Lei: 2848, art. 157, § 2º, II",
+            "Lei: 2848, Artigo: 157, Parágrafo: 2",
             "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
         ],
         "cidade": "Maringa",
         "situacao": "EM ABERTO",
-        "idade": 46,
-        "mandado": "5014877-76.2022.4.04.7003.01.0002-20",
-        "vara": "3ª VARA FEDERAL DE MARINGÁ - TRF4",
-        "especie_prisao": "Preventiva decorrente de condenação não transitada em julgado",
-        "expedicao": "20/05/2024"
+        "idade": 33,
+        "mandado": "4003183-38.2020.8.16.0017.01.0002-14",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Suspensão de regime",
+        "expedicao": "20/05/2026"
     },
     {
         "id": "4000085-67.2021.8.16.0160.01.0002-16",
@@ -4756,6 +4694,27 @@
         "mandado": "4000085-67.2021.8.16.0160.01.0002-16",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Recaptura",
+        "expedicao": "20/05/2024"
+    },
+    {
+        "id": "5014877-76.2022.4.04.7003.01.0002-20",
+        "nome": "MARCELO SHOJI KAWANISHI",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
+        "tags": [
+            "Lei: 2848, art. 157, § 2º, I",
+            "Lei: 2848, art. 157, § 2º, V",
+            "Lei: 2848, art. 157, § 2º, II",
+            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 46,
+        "mandado": "5014877-76.2022.4.04.7003.01.0002-20",
+        "vara": "3ª VARA FEDERAL DE MARINGÁ - TRF4",
+        "especie_prisao": "Preventiva decorrente de condenação não transitada em julgado",
         "expedicao": "20/05/2024"
     },
     {
@@ -4854,25 +4813,6 @@
         "expedicao": "20/02/2024"
     },
     {
-        "id": "0014297-66.2025.8.16.0017.01.0001-11",
-        "nome": "AGEU SILVA DE OLIVEIRA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/0014297-66_2025_8_16_0017_01_0001-11.jpg",
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Jandaia Do Sul",
-        "situacao": "EM ABERTO",
-        "idade": 34,
-        "mandado": "0014297-66.2025.8.16.0017.01.0001-11",
-        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
-        "especie_prisao": "Civil",
-        "expedicao": "20/01/2026"
-    },
-    {
         "id": "0003613-19.2024.8.16.0017.01.0001-16",
         "nome": "AUGUSTO SOARES CARDOSO",
         "vulgo": "Sem alcunha registrada",
@@ -4887,6 +4827,25 @@
         "situacao": "EM ABERTO",
         "idade": 30,
         "mandado": "0003613-19.2024.8.16.0017.01.0001-16",
+        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
+        "especie_prisao": "Civil",
+        "expedicao": "20/01/2026"
+    },
+    {
+        "id": "0014297-66.2025.8.16.0017.01.0001-11",
+        "nome": "AGEU SILVA DE OLIVEIRA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": "assets/img/procurados/0014297-66_2025_8_16_0017_01_0001-11.jpg",
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
+        "tags": [
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
+        ],
+        "cidade": "Jandaia Do Sul",
+        "situacao": "EM ABERTO",
+        "idade": 34,
+        "mandado": "0014297-66.2025.8.16.0017.01.0001-11",
         "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
         "especie_prisao": "Civil",
         "expedicao": "20/01/2026"
@@ -4930,6 +4889,44 @@
         "expedicao": "20/01/2021"
     },
     {
+        "id": "0016842-12.2025.8.16.0017.01.0015-13",
+        "nome": "ANA CAROLINE DA SILVA ALVES",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "media",
+        "categoria": "Traficante",
+        "tags": [
+            "Lei: 11343, Artigo: 33",
+            "Traficante"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 29,
+        "mandado": "0016842-12.2025.8.16.0017.01.0015-13",
+        "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Preventiva",
+        "expedicao": "19/11/2025"
+    },
+    {
+        "id": "0016842-12.2025.8.16.0017.01.0017-17",
+        "nome": "LARISSA GABRIELY RODRIGUES DA SILVA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": "assets/img/procurados/0016842-12_2025_8_16_0017_01_0017-17.jpg",
+        "risco": "media",
+        "categoria": "Traficante",
+        "tags": [
+            "Lei: 11343, Artigo: 33",
+            "Traficante"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 22,
+        "mandado": "0016842-12.2025.8.16.0017.01.0017-17",
+        "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Preventiva",
+        "expedicao": "19/11/2025"
+    },
+    {
         "id": "0016842-12.2025.8.16.0017.01.0020-06",
         "nome": "ADALBERTO ROLON GARCIA",
         "vulgo": "Sem alcunha registrada",
@@ -4963,44 +4960,6 @@
         "situacao": "EM ABERTO",
         "idade": 29,
         "mandado": "0016842-12.2025.8.16.0017.01.0021-08",
-        "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Preventiva",
-        "expedicao": "19/11/2025"
-    },
-    {
-        "id": "0016842-12.2025.8.16.0017.01.0017-17",
-        "nome": "LARISSA GABRIELY RODRIGUES DA SILVA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/0016842-12_2025_8_16_0017_01_0017-17.jpg",
-        "risco": "media",
-        "categoria": "Traficante",
-        "tags": [
-            "Lei: 11343, Artigo: 33",
-            "Traficante"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 22,
-        "mandado": "0016842-12.2025.8.16.0017.01.0017-17",
-        "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Preventiva",
-        "expedicao": "19/11/2025"
-    },
-    {
-        "id": "0016842-12.2025.8.16.0017.01.0015-13",
-        "nome": "ANA CAROLINE DA SILVA ALVES",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "media",
-        "categoria": "Traficante",
-        "tags": [
-            "Lei: 11343, Artigo: 33",
-            "Traficante"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 29,
-        "mandado": "0016842-12.2025.8.16.0017.01.0015-13",
         "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Preventiva",
         "expedicao": "19/11/2025"
@@ -5141,6 +5100,25 @@
         "expedicao": "19/05/2026"
     },
     {
+        "id": "4000048-42.2024.8.16.0190.01.0001-10",
+        "nome": "JOSE LUIZ DA SILVA DOMINGUES",
+        "vulgo": "Sem alcunha registrada",
+        "foto": "assets/img/procurados/4000048-42_2024_8_16_0190_01_0001-10.jpg",
+        "risco": "media",
+        "categoria": "Traficante",
+        "tags": [
+            "Lei: 11343, Artigo: 33, Parágrafo: 4",
+            "Traficante"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 30,
+        "mandado": "4000048-42.2024.8.16.0190.01.0001-10",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Regressão cautelar",
+        "expedicao": "19/05/2026"
+    },
+    {
         "id": "4001926-45.2024.8.16.0014.01.0001-22",
         "nome": "DELCINO MAXIMINO DE OLIVEIRA",
         "vulgo": "Sem alcunha registrada",
@@ -5156,25 +5134,6 @@
         "situacao": "EM ABERTO",
         "idade": 59,
         "mandado": "4001926-45.2024.8.16.0014.01.0001-22",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Regressão cautelar",
-        "expedicao": "19/05/2026"
-    },
-    {
-        "id": "4000048-42.2024.8.16.0190.01.0001-10",
-        "nome": "JOSE LUIZ DA SILVA DOMINGUES",
-        "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/4000048-42_2024_8_16_0190_01_0001-10.jpg",
-        "risco": "media",
-        "categoria": "Traficante",
-        "tags": [
-            "Lei: 11343, Artigo: 33, Parágrafo: 4",
-            "Traficante"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 30,
-        "mandado": "4000048-42.2024.8.16.0190.01.0001-10",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Regressão cautelar",
         "expedicao": "19/05/2026"
@@ -5256,7 +5215,7 @@
         "expedicao": "19/03/2026"
     },
     {
-        "id": "0016205-08.2018.8.16.0017.26.0003-10",
+        "id": "0000656-94.2015.8.16.0038.26.0003-09",
         "nome": "IGOR JOSE DA SILVA DOLME",
         "vulgo": "Sem alcunha registrada",
         "foto": null,
@@ -5269,7 +5228,7 @@
         "cidade": "Guairaca",
         "situacao": "EM ABERTO",
         "idade": 30,
-        "mandado": "0016205-08.2018.8.16.0017.26.0003-10",
+        "mandado": "0000656-94.2015.8.16.0038.26.0003-09",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Recaptura",
         "expedicao": "19/02/2026"
@@ -5294,7 +5253,7 @@
         "expedicao": "19/02/2026"
     },
     {
-        "id": "0000656-94.2015.8.16.0038.26.0003-09",
+        "id": "0016205-08.2018.8.16.0017.26.0003-10",
         "nome": "IGOR JOSE DA SILVA DOLME",
         "vulgo": "Sem alcunha registrada",
         "foto": null,
@@ -5307,7 +5266,7 @@
         "cidade": "Guairaca",
         "situacao": "EM ABERTO",
         "idade": 30,
-        "mandado": "0000656-94.2015.8.16.0038.26.0003-09",
+        "mandado": "0016205-08.2018.8.16.0017.26.0003-10",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Recaptura",
         "expedicao": "19/02/2026"
@@ -5392,8 +5351,8 @@
         "expedicao": "18/11/2025"
     },
     {
-        "id": "0016842-12.2025.8.16.0017.01.0008-16",
-        "nome": "PAULO HENRIQUE DA SILVA",
+        "id": "0016842-12.2025.8.16.0017.01.0002-04",
+        "nome": "JOSE PAULO GOMES DE OLIVEIRA JUNIOR",
         "vulgo": "Sem alcunha registrada",
         "foto": null,
         "risco": "media",
@@ -5402,10 +5361,10 @@
             "Lei: 11343, Artigo: 33",
             "Traficante"
         ],
-        "cidade": "Campinas",
+        "cidade": "Loanda",
         "situacao": "EM ABERTO",
-        "idade": 40,
-        "mandado": "0016842-12.2025.8.16.0017.01.0008-16",
+        "idade": 33,
+        "mandado": "0016842-12.2025.8.16.0017.01.0002-04",
         "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Preventiva",
         "expedicao": "18/11/2025"
@@ -5449,8 +5408,27 @@
         "expedicao": "18/11/2025"
     },
     {
-        "id": "0016842-12.2025.8.16.0017.01.0002-04",
-        "nome": "JOSE PAULO GOMES DE OLIVEIRA JUNIOR",
+        "id": "0016842-12.2025.8.16.0017.01.0006-12",
+        "nome": "CASSIO APARECIDO DE OLIVEIRA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": "assets/img/procurados/0016842-12_2025_8_16_0017_01_0006-12.jpg",
+        "risco": "media",
+        "categoria": "Traficante",
+        "tags": [
+            "Lei: 11343, Artigo: 33",
+            "Traficante"
+        ],
+        "cidade": "Porto Rico",
+        "situacao": "EM ABERTO",
+        "idade": 31,
+        "mandado": "0016842-12.2025.8.16.0017.01.0006-12",
+        "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Preventiva",
+        "expedicao": "18/11/2025"
+    },
+    {
+        "id": "0016842-12.2025.8.16.0017.01.0008-16",
+        "nome": "PAULO HENRIQUE DA SILVA",
         "vulgo": "Sem alcunha registrada",
         "foto": null,
         "risco": "media",
@@ -5459,10 +5437,10 @@
             "Lei: 11343, Artigo: 33",
             "Traficante"
         ],
-        "cidade": "Loanda",
+        "cidade": "Campinas",
         "situacao": "EM ABERTO",
-        "idade": 33,
-        "mandado": "0016842-12.2025.8.16.0017.01.0002-04",
+        "idade": 40,
+        "mandado": "0016842-12.2025.8.16.0017.01.0008-16",
         "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Preventiva",
         "expedicao": "18/11/2025"
@@ -5480,27 +5458,8 @@
         ],
         "cidade": "Guaruja",
         "situacao": "EM ABERTO",
-        "idade": 39,
+        "idade": 40,
         "mandado": "0016842-12.2025.8.16.0017.01.0009-18",
-        "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Preventiva",
-        "expedicao": "18/11/2025"
-    },
-    {
-        "id": "0016842-12.2025.8.16.0017.01.0006-12",
-        "nome": "CASSIO APARECIDO DE OLIVEIRA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/0016842-12_2025_8_16_0017_01_0006-12.jpg",
-        "risco": "media",
-        "categoria": "Traficante",
-        "tags": [
-            "Lei: 11343, Artigo: 33",
-            "Traficante"
-        ],
-        "cidade": "Porto Rico",
-        "situacao": "EM ABERTO",
-        "idade": 31,
-        "mandado": "0016842-12.2025.8.16.0017.01.0006-12",
         "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Preventiva",
         "expedicao": "18/11/2025"
@@ -5544,25 +5503,6 @@
         "expedicao": "18/08/2026"
     },
     {
-        "id": "0009496-78.2023.8.16.0017.01.0001-19",
-        "nome": "MARCELO JERONIMO ROSA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 41,
-        "mandado": "0009496-78.2023.8.16.0017.01.0001-19",
-        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
-        "especie_prisao": "Civil",
-        "expedicao": "18/08/2025"
-    },
-    {
         "id": "0000112-21.2021.8.16.0160.01.0001-22",
         "nome": "JORGE EDUARDO DE OLIVEIRA GOMES",
         "vulgo": "Sem alcunha registrada",
@@ -5577,6 +5517,25 @@
         "situacao": "EM ABERTO",
         "idade": 27,
         "mandado": "0000112-21.2021.8.16.0160.01.0001-22",
+        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
+        "especie_prisao": "Civil",
+        "expedicao": "18/08/2025"
+    },
+    {
+        "id": "0009496-78.2023.8.16.0017.01.0001-19",
+        "nome": "MARCELO JERONIMO ROSA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
+        "tags": [
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 41,
+        "mandado": "0009496-78.2023.8.16.0017.01.0001-19",
         "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
         "especie_prisao": "Civil",
         "expedicao": "18/08/2025"
@@ -5815,25 +5774,6 @@
         "expedicao": "17/12/2024"
     },
     {
-        "id": "4000245-60.2025.8.16.0190.01.0003-14",
-        "nome": "LUCAS WEHNER DA SILVA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "baixa",
-        "categoria": "Furtador, Receptador e Similares",
-        "tags": [
-            "Lei: 2848, Artigo: 155, Parágrafo: 4",
-            "Furtador, Receptador e Similares"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 33,
-        "mandado": "4000245-60.2025.8.16.0190.01.0003-14",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
-        "expedicao": "17/11/2025"
-    },
-    {
         "id": "0001287-39.2014.8.16.0049.01.0002-15",
         "nome": "EDVANDER PEREIRA",
         "vulgo": "Sem alcunha registrada",
@@ -5850,6 +5790,25 @@
         "mandado": "0001287-39.2014.8.16.0049.01.0002-15",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Suspensão de regime",
+        "expedicao": "17/11/2025"
+    },
+    {
+        "id": "4000245-60.2025.8.16.0190.01.0003-14",
+        "nome": "LUCAS WEHNER DA SILVA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "baixa",
+        "categoria": "Furtador, Receptador e Similares",
+        "tags": [
+            "Lei: 2848, Artigo: 155, Parágrafo: 4",
+            "Furtador, Receptador e Similares"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 33,
+        "mandado": "4000245-60.2025.8.16.0190.01.0003-14",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
         "expedicao": "17/11/2025"
     },
     {
@@ -5967,25 +5926,6 @@
         "expedicao": "17/06/2026"
     },
     {
-        "id": "0017402-32.2017.8.16.0017.01.0003-16",
-        "nome": "JOSIMAR APARECIDO DE ABREU",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": null,
-        "mandado": "0017402-32.2017.8.16.0017.01.0003-16",
-        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
-        "especie_prisao": "Civil",
-        "expedicao": "17/06/2026"
-    },
-    {
         "id": "0008411-57.2023.8.16.0017.01.0002-21",
         "nome": "Manoel de Jesus Silva",
         "vulgo": "Sem alcunha registrada",
@@ -6000,6 +5940,25 @@
         "situacao": "EM ABERTO",
         "idade": 44,
         "mandado": "0008411-57.2023.8.16.0017.01.0002-21",
+        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
+        "especie_prisao": "Civil",
+        "expedicao": "17/06/2026"
+    },
+    {
+        "id": "0017402-32.2017.8.16.0017.01.0003-16",
+        "nome": "JOSIMAR APARECIDO DE ABREU",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
+        "tags": [
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": null,
+        "mandado": "0017402-32.2017.8.16.0017.01.0003-16",
         "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
         "especie_prisao": "Civil",
         "expedicao": "17/06/2026"
@@ -6176,8 +6135,27 @@
         "expedicao": "16/07/2024"
     },
     {
-        "id": "4000748-18.2024.8.16.0190.01.0001-01",
-        "nome": "FRANCKNET PAUL",
+        "id": "4000022-44.2024.8.16.0190.01.0001-18",
+        "nome": "FABIO RODRIGUES BARBOSA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": "assets/img/procurados/4000022-44_2024_8_16_0190_01_0001-18.jpg",
+        "risco": "media",
+        "categoria": "Agressor Doméstico",
+        "tags": [
+            "Lei: 3688, Artigo: 21, Parágrafo: caput",
+            "Agressor Doméstico"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 46,
+        "mandado": "4000022-44.2024.8.16.0190.01.0001-18",
+        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
+        "especie_prisao": "Suspensão de regime",
+        "expedicao": "16/06/2026"
+    },
+    {
+        "id": "4000103-56.2025.8.16.0190.01.0001-07",
+        "nome": "GEOVANE DANRLEY DE MELO",
         "vulgo": "Sem alcunha registrada",
         "foto": null,
         "risco": "media",
@@ -6188,28 +6166,8 @@
         ],
         "cidade": "Maringa",
         "situacao": "EM ABERTO",
-        "idade": 37,
-        "mandado": "4000748-18.2024.8.16.0190.01.0001-01",
-        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
-        "especie_prisao": "Suspensão de regime",
-        "expedicao": "16/06/2026"
-    },
-    {
-        "id": "4001219-34.2024.8.16.0190.01.0001-25",
-        "nome": "ALEX JANUÁRIO DA SILVA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/4001219-34_2024_8_16_0190_01_0001-25.jpg",
-        "risco": "media",
-        "categoria": "Agressor Doméstico",
-        "tags": [
-            "Lei: 2848, Artigo: 129, Parágrafo: 13",
-            "Lei: 11340, Artigo: 24A, Parágrafo: caput",
-            "Agressor Doméstico"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 40,
-        "mandado": "4001219-34.2024.8.16.0190.01.0001-25",
+        "idade": 31,
+        "mandado": "4000103-56.2025.8.16.0190.01.0001-07",
         "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
         "especie_prisao": "Suspensão de regime",
         "expedicao": "16/06/2026"
@@ -6235,6 +6193,25 @@
         "expedicao": "16/06/2026"
     },
     {
+        "id": "4000748-18.2024.8.16.0190.01.0001-01",
+        "nome": "FRANCKNET PAUL",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "media",
+        "categoria": "Agressor Doméstico",
+        "tags": [
+            "Lei: 2848, Artigo: 129, Parágrafo: 9",
+            "Agressor Doméstico"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 37,
+        "mandado": "4000748-18.2024.8.16.0190.01.0001-01",
+        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
+        "especie_prisao": "Suspensão de regime",
+        "expedicao": "16/06/2026"
+    },
+    {
         "id": "4000942-81.2025.8.16.0190.01.0001-27",
         "nome": "JOAO PUGLIA LEITE",
         "vulgo": "Sem alcunha registrada",
@@ -6254,39 +6231,21 @@
         "expedicao": "16/06/2026"
     },
     {
-        "id": "4000103-56.2025.8.16.0190.01.0001-07",
-        "nome": "GEOVANE DANRLEY DE MELO",
+        "id": "4001219-34.2024.8.16.0190.01.0001-25",
+        "nome": "ALEX JANUÁRIO DA SILVA",
         "vulgo": "Sem alcunha registrada",
-        "foto": null,
+        "foto": "assets/img/procurados/4001219-34_2024_8_16_0190_01_0001-25.jpg",
         "risco": "media",
         "categoria": "Agressor Doméstico",
         "tags": [
-            "Lei: 2848, Artigo: 129, Parágrafo: 9",
+            "Lei: 2848, Artigo: 129, Parágrafo: 13",
+            "Lei: 11340, Artigo: 24A, Parágrafo: caput",
             "Agressor Doméstico"
         ],
         "cidade": "Maringa",
         "situacao": "EM ABERTO",
-        "idade": 31,
-        "mandado": "4000103-56.2025.8.16.0190.01.0001-07",
-        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
-        "especie_prisao": "Suspensão de regime",
-        "expedicao": "16/06/2026"
-    },
-    {
-        "id": "4000022-44.2024.8.16.0190.01.0001-18",
-        "nome": "FABIO RODRIGUES BARBOSA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/4000022-44_2024_8_16_0190_01_0001-18.jpg",
-        "risco": "media",
-        "categoria": "Agressor Doméstico",
-        "tags": [
-            "Lei: 3688, Artigo: 21, Parágrafo: caput",
-            "Agressor Doméstico"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 46,
-        "mandado": "4000022-44.2024.8.16.0190.01.0001-18",
+        "idade": 40,
+        "mandado": "4001219-34.2024.8.16.0190.01.0001-25",
         "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
         "especie_prisao": "Suspensão de regime",
         "expedicao": "16/06/2026"
@@ -6677,6 +6636,25 @@
         "expedicao": "15/06/2026"
     },
     {
+        "id": "0002942-25.2026.8.16.0017.01.0001-24",
+        "nome": "ROBSON WELITON RONCA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
+        "tags": [
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
+        ],
+        "cidade": "Atalaia",
+        "situacao": "EM ABERTO",
+        "idade": 34,
+        "mandado": "0002942-25.2026.8.16.0017.01.0001-24",
+        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
+        "especie_prisao": "Civil",
+        "expedicao": "15/06/2026"
+    },
+    {
         "id": "0016755-27.2023.8.16.0017.01.0009-25",
         "nome": "CRISTIANO LOPES SOUZA",
         "vulgo": "Sem alcunha registrada",
@@ -6717,25 +6695,6 @@
         "expedicao": "15/06/2026"
     },
     {
-        "id": "0002942-25.2026.8.16.0017.01.0001-24",
-        "nome": "ROBSON WELITON RONCA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Atalaia",
-        "situacao": "EM ABERTO",
-        "idade": 34,
-        "mandado": "0002942-25.2026.8.16.0017.01.0001-24",
-        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
-        "especie_prisao": "Civil",
-        "expedicao": "15/06/2026"
-    },
-    {
         "id": "0019223-57.2016.8.16.0130.01.0001-03",
         "nome": "CARLOS HENRIQUE SPOSITO",
         "vulgo": "Sem alcunha registrada",
@@ -6767,7 +6726,7 @@
         ],
         "cidade": "Marialva",
         "situacao": "EM ABERTO",
-        "idade": 81,
+        "idade": 82,
         "mandado": "0000930-93.1993.8.16.0017.01.0001-20",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Por condenação transitada em julgado",
@@ -6892,25 +6851,6 @@
         "expedicao": "14/11/2023"
     },
     {
-        "id": "0017142-33.2009.8.16.0017.01.0002-10",
-        "nome": "JOAO CAMANHO NETO",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Agressor Sexual",
-        "tags": [
-            "Lei: 2848, Artigo: 213",
-            "Agressor Sexual"
-        ],
-        "cidade": "Mirador",
-        "situacao": "EM ABERTO",
-        "idade": 54,
-        "mandado": "0017142-33.2009.8.16.0017.01.0002-10",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Decorrente de condenação não transitada em julgado",
-        "expedicao": "14/08/2026"
-    },
-    {
         "id": "0010823-49.2019.8.16.0130.26.0009-20",
         "nome": "EVERTON WILLIAM GERTUDES PEREIRA",
         "vulgo": "Sem alcunha registrada",
@@ -6948,6 +6888,25 @@
         "expedicao": "14/08/2026"
     },
     {
+        "id": "0017142-33.2009.8.16.0017.01.0002-10",
+        "nome": "JOAO CAMANHO NETO",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Agressor Sexual",
+        "tags": [
+            "Lei: 2848, Artigo: 213",
+            "Agressor Sexual"
+        ],
+        "cidade": "Mirador",
+        "situacao": "EM ABERTO",
+        "idade": 54,
+        "mandado": "0017142-33.2009.8.16.0017.01.0002-10",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Decorrente de condenação não transitada em julgado",
+        "expedicao": "14/08/2026"
+    },
+    {
         "id": "0020304-11.2024.8.16.0017.01.0001-24",
         "nome": "RAFAEL HENRIQUE BUENO DE LIMA",
         "vulgo": "Sem alcunha registrada",
@@ -6967,8 +6926,8 @@
         "expedicao": "14/08/2024"
     },
     {
-        "id": "0021690-42.2025.8.16.0017.01.0001-17",
-        "nome": "CLODOALDO DE OLIVEIRA DOS SANTOS",
+        "id": "0001627-93.2025.8.16.0017.01.0001-23",
+        "nome": "KLEBER FERNANDES ESSENCIO",
         "vulgo": "Sem alcunha registrada",
         "foto": null,
         "risco": "sem",
@@ -6977,10 +6936,10 @@
             "CPC, Artigo: 528",
             "Devedor de Pensão Alimentícia"
         ],
-        "cidade": "Maringa",
+        "cidade": "Não informado",
         "situacao": "EM ABERTO",
-        "idade": 43,
-        "mandado": "0021690-42.2025.8.16.0017.01.0001-17",
+        "idade": 50,
+        "mandado": "0001627-93.2025.8.16.0017.01.0001-23",
         "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
         "especie_prisao": "Civil",
         "expedicao": "14/07/2026"
@@ -7005,8 +6964,8 @@
         "expedicao": "14/07/2026"
     },
     {
-        "id": "0030213-43.2025.8.16.0017.01.0001-00",
-        "nome": "CARLOS APARECIDO FREGADOLLI JUNIOR",
+        "id": "0009816-60.2025.8.16.0017.01.0001-17",
+        "nome": "GIULIANO OLICIO SILVA DE ANDRADES",
         "vulgo": "Sem alcunha registrada",
         "foto": null,
         "risco": "sem",
@@ -7017,8 +6976,8 @@
         ],
         "cidade": "Não informado",
         "situacao": "EM ABERTO",
-        "idade": 32,
-        "mandado": "0030213-43.2025.8.16.0017.01.0001-00",
+        "idade": 44,
+        "mandado": "0009816-60.2025.8.16.0017.01.0001-17",
         "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
         "especie_prisao": "Civil",
         "expedicao": "14/07/2026"
@@ -7043,8 +7002,8 @@
         "expedicao": "14/07/2026"
     },
     {
-        "id": "0030988-58.2025.8.16.0017.01.0001-03",
-        "nome": "JOSIEL CAVALINI DIAS",
+        "id": "0016216-95.2022.8.16.0017.01.0001-26",
+        "nome": "GABRIEL LIMA DOS SANTOS",
         "vulgo": "Sem alcunha registrada",
         "foto": null,
         "risco": "sem",
@@ -7055,27 +7014,8 @@
         ],
         "cidade": "Não informado",
         "situacao": "EM ABERTO",
-        "idade": 41,
-        "mandado": "0030988-58.2025.8.16.0017.01.0001-03",
-        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
-        "especie_prisao": "Civil",
-        "expedicao": "14/07/2026"
-    },
-    {
-        "id": "0001627-93.2025.8.16.0017.01.0001-23",
-        "nome": "KLEBER FERNANDES ESSENCIO",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 50,
-        "mandado": "0001627-93.2025.8.16.0017.01.0001-23",
+        "idade": 30,
+        "mandado": "0016216-95.2022.8.16.0017.01.0001-26",
         "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
         "especie_prisao": "Civil",
         "expedicao": "14/07/2026"
@@ -7100,44 +7040,6 @@
         "expedicao": "14/07/2026"
     },
     {
-        "id": "0016216-95.2022.8.16.0017.01.0001-26",
-        "nome": "GABRIEL LIMA DOS SANTOS",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 30,
-        "mandado": "0016216-95.2022.8.16.0017.01.0001-26",
-        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
-        "especie_prisao": "Civil",
-        "expedicao": "14/07/2026"
-    },
-    {
-        "id": "0009816-60.2025.8.16.0017.01.0001-17",
-        "nome": "GIULIANO OLICIO SILVA DE ANDRADES",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 44,
-        "mandado": "0009816-60.2025.8.16.0017.01.0001-17",
-        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
-        "especie_prisao": "Civil",
-        "expedicao": "14/07/2026"
-    },
-    {
         "id": "0020006-63.2017.8.16.0017.01.0001-24",
         "nome": "RAPHAEL HENRIQUE DIAS DE PAULA",
         "vulgo": "Sem alcunha registrada",
@@ -7152,6 +7054,63 @@
         "situacao": "EM ABERTO",
         "idade": 31,
         "mandado": "0020006-63.2017.8.16.0017.01.0001-24",
+        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
+        "especie_prisao": "Civil",
+        "expedicao": "14/07/2026"
+    },
+    {
+        "id": "0021690-42.2025.8.16.0017.01.0001-17",
+        "nome": "CLODOALDO DE OLIVEIRA DOS SANTOS",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
+        "tags": [
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 43,
+        "mandado": "0021690-42.2025.8.16.0017.01.0001-17",
+        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
+        "especie_prisao": "Civil",
+        "expedicao": "14/07/2026"
+    },
+    {
+        "id": "0030213-43.2025.8.16.0017.01.0001-00",
+        "nome": "CARLOS APARECIDO FREGADOLLI JUNIOR",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
+        "tags": [
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 32,
+        "mandado": "0030213-43.2025.8.16.0017.01.0001-00",
+        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
+        "especie_prisao": "Civil",
+        "expedicao": "14/07/2026"
+    },
+    {
+        "id": "0030988-58.2025.8.16.0017.01.0001-03",
+        "nome": "JOSIEL CAVALINI DIAS",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
+        "tags": [
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 41,
+        "mandado": "0030988-58.2025.8.16.0017.01.0001-03",
         "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
         "especie_prisao": "Civil",
         "expedicao": "14/07/2026"
@@ -7349,44 +7308,6 @@
         "expedicao": "13/09/2024"
     },
     {
-        "id": "0004095-93.2026.8.16.0017.01.0001-00",
-        "nome": "MICHAEL INDIANA DE SOUZA FRAZAO",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 33,
-        "mandado": "0004095-93.2026.8.16.0017.01.0001-00",
-        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
-        "especie_prisao": "Civil",
-        "expedicao": "13/08/2026"
-    },
-    {
-        "id": "0021860-14.2025.8.16.0017.01.0001-03",
-        "nome": "GIRLANDO BRITO DA SILVA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Arapiraca",
-        "situacao": "EM ABERTO",
-        "idade": 60,
-        "mandado": "0021860-14.2025.8.16.0017.01.0001-03",
-        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
-        "especie_prisao": "Civil",
-        "expedicao": "13/08/2026"
-    },
-    {
         "id": "0003087-81.2026.8.16.0017.01.0001-22",
         "nome": "ANDERSON JACOMO",
         "vulgo": "Sem alcunha registrada",
@@ -7406,6 +7327,25 @@
         "expedicao": "13/08/2026"
     },
     {
+        "id": "0004095-93.2026.8.16.0017.01.0001-00",
+        "nome": "MICHAEL INDIANA DE SOUZA FRAZAO",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
+        "tags": [
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 33,
+        "mandado": "0004095-93.2026.8.16.0017.01.0001-00",
+        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
+        "especie_prisao": "Civil",
+        "expedicao": "13/08/2026"
+    },
+    {
         "id": "0006192-66.2026.8.16.0017.01.0001-05",
         "nome": "WAGNER FRANCISCO DOS SANTOS",
         "vulgo": "Sem alcunha registrada",
@@ -7420,6 +7360,25 @@
         "situacao": "EM ABERTO",
         "idade": 34,
         "mandado": "0006192-66.2026.8.16.0017.01.0001-05",
+        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
+        "especie_prisao": "Civil",
+        "expedicao": "13/08/2026"
+    },
+    {
+        "id": "0021860-14.2025.8.16.0017.01.0001-03",
+        "nome": "GIRLANDO BRITO DA SILVA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
+        "tags": [
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
+        ],
+        "cidade": "Arapiraca",
+        "situacao": "EM ABERTO",
+        "idade": 60,
+        "mandado": "0021860-14.2025.8.16.0017.01.0001-03",
         "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
         "especie_prisao": "Civil",
         "expedicao": "13/08/2026"
@@ -7733,25 +7692,6 @@
         "expedicao": "13/01/2011"
     },
     {
-        "id": "0018093-80.2016.8.16.0017.26.0006-12",
-        "nome": "JOARCI PAULO CAVALHEIRO JUNIOR",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Homicida/Latrocida",
-        "tags": [
-            "Lei: 2848, Artigo: 157, Complemento: §3º II, Crime tentato: Não                 Violência Doméstica: Não",
-            "Homicida/Latrocida"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 42,
-        "mandado": "0018093-80.2016.8.16.0017.26.0006-12",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Recaptura",
-        "expedicao": "12/12/2025"
-    },
-    {
         "id": "0015867-97.2019.8.16.0017.26.0004-00",
         "nome": "JOÃO VITOR DE SOUZA FIGUEREDO",
         "vulgo": "Sem alcunha registrada",
@@ -7766,6 +7706,25 @@
         "situacao": "EM ABERTO",
         "idade": 27,
         "mandado": "0015867-97.2019.8.16.0017.26.0004-00",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Recaptura",
+        "expedicao": "12/12/2025"
+    },
+    {
+        "id": "0018093-80.2016.8.16.0017.26.0006-12",
+        "nome": "JOARCI PAULO CAVALHEIRO JUNIOR",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Homicida/Latrocida",
+        "tags": [
+            "Lei: 2848, Artigo: 157, Complemento: §3º II, Crime tentato: Não                 Violência Doméstica: Não",
+            "Homicida/Latrocida"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 42,
+        "mandado": "0018093-80.2016.8.16.0017.26.0006-12",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Recaptura",
         "expedicao": "12/12/2025"
@@ -7847,6 +7806,25 @@
         "expedicao": "12/11/2013"
     },
     {
+        "id": "0005042-21.2024.8.16.0017.01.0001-07",
+        "nome": "TATIANE BERNARDINO",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
+        "tags": [
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 40,
+        "mandado": "0005042-21.2024.8.16.0017.01.0001-07",
+        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
+        "especie_prisao": "Civil",
+        "expedicao": "12/09/2024"
+    },
+    {
         "id": "0005633-51.2022.8.16.0017.01.0004-12",
         "nome": "JONATAN WILLIAM CARVALHO HOFFMANN",
         "vulgo": "Sem alcunha registrada",
@@ -7885,25 +7863,6 @@
         "expedicao": "12/09/2024"
     },
     {
-        "id": "0005042-21.2024.8.16.0017.01.0001-07",
-        "nome": "TATIANE BERNARDINO",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 40,
-        "mandado": "0005042-21.2024.8.16.0017.01.0001-07",
-        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
-        "especie_prisao": "Civil",
-        "expedicao": "12/09/2024"
-    },
-    {
         "id": "4001090-97.2022.8.16.0190.01.0003-05",
         "nome": "JUAN GUALBERTO DERENE GOMEZ",
         "vulgo": "Sem alcunha registrada",
@@ -7923,6 +7882,25 @@
         "expedicao": "12/09/2023"
     },
     {
+        "id": "0012496-91.2020.8.16.0017.01.0004-24",
+        "nome": "MARCOS ANTONIO DA SILVA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "media",
+        "categoria": "Traficante",
+        "tags": [
+            "Lei: 11343, Artigo: 33, Parágrafo: caput",
+            "Traficante"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 37,
+        "mandado": "0012496-91.2020.8.16.0017.01.0004-24",
+        "vara": "MARINGÁ - 2ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
+        "expedicao": "12/08/2026"
+    },
+    {
         "id": "5007647-80.2022.4.04.7003.01.0001-27",
         "nome": "JOAQUIM COELHO DE SOUSA",
         "vulgo": "Sem alcunha registrada",
@@ -7940,25 +7918,6 @@
         "idade": 63,
         "mandado": "5007647-80.2022.4.04.7003.01.0001-27",
         "vara": "3ª VARA FEDERAL DE MARINGÁ - TRF4",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
-        "expedicao": "12/08/2026"
-    },
-    {
-        "id": "0012496-91.2020.8.16.0017.01.0004-24",
-        "nome": "MARCOS ANTONIO DA SILVA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "media",
-        "categoria": "Traficante",
-        "tags": [
-            "Lei: 11343, Artigo: 33, Parágrafo: caput",
-            "Traficante"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 37,
-        "mandado": "0012496-91.2020.8.16.0017.01.0004-24",
-        "vara": "MARINGÁ - 2ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
         "expedicao": "12/08/2026"
     },
@@ -8033,9 +7992,28 @@
         ],
         "cidade": "Arapongas",
         "situacao": "EM ABERTO",
-        "idade": 34,
+        "idade": 35,
         "mandado": "0008767-47.2026.8.16.0017.01.0119-08",
         "vara": "MARINGÁ - 3ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Preventiva",
+        "expedicao": "12/06/2026"
+    },
+    {
+        "id": "0015872-12.2025.8.16.0017.01.0042-02",
+        "nome": "EDER FERNANDO ALVES CORDEIRO",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "altissima",
+        "categoria": "Criminoso de ORCRIM",
+        "tags": [
+            "Lei: 12850, Artigo: 1",
+            "Criminoso de ORCRIM"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 43,
+        "mandado": "0015872-12.2025.8.16.0017.01.0042-02",
+        "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Preventiva",
         "expedicao": "12/06/2026"
     },
@@ -8073,25 +8051,6 @@
         "situacao": "EM ABERTO",
         "idade": 26,
         "mandado": "0015872-12.2025.8.16.0017.01.0048-14",
-        "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Preventiva",
-        "expedicao": "12/06/2026"
-    },
-    {
-        "id": "0015872-12.2025.8.16.0017.01.0042-02",
-        "nome": "EDER FERNANDO ALVES CORDEIRO",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "altissima",
-        "categoria": "Criminoso de ORCRIM",
-        "tags": [
-            "Lei: 12850, Artigo: 1",
-            "Criminoso de ORCRIM"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 43,
-        "mandado": "0015872-12.2025.8.16.0017.01.0042-02",
         "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Preventiva",
         "expedicao": "12/06/2026"
@@ -8194,25 +8153,6 @@
         "expedicao": "12/03/2026"
     },
     {
-        "id": "0001592-12.2019.8.16.0190.01.0001-24",
-        "nome": "RAFAEL ALEXANDRE RAIS",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "baixa",
-        "categoria": "Furtador, Receptador e Similares",
-        "tags": [
-            "Lei: 2848, Artigo: 180, Artigo: 304",
-            "Furtador, Receptador e Similares"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 43,
-        "mandado": "0001592-12.2019.8.16.0190.01.0001-24",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Suspensão de regime",
-        "expedicao": "12/03/2026"
-    },
-    {
         "id": "4000398-30.2024.8.16.0190.01.0002-21",
         "nome": "RAI MENDES DE FREITAS",
         "vulgo": "Sem alcunha registrada",
@@ -8273,25 +8213,6 @@
         "expedicao": "12/03/2020"
     },
     {
-        "id": "0005028-62.2009.8.16.0017.01.0001-07",
-        "nome": "JUAREZ MOREIRA BARBOSA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
-        "tags": [
-            "Lei: 2848, art. 157 - Roubo",
-            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 49,
-        "mandado": "0005028-62.2009.8.16.0017.01.0001-07",
-        "vara": "MARINGÁ - 2ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Preventiva",
-        "expedicao": "12/03/2012"
-    },
-    {
         "id": "0000132-25.1999.8.16.0017.01.0001-06",
         "nome": "MANOEL GOMES NETO",
         "vulgo": "Sem alcunha registrada",
@@ -8306,6 +8227,25 @@
         "situacao": "EM ABERTO",
         "idade": 63,
         "mandado": "0000132-25.1999.8.16.0017.01.0001-06",
+        "vara": "MARINGÁ - 2ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Preventiva",
+        "expedicao": "12/03/2012"
+    },
+    {
+        "id": "0005028-62.2009.8.16.0017.01.0001-07",
+        "nome": "JUAREZ MOREIRA BARBOSA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
+        "tags": [
+            "Lei: 2848, art. 157 - Roubo",
+            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 49,
+        "mandado": "0005028-62.2009.8.16.0017.01.0001-07",
         "vara": "MARINGÁ - 2ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Preventiva",
         "expedicao": "12/03/2012"
@@ -8561,6 +8501,25 @@
         "expedicao": "11/06/2025"
     },
     {
+        "id": "5001394-62.2016.4.04.7011.01.0014-17",
+        "nome": "JUAN CELSO URUNAGA LEDEZMA",
+        "vulgo": "Vulgo \"CESAR\"",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Não classificado",
+        "tags": [
+            "Lei: 12850, art. 2º - Organização criminosa",
+            "Lei: 2848, art. 334"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": null,
+        "mandado": "5001394-62.2016.4.04.7011.01.0014-17",
+        "vara": "1ª VARA FEDERAL DE PARANAVAÍ - TRF4",
+        "especie_prisao": "Preventiva",
+        "expedicao": "11/06/2016"
+    },
+    {
         "id": "0014812-82.2017.8.16.0017.01.0001-14",
         "nome": "LOURISMAR VITORIO COSME",
         "vulgo": "Vulgo \"FREDY\"",
@@ -8681,7 +8640,7 @@
         "id": "0017627-33.2009.8.16.0017.01.0001-16",
         "nome": "ALESSANDRO MOISES ROCHA DA SILVA",
         "vulgo": "Sem alcunha registrada",
-        "foto": null,
+        "foto": "assets/img/procurados/0017627-33_2009_8_16_0017_01_0001-16.jpg",
         "risco": "alta",
         "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
         "tags": [
@@ -8717,26 +8676,6 @@
         "expedicao": "11/01/2024"
     },
     {
-        "id": "0032173-88.2012.8.16.0017.01.0001-19",
-        "nome": "ALEX DE OLIVEIRA CARDOSO",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Agressor Sexual",
-        "tags": [
-            "Lei: 2848, art. 217",
-            "Lei: 8069, art. 244",
-            "Agressor Sexual"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 32,
-        "mandado": "0032173-88.2012.8.16.0017.01.0001-19",
-        "vara": "MARINGÁ - 1ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Por condenação transitada em julgado",
-        "expedicao": "10/12/2020"
-    },
-    {
         "id": "0001580-32.2018.8.16.0190.01.0002-15",
         "nome": "MARCOS LIMA DE OLIVEIRA",
         "vulgo": "Sem alcunha registrada",
@@ -8754,6 +8693,26 @@
         "idade": 52,
         "mandado": "0001580-32.2018.8.16.0190.01.0002-15",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Por condenação transitada em julgado",
+        "expedicao": "10/12/2020"
+    },
+    {
+        "id": "0032173-88.2012.8.16.0017.01.0001-19",
+        "nome": "ALEX DE OLIVEIRA CARDOSO",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Agressor Sexual",
+        "tags": [
+            "Lei: 2848, art. 217",
+            "Lei: 8069, art. 244",
+            "Agressor Sexual"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 32,
+        "mandado": "0032173-88.2012.8.16.0017.01.0001-19",
+        "vara": "MARINGÁ - 1ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Por condenação transitada em julgado",
         "expedicao": "10/12/2020"
     },
@@ -8815,25 +8774,6 @@
         "expedicao": "10/09/2020"
     },
     {
-        "id": "4000075-25.2024.8.16.0190.01.0001-02",
-        "nome": "CARLOS FELIPE DA SILVA DE ALMEIDA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "baixa",
-        "categoria": "Condutor de Veículo Sob Efeito de Álcool",
-        "tags": [
-            "Lei: 9503, Artigo: 306",
-            "Condutor de Veículo Sob Efeito de Álcool"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 31,
-        "mandado": "4000075-25.2024.8.16.0190.01.0001-02",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Suspensão de regime",
-        "expedicao": "10/08/2026"
-    },
-    {
         "id": "0006186-59.2026.8.16.0017.01.0001-20",
         "nome": "MAIKI LIMA PEREIRA",
         "vulgo": "Sem alcunha registrada",
@@ -8850,6 +8790,25 @@
         "mandado": "0006186-59.2026.8.16.0017.01.0001-20",
         "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
         "especie_prisao": "Civil",
+        "expedicao": "10/08/2026"
+    },
+    {
+        "id": "4000075-25.2024.8.16.0190.01.0001-02",
+        "nome": "CARLOS FELIPE DA SILVA DE ALMEIDA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "baixa",
+        "categoria": "Condutor de Veículo Sob Efeito de Álcool",
+        "tags": [
+            "Lei: 9503, Artigo: 306",
+            "Condutor de Veículo Sob Efeito de Álcool"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 31,
+        "mandado": "4000075-25.2024.8.16.0190.01.0001-02",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Suspensão de regime",
         "expedicao": "10/08/2026"
     },
     {
@@ -9041,11 +9000,30 @@
         ],
         "cidade": "Londrina",
         "situacao": "EM ABERTO",
-        "idade": 44,
+        "idade": 45,
         "mandado": "0001602-57.2000.8.16.0017.01.0001-15",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Por condenação transitada em julgado",
         "expedicao": "10/04/2017"
+    },
+    {
+        "id": "0011206-29.2022.8.16.0160.01.0002-17",
+        "nome": "ISAAC BARBOSA DA SILVA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": "assets/img/procurados/0011206-29_2022_8_16_0160_01_0002-17.jpg",
+        "risco": "alta",
+        "categoria": "Agressor Sexual",
+        "tags": [
+            "Lei: 2848, Artigo: 217A",
+            "Agressor Sexual"
+        ],
+        "cidade": "Sarandi",
+        "situacao": "EM ABERTO",
+        "idade": 61,
+        "mandado": "0011206-29.2022.8.16.0160.01.0002-17",
+        "vara": "SARANDI - 2ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
+        "expedicao": "10/03/2026"
     },
     {
         "id": "0013794-21.2020.8.16.0017.01.0002-15",
@@ -9083,25 +9061,6 @@
         "idade": 33,
         "mandado": "0016414-35.2022.8.16.0017.01.0003-26",
         "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
-        "expedicao": "10/03/2026"
-    },
-    {
-        "id": "0011206-29.2022.8.16.0160.01.0002-17",
-        "nome": "ISAAC BARBOSA DA SILVA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/0011206-29_2022_8_16_0160_01_0002-17.jpg",
-        "risco": "alta",
-        "categoria": "Agressor Sexual",
-        "tags": [
-            "Lei: 2848, Artigo: 217A",
-            "Agressor Sexual"
-        ],
-        "cidade": "Sarandi",
-        "situacao": "EM ABERTO",
-        "idade": 61,
-        "mandado": "0011206-29.2022.8.16.0160.01.0002-17",
-        "vara": "SARANDI - 2ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
         "expedicao": "10/03/2026"
     },
@@ -9145,25 +9104,6 @@
         "expedicao": "10/01/2024"
     },
     {
-        "id": "0031612-35.2010.8.16.0017.01.0008-08",
-        "nome": "VALTER WILLIAN DA SILVA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
-        "tags": [
-            "Lei: 2848, art. 157 - Roubo",
-            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 35,
-        "mandado": "0031612-35.2010.8.16.0017.01.0008-08",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Por condenação transitada em julgado",
-        "expedicao": "09/11/2023"
-    },
-    {
         "id": "0001474-70.2014.8.16.0009.01.0007-27",
         "nome": "LAERCIO APARECIDO FRANCISCO JUNIOR",
         "vulgo": "Sem alcunha registrada",
@@ -9185,6 +9125,25 @@
         "expedicao": "09/11/2023"
     },
     {
+        "id": "0031612-35.2010.8.16.0017.01.0008-08",
+        "nome": "VALTER WILLIAN DA SILVA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
+        "tags": [
+            "Lei: 2848, art. 157 - Roubo",
+            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 35,
+        "mandado": "0031612-35.2010.8.16.0017.01.0008-08",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Por condenação transitada em julgado",
+        "expedicao": "09/11/2023"
+    },
+    {
         "id": "0025989-09.2018.8.16.0017.01.0001-11",
         "nome": "IGOR JUSTINO ALVES",
         "vulgo": "Sem alcunha registrada",
@@ -9197,30 +9156,11 @@
         ],
         "cidade": "Maringa",
         "situacao": "EM ABERTO",
-        "idade": 45,
+        "idade": 46,
         "mandado": "0025989-09.2018.8.16.0017.01.0001-11",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Preventiva",
         "expedicao": "09/11/2018"
-    },
-    {
-        "id": "0008330-79.2021.8.16.0017.01.0002-13",
-        "nome": "HIGOR GABRIEL SANTOS SALES",
-        "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/0008330-79_2021_8_16_0017_01_0002-13.jpg",
-        "risco": "alta",
-        "categoria": "Homicida/Latrocida",
-        "tags": [
-            "Lei: 2848, art. 121 - Homicídio",
-            "Homicida/Latrocida"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 25,
-        "mandado": "0008330-79.2021.8.16.0017.01.0002-13",
-        "vara": "MARINGÁ - 1ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Preventiva",
-        "expedicao": "09/09/2021"
     },
     {
         "id": "0008330-79.2021.8.16.0017.01.0001-11",
@@ -9237,6 +9177,25 @@
         "situacao": "EM ABERTO",
         "idade": 33,
         "mandado": "0008330-79.2021.8.16.0017.01.0001-11",
+        "vara": "MARINGÁ - 1ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Preventiva",
+        "expedicao": "09/09/2021"
+    },
+    {
+        "id": "0008330-79.2021.8.16.0017.01.0002-13",
+        "nome": "HIGOR GABRIEL SANTOS SALES",
+        "vulgo": "Sem alcunha registrada",
+        "foto": "assets/img/procurados/0008330-79_2021_8_16_0017_01_0002-13.jpg",
+        "risco": "alta",
+        "categoria": "Homicida/Latrocida",
+        "tags": [
+            "Lei: 2848, art. 121 - Homicídio",
+            "Homicida/Latrocida"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 25,
+        "mandado": "0008330-79.2021.8.16.0017.01.0002-13",
         "vara": "MARINGÁ - 1ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Preventiva",
         "expedicao": "09/09/2021"
@@ -9299,25 +9258,6 @@
         "vara": "MARINGÁ - 3ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Preventiva",
         "expedicao": "09/08/2018"
-    },
-    {
-        "id": "0015196-30.2026.8.16.0017.01.0001-00",
-        "nome": "MATHEUS HENRIQUE PINHEIRO",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 30,
-        "mandado": "0015196-30.2026.8.16.0017.01.0001-00",
-        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
-        "especie_prisao": "Civil",
-        "expedicao": "09/07/2026"
     },
     {
         "id": "4000877-86.2025.8.16.0190.01.0003-22",
@@ -9555,25 +9495,6 @@
         "expedicao": "09/01/2025"
     },
     {
-        "id": "0014279-79.2024.8.16.0017.01.0001-15",
-        "nome": "ANDERSON DA SILVA OLIVEIRA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 32,
-        "mandado": "0014279-79.2024.8.16.0017.01.0001-15",
-        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
-        "especie_prisao": "Civil",
-        "expedicao": "08/11/2024"
-    },
-    {
         "id": "0006624-23.2015.8.16.0130.01.0002-10",
         "nome": "JOSERVAN DOS SANTOS LINO",
         "vulgo": "Sem alcunha registrada",
@@ -9590,6 +9511,25 @@
         "mandado": "0006624-23.2015.8.16.0130.01.0002-10",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Por condenação transitada em julgado",
+        "expedicao": "08/11/2024"
+    },
+    {
+        "id": "0014279-79.2024.8.16.0017.01.0001-15",
+        "nome": "ANDERSON DA SILVA OLIVEIRA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
+        "tags": [
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 32,
+        "mandado": "0014279-79.2024.8.16.0017.01.0001-15",
+        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
+        "especie_prisao": "Civil",
         "expedicao": "08/11/2024"
     },
     {
@@ -9920,6 +9860,25 @@
         "expedicao": "08/03/2021"
     },
     {
+        "id": "0000902-83.2020.8.16.0113.01.0002-00",
+        "nome": "Jose Carlos Camilo",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
+        "tags": [
+            "Lei: 2848, art. 157 - Roubo",
+            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
+        ],
+        "cidade": "Marialva",
+        "situacao": "EM ABERTO",
+        "idade": 56,
+        "mandado": "0000902-83.2020.8.16.0113.01.0002-00",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Por condenação transitada em julgado",
+        "expedicao": "08/03/2021"
+    },
+    {
         "id": "0002041-02.2015.8.16.0160.01.0005-11",
         "nome": "JUAN ESPADA CALLEJAS",
         "vulgo": "Vulgo \"SIMAO BOLIVAR SIMON BOLIVAR\"",
@@ -9938,25 +9897,6 @@
         "mandado": "0002041-02.2015.8.16.0160.01.0005-11",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Recaptura",
-        "expedicao": "08/03/2021"
-    },
-    {
-        "id": "0000902-83.2020.8.16.0113.01.0002-00",
-        "nome": "Jose Carlos Camilo",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
-        "tags": [
-            "Lei: 2848, art. 157 - Roubo",
-            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
-        ],
-        "cidade": "Marialva",
-        "situacao": "EM ABERTO",
-        "idade": 56,
-        "mandado": "0000902-83.2020.8.16.0113.01.0002-00",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Por condenação transitada em julgado",
         "expedicao": "08/03/2021"
     },
     {
@@ -10038,6 +9978,25 @@
         "expedicao": "07/11/2016"
     },
     {
+        "id": "0005498-61.2023.8.16.0160.01.0001-07",
+        "nome": "ANTONIO BALBINO DE SOUZA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": "assets/img/procurados/0005498-61_2023_8_16_0160_01_0001-07.jpg",
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
+        "tags": [
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
+        ],
+        "cidade": "Guaratuba",
+        "situacao": "EM ABERTO",
+        "idade": 47,
+        "mandado": "0005498-61.2023.8.16.0160.01.0001-07",
+        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
+        "especie_prisao": "Civil",
+        "expedicao": "07/10/2024"
+    },
+    {
         "id": "0008069-56.2017.8.16.0017.01.0001-06",
         "nome": "DIEGO ALESSANDRO VOLFE SOARES",
         "vulgo": "Sem alcunha registrada",
@@ -10074,25 +10033,6 @@
         "mandado": "0022982-67.2022.8.16.0017.01.0001-24",
         "vara": "MARINGÁ - 3ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Por condenação transitada em julgado",
-        "expedicao": "07/10/2024"
-    },
-    {
-        "id": "0005498-61.2023.8.16.0160.01.0001-07",
-        "nome": "ANTONIO BALBINO DE SOUZA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/0005498-61_2023_8_16_0160_01_0001-07.jpg",
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Guaratuba",
-        "situacao": "EM ABERTO",
-        "idade": 47,
-        "mandado": "0005498-61.2023.8.16.0160.01.0001-07",
-        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
-        "especie_prisao": "Civil",
         "expedicao": "07/10/2024"
     },
     {
@@ -10348,26 +10288,6 @@
         "expedicao": "07/04/2025"
     },
     {
-        "id": "4000829-64.2024.8.16.0190.01.0001-25",
-        "nome": "LISSANDRO FERGUGLIA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "media",
-        "categoria": "Ameaça, Dano, Desacato e Similares",
-        "tags": [
-            "Lei: 2848, Artigo: 147, Parágrafo: caput",
-            "Lei: 3688, Artigo: 21, Parágrafo: caput",
-            "Ameaça, Dano, Desacato e Similares"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 40,
-        "mandado": "4000829-64.2024.8.16.0190.01.0001-25",
-        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
-        "especie_prisao": "Suspensão de regime",
-        "expedicao": "07/04/2025"
-    },
-    {
         "id": "0006526-23.2014.8.16.0017.01.0001-12",
         "nome": "ALEXSANDRO DE SOUZA OLIVEIRA",
         "vulgo": "Vulgo \"Alex\"",
@@ -10563,6 +10483,25 @@
         "expedicao": "06/11/2023"
     },
     {
+        "id": "4002941-45.2020.8.16.0190.01.0010-04",
+        "nome": "ADRIANO MACHADO BARBOSA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": "assets/img/procurados/4002941-45_2020_8_16_0190_01_0010-04.jpg",
+        "risco": "media",
+        "categoria": "Traficante",
+        "tags": [
+            "Lei: 11343, Artigo: 33, Parágrafo: caput",
+            "Traficante"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 27,
+        "mandado": "4002941-45.2020.8.16.0190.01.0010-04",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
+        "expedicao": "06/10/2025"
+    },
+    {
         "id": "5001709-90.2016.4.04.7011.01.0001-01",
         "nome": "MARCOS PEREIRA DE ARAUJO",
         "vulgo": "Vulgo \"TAVINHO e MARCOLA\"",
@@ -10579,25 +10518,6 @@
         "idade": 46,
         "mandado": "5001709-90.2016.4.04.7011.01.0001-01",
         "vara": "3ª VARA FEDERAL DE MARINGÁ - TRF4",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
-        "expedicao": "06/10/2025"
-    },
-    {
-        "id": "4002941-45.2020.8.16.0190.01.0010-04",
-        "nome": "ADRIANO MACHADO BARBOSA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/4002941-45_2020_8_16_0190_01_0010-04.jpg",
-        "risco": "media",
-        "categoria": "Traficante",
-        "tags": [
-            "Lei: 11343, Artigo: 33, Parágrafo: caput",
-            "Traficante"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 27,
-        "mandado": "4002941-45.2020.8.16.0190.01.0010-04",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
         "expedicao": "06/10/2025"
     },
@@ -10972,26 +10892,6 @@
         "expedicao": "05/07/2024"
     },
     {
-        "id": "5023307-51.2021.4.04.7003.01.0001-20",
-        "nome": "ROZELI APARECIDA MAYA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "baixa",
-        "categoria": "Furtador, Receptador e Similares",
-        "tags": [
-            "Lei: 2848, Artigo: 334, Parágrafo: 1",
-            "Lei: 2848, Artigo: 333",
-            "Furtador, Receptador e Similares"
-        ],
-        "cidade": "Foz Do Iguacu",
-        "situacao": "EM ABERTO",
-        "idade": 52,
-        "mandado": "5023307-51.2021.4.04.7003.01.0001-20",
-        "vara": "3ª VARA FEDERAL DE MARINGÁ - TRF4",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
-        "expedicao": "05/06/2026"
-    },
-    {
         "id": "5015961-15.2022.4.04.7003.01.0012-07",
         "nome": "ADENIR ANTUNES DE LIMA",
         "vulgo": "Sem alcunha registrada",
@@ -11007,6 +10907,26 @@
         "situacao": "EM ABERTO",
         "idade": 43,
         "mandado": "5015961-15.2022.4.04.7003.01.0012-07",
+        "vara": "3ª VARA FEDERAL DE MARINGÁ - TRF4",
+        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
+        "expedicao": "05/06/2026"
+    },
+    {
+        "id": "5023307-51.2021.4.04.7003.01.0001-20",
+        "nome": "ROZELI APARECIDA MAYA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "baixa",
+        "categoria": "Furtador, Receptador e Similares",
+        "tags": [
+            "Lei: 2848, Artigo: 334, Parágrafo: 1",
+            "Lei: 2848, Artigo: 333",
+            "Furtador, Receptador e Similares"
+        ],
+        "cidade": "Foz Do Iguacu",
+        "situacao": "EM ABERTO",
+        "idade": 52,
+        "mandado": "5023307-51.2021.4.04.7003.01.0001-20",
         "vara": "3ª VARA FEDERAL DE MARINGÁ - TRF4",
         "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
         "expedicao": "05/06/2026"
@@ -11102,7 +11022,7 @@
         ],
         "cidade": "Maringa",
         "situacao": "EM ABERTO",
-        "idade": 58,
+        "idade": 59,
         "mandado": "4000694-18.2025.8.16.0190.01.0001-19",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
@@ -11130,26 +11050,6 @@
         "expedicao": "05/02/2026"
     },
     {
-        "id": "0002329-08.2019.8.16.0160.01.0010-07",
-        "nome": "PATRICK DO NASCIMENTO GUTIERREZ FRANCO",
-        "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/0002329-08_2019_8_16_0160_01_0010-07.jpg",
-        "risco": "altissima",
-        "categoria": "Múltiplas Condenações",
-        "tags": [
-            "Lei: 11343, Artigo: 33, Parágrafo: caput",
-            "Lei: 2848, Artigo: 329, Parágrafo: caput, Artigo: 155, Parágrafo: caput",
-            "Múltiplas Condenações"
-        ],
-        "cidade": "Sarandi",
-        "situacao": "EM ABERTO",
-        "idade": 26,
-        "mandado": "0002329-08.2019.8.16.0160.01.0010-07",
-        "vara": "SARANDI - 1ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Regressão de regime",
-        "expedicao": "05/02/2026"
-    },
-    {
         "id": "0002788-61.2013.8.16.0017.01.0002-25",
         "nome": "PAULO ROBERTO ALCANTARA",
         "vulgo": "Sem alcunha registrada",
@@ -11167,26 +11067,6 @@
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
         "expedicao": "05/02/2025"
-    },
-    {
-        "id": "4000879-61.2022.8.16.0190.01.0004-26",
-        "nome": "MARCOS MARTINS ANDRADE",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Agressor Sexual",
-        "tags": [
-            "Lei: 11340, Artigo: 24A, Parágrafo: caput",
-            "Lei: 2848, Artigo: 215A, Parágrafo: caput",
-            "Agressor Sexual"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 52,
-        "mandado": "4000879-61.2022.8.16.0190.01.0004-26",
-        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
-        "especie_prisao": "Suspensão de regime",
-        "expedicao": "04/12/2025"
     },
     {
         "id": "0006768-06.2018.8.16.0190.01.0009-27",
@@ -11228,6 +11108,26 @@
         "expedicao": "04/12/2025"
     },
     {
+        "id": "4000879-61.2022.8.16.0190.01.0004-26",
+        "nome": "MARCOS MARTINS ANDRADE",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Agressor Sexual",
+        "tags": [
+            "Lei: 11340, Artigo: 24A, Parágrafo: caput",
+            "Lei: 2848, Artigo: 215A, Parágrafo: caput",
+            "Agressor Sexual"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 52,
+        "mandado": "4000879-61.2022.8.16.0190.01.0004-26",
+        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
+        "especie_prisao": "Suspensão de regime",
+        "expedicao": "04/12/2025"
+    },
+    {
         "id": "0002986-21.2001.8.16.0017.01.0001-13",
         "nome": "ELIAS FERNANDES DE SOUZA",
         "vulgo": "Sem alcunha registrada",
@@ -11261,49 +11161,121 @@
         ],
         "cidade": "Santa Monica",
         "situacao": "EM ABERTO",
-        "idade": 41,
+        "idade": 42,
         "mandado": "0010544-58.2012.8.16.0017.01.0001-20",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Por condenação transitada em julgado",
         "expedicao": "04/10/2013"
     },
     {
-        "id": "0022897-47.2023.8.16.0017.01.0001-19",
-        "nome": "Advan de Lima Souza",
+        "id": "0000207-92.2020.8.16.0190.01.0007-03",
+        "nome": "JOÃO VITOR DOS SANTOS DE OLIVEIRA",
         "vulgo": "Sem alcunha registrada",
-        "foto": null,
+        "foto": "assets/img/procurados/0000207-92_2020_8_16_0190_01_0007-03.jpg",
         "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
+        "categoria": "Não classificado",
         "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
+            "Lei: 11343, Artigo: 33, Parágrafo: caput"
         ],
-        "cidade": "Não informado",
+        "cidade": "Maringa",
         "situacao": "EM ABERTO",
-        "idade": 39,
-        "mandado": "0022897-47.2023.8.16.0017.01.0001-19",
-        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
-        "especie_prisao": "Civil",
-        "expedicao": "04/09/2024"
+        "idade": 28,
+        "mandado": "0000207-92.2020.8.16.0190.01.0007-03",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Regressão cautelar",
+        "expedicao": "04/09/2026"
     },
     {
-        "id": "0015127-03.2023.8.16.0017.01.0001-15",
-        "nome": "FILIPPE NASCIMENTO GOMES DA SILVA",
+        "id": "0006180-74.2020.8.16.0013.26.0008-27",
+        "nome": "ALLAN GABRIEL RODRIGUES",
+        "vulgo": "Sem alcunha registrada",
+        "foto": "assets/img/procurados/0006180-74_2020_8_16_0013_26_0008-27.jpg",
+        "risco": "sem",
+        "categoria": "Não classificado",
+        "tags": [
+            "Lei: 11343, Artigo: 33, Parágrafo: caput, Crime tentato: Não                 Violência Doméstica: Não"
+        ],
+        "cidade": "Curitiba",
+        "situacao": "EM ABERTO",
+        "idade": 36,
+        "mandado": "0006180-74.2020.8.16.0013.26.0008-27",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Recaptura",
+        "expedicao": "04/09/2026"
+    },
+    {
+        "id": "4000181-16.2026.8.16.0190.01.0001-20",
+        "nome": "CARLOS EDUARDO FRANCA DA GRACA",
         "vulgo": "Sem alcunha registrada",
         "foto": null,
         "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
+        "categoria": "Não classificado",
         "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
+            "Lei: 2848, Artigo: 129, Parágrafo: 13"
         ],
-        "cidade": "Não informado",
+        "cidade": "Maringa",
         "situacao": "EM ABERTO",
-        "idade": 33,
-        "mandado": "0015127-03.2023.8.16.0017.01.0001-15",
-        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
-        "especie_prisao": "Civil",
-        "expedicao": "04/09/2024"
+        "idade": 23,
+        "mandado": "4000181-16.2026.8.16.0190.01.0001-20",
+        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
+        "especie_prisao": "Suspensão de regime",
+        "expedicao": "04/09/2026"
+    },
+    {
+        "id": "4000611-36.2024.8.16.0190.01.0005-27",
+        "nome": "MARCIO MARCELINO",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Não classificado",
+        "tags": [
+            "Lei: 3688, Artigo: 21, Parágrafo: caput",
+            "Lei: 2848, Artigo: 140, Parágrafo: 3"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 53,
+        "mandado": "4000611-36.2024.8.16.0190.01.0005-27",
+        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
+        "especie_prisao": "Suspensão de regime",
+        "expedicao": "04/09/2026"
+    },
+    {
+        "id": "4000631-56.2026.8.16.0190.01.0001-21",
+        "nome": "AURI FERREIRA CAMPANELI",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Não classificado",
+        "tags": [
+            "Lei: 2848, Artigo: 129, Parágrafo: 13"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 48,
+        "mandado": "4000631-56.2026.8.16.0190.01.0001-21",
+        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
+        "especie_prisao": "Suspensão de regime",
+        "expedicao": "04/09/2026"
+    },
+    {
+        "id": "4001116-90.2025.8.16.0190.01.0001-26",
+        "nome": "MAYKON WILLIAN DA SILVA BAPTISTA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Não classificado",
+        "tags": [
+            "Lei: 3688, Artigo: 21, Parágrafo: caput",
+            "Lei: 2848, Artigo: 147, Parágrafo: caput"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 40,
+        "mandado": "4001116-90.2025.8.16.0190.01.0001-26",
+        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
+        "especie_prisao": "Suspensão de regime",
+        "expedicao": "04/09/2026"
     },
     {
         "id": "0016257-91.2024.8.16.0017.01.0001-05",
@@ -11462,25 +11434,6 @@
         "expedicao": "03/12/2025"
     },
     {
-        "id": "4001210-09.2023.8.16.0190.01.0001-24",
-        "nome": "KENNEDY AMANSIO DA SILVA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
-        "tags": [
-            "Lei: 2848, Artigo: 157, Parágrafo: caput, Artigo: 157, Parágrafo: 2",
-            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 25,
-        "mandado": "4001210-09.2023.8.16.0190.01.0001-24",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Regressão de regime",
-        "expedicao": "03/11/2025"
-    },
-    {
         "id": "4000095-31.2025.8.16.0109.01.0001-24",
         "nome": "SHEYLA APARECIDA CORDEIRO MAUTA",
         "vulgo": "Sem alcunha registrada",
@@ -11498,6 +11451,25 @@
         "mandado": "4000095-31.2025.8.16.0109.01.0001-24",
         "vara": "MANDAGUARI - VARA CRIMINAL, FAMÍLIA E SUCESSÕES, INFÂNCIA E JUVENTUDE E JUIZADO",
         "especie_prisao": "Decorrente de condenação não transitada em julgado",
+        "expedicao": "03/11/2025"
+    },
+    {
+        "id": "4001210-09.2023.8.16.0190.01.0001-24",
+        "nome": "KENNEDY AMANSIO DA SILVA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
+        "tags": [
+            "Lei: 2848, Artigo: 157, Parágrafo: caput, Artigo: 157, Parágrafo: 2",
+            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 25,
+        "mandado": "4001210-09.2023.8.16.0190.01.0001-24",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Regressão de regime",
         "expedicao": "03/11/2025"
     },
     {
@@ -11520,24 +11492,58 @@
         "expedicao": "03/11/2014"
     },
     {
-        "id": "0001604-92.2014.8.16.0160.01.0001-05",
-        "nome": "SERGIO GONÇALVES NUNES",
+        "id": "0004865-67.2017.8.16.0190.01.0002-21",
+        "nome": "JULISMAR LENCINA DOS REIS",
         "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/0001604-92_2014_8_16_0160_01_0001-05.jpg",
-        "risco": "alta",
-        "categoria": "Homicida/Latrocida",
+        "foto": "assets/img/procurados/0004865-67_2017_8_16_0190_01_0002-21.jpg",
+        "risco": "sem",
+        "categoria": "Não classificado",
         "tags": [
-            "Lei: 2848, art. 121 - Homicídio",
-            "Lei: 2848, art. 129 - Lesão corporal em contexto de violência doméstica",
-            "Homicida/Latrocida"
+            "Lei: 2848, Artigo: 217A, Parágrafo: caput"
         ],
-        "cidade": "Sarandi",
+        "cidade": "Matinhos",
         "situacao": "EM ABERTO",
-        "idade": 56,
-        "mandado": "0001604-92.2014.8.16.0160.01.0001-05",
+        "idade": 40,
+        "mandado": "0004865-67.2017.8.16.0190.01.0002-21",
+        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
+        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
+        "expedicao": "03/09/2026"
+    },
+    {
+        "id": "0017305-32.2017.8.16.0017.01.0007-08",
+        "nome": "JUNIO CALIXTO PINTO",
+        "vulgo": "Vulgo \"JUNIOR CALISTO PINTO\"",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Não classificado",
+        "tags": [
+            "Lei: 2848, Artigo: 157, Parágrafo: 2, Parágrafo: 2"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 29,
+        "mandado": "0017305-32.2017.8.16.0017.01.0007-08",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Por condenação transitada em julgado",
-        "expedicao": "03/10/2018"
+        "especie_prisao": "Regressão cautelar",
+        "expedicao": "03/09/2026"
+    },
+    {
+        "id": "0024068-34.2026.8.16.0017.01.0001-02",
+        "nome": "JOSE AURELIO JESUINO",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Não classificado",
+        "tags": [
+            "Lei: 2848, Artigo: 155"
+        ],
+        "cidade": "Florida",
+        "situacao": "EM ABERTO",
+        "idade": 40,
+        "mandado": "0024068-34.2026.8.16.0017.01.0001-02",
+        "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Preventiva",
+        "expedicao": "03/09/2026"
     },
     {
         "id": "0009867-31.2018.8.16.0045.01.0007-19",
@@ -11637,25 +11643,6 @@
         "expedicao": "03/07/2026"
     },
     {
-        "id": "0016672-06.2026.8.16.0017.01.0008-23",
-        "nome": "CLAUDINEI ALVES",
-        "vulgo": "Sem alcunha registrada",
-        "foto": "assets/img/procurados/0016672-06_2026_8_16_0017_01_0008-23.jpg",
-        "risco": "media",
-        "categoria": "Traficante",
-        "tags": [
-            "Lei: 11343, Artigo: 33, Parágrafo: caput",
-            "Traficante"
-        ],
-        "cidade": "Cianorte",
-        "situacao": "EM ABERTO",
-        "idade": 41,
-        "mandado": "0016672-06.2026.8.16.0017.01.0008-23",
-        "vara": "MARINGÁ - 2ª VARA CRIMINAL - TJPR",
-        "especie_prisao": "Preventiva",
-        "expedicao": "03/07/2026"
-    },
-    {
         "id": "0001131-65.2020.8.16.0041.01.0001-22",
         "nome": "VICTOR RAFFAEL PICKLER",
         "vulgo": "Sem alcunha registrada",
@@ -11675,6 +11662,25 @@
         "expedicao": "03/07/2020"
     },
     {
+        "id": "0002438-30.2015.8.16.0041.01.0001-26",
+        "nome": "MANOEL ROQUE",
+        "vulgo": "Vulgo \"MANÉ DA AGUA\"",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Agressor Sexual",
+        "tags": [
+            "Lei: 2848, art. 234",
+            "Agressor Sexual"
+        ],
+        "cidade": "Sao Joao Do Caiua",
+        "situacao": "EM ABERTO",
+        "idade": 73,
+        "mandado": "0002438-30.2015.8.16.0041.01.0001-26",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Preventiva",
+        "expedicao": "03/06/2014"
+    },
+    {
         "id": "0026872-34.2010.8.16.0017.01.0001-24",
         "nome": "ANDREIA APARECIDA DA SILVA",
         "vulgo": "Sem alcunha registrada",
@@ -11692,25 +11698,6 @@
         "mandado": "0026872-34.2010.8.16.0017.01.0001-24",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Por condenação transitada em julgado",
-        "expedicao": "03/06/2014"
-    },
-    {
-        "id": "0002438-30.2015.8.16.0041.01.0001-26",
-        "nome": "MANOEL ROQUE",
-        "vulgo": "Vulgo \"MANÉ DA AGUA\"",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Agressor Sexual",
-        "tags": [
-            "Lei: 2848, art. 234",
-            "Agressor Sexual"
-        ],
-        "cidade": "Sao Joao Do Caiua",
-        "situacao": "EM ABERTO",
-        "idade": 73,
-        "mandado": "0002438-30.2015.8.16.0041.01.0001-26",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Preventiva",
         "expedicao": "03/06/2014"
     },
     {
@@ -11752,25 +11739,6 @@
         "expedicao": "03/03/2026"
     },
     {
-        "id": "4000031-74.2022.8.16.0190.01.0004-27",
-        "nome": "CAIO FERNANDO RUFIN DA SILVA MOURA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
-        "tags": [
-            "Lei: 2848, Artigo: 157, Parágrafo: 2",
-            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 30,
-        "mandado": "4000031-74.2022.8.16.0190.01.0004-27",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Suspensão de regime",
-        "expedicao": "03/03/2026"
-    },
-    {
         "id": "0011986-39.2024.8.16.0017.01.0001-11",
         "nome": "MAURICIO RODRIGUES DA SILVA",
         "vulgo": "Sem alcunha registrada",
@@ -11787,6 +11755,25 @@
         "mandado": "0011986-39.2024.8.16.0017.01.0001-11",
         "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
         "especie_prisao": "Civil",
+        "expedicao": "03/03/2026"
+    },
+    {
+        "id": "4000031-74.2022.8.16.0190.01.0004-27",
+        "nome": "CAIO FERNANDO RUFIN DA SILVA MOURA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
+        "tags": [
+            "Lei: 2848, Artigo: 157, Parágrafo: 2",
+            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 30,
+        "mandado": "4000031-74.2022.8.16.0190.01.0004-27",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Suspensão de regime",
         "expedicao": "03/03/2026"
     },
     {
@@ -11866,6 +11853,42 @@
         "expedicao": "03/02/2017"
     },
     {
+        "id": "0022102-36.2026.8.16.0017.01.0001-09",
+        "nome": "JOAO VICTOR DO AMARAL SOARES",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Não classificado",
+        "tags": [
+            "Lei: 2848, Artigo: 157, Parágrafo: caput, Prazo da Prisão: 5"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 18,
+        "mandado": "0022102-36.2026.8.16.0017.01.0001-09",
+        "vara": "MARINGÁ - 4ª VARA CRIMINAL - TJPR",
+        "especie_prisao": "Temporária",
+        "expedicao": "02/09/2026"
+    },
+    {
+        "id": "4000549-59.2025.8.16.0190.01.0003-10",
+        "nome": "DIONES RODRIGUES SIQUEIRA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Não classificado",
+        "tags": [
+            "Lei: 11343, Artigo: 33, Parágrafo: caput"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 30,
+        "mandado": "4000549-59.2025.8.16.0190.01.0003-10",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
+        "expedicao": "02/09/2026"
+    },
+    {
         "id": "0004039-85.2011.8.16.0017.01.0001-19",
         "nome": "VALTER LUIZ DE ALMEIDA",
         "vulgo": "Vulgo \"valtinho\"",
@@ -11942,6 +11965,25 @@
         "expedicao": "02/07/2018"
     },
     {
+        "id": "0031117-54.2011.8.16.0017.01.0002-22",
+        "nome": "ARTUR LUIZ CARDOSO",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
+        "tags": [
+            "Lei: 2848, Artigo: 157, Parágrafo: 2, Parágrafo: caput",
+            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
+        ],
+        "cidade": "Nova Esperanca",
+        "situacao": "EM ABERTO",
+        "idade": 46,
+        "mandado": "0031117-54.2011.8.16.0017.01.0002-22",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
+        "expedicao": "02/06/2026"
+    },
+    {
         "id": "4000910-76.2025.8.16.0190.01.0001-22",
         "nome": "JAILSON DA CUNHA DE LIMA",
         "vulgo": "Sem alcunha registrada",
@@ -11977,25 +12019,6 @@
         "mandado": "4002974-35.2020.8.16.0190.01.0004-06",
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Suspensão de regime",
-        "expedicao": "02/06/2026"
-    },
-    {
-        "id": "0031117-54.2011.8.16.0017.01.0002-22",
-        "nome": "ARTUR LUIZ CARDOSO",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Roubador, Porte Ilegal de Arma ou Furtador por Destruição",
-        "tags": [
-            "Lei: 2848, Artigo: 157, Parágrafo: 2, Parágrafo: caput",
-            "Roubador, Porte Ilegal de Arma ou Furtador por Destruição"
-        ],
-        "cidade": "Nova Esperanca",
-        "situacao": "EM ABERTO",
-        "idade": 46,
-        "mandado": "0031117-54.2011.8.16.0017.01.0002-22",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Definitiva decorrente de condenação transitada em julgado",
         "expedicao": "02/06/2026"
     },
     {
@@ -12037,25 +12060,6 @@
         "expedicao": "02/05/2024"
     },
     {
-        "id": "4000059-37.2025.8.16.0190.01.0002-05",
-        "nome": "OTAVIO AUGUSTO LEAL",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "alta",
-        "categoria": "Agressor Sexual",
-        "tags": [
-            "Lei: 2848, Artigo: 213, Parágrafo: caput",
-            "Agressor Sexual"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 29,
-        "mandado": "4000059-37.2025.8.16.0190.01.0002-05",
-        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
-        "especie_prisao": "Decorrente de condenação não transitada em julgado",
-        "expedicao": "02/03/2026"
-    },
-    {
         "id": "0027371-61.2023.8.16.0017.01.0001-04",
         "nome": "CHARLES REGIS DA SILVA GONCALVES",
         "vulgo": "Sem alcunha registrada",
@@ -12072,6 +12076,25 @@
         "mandado": "0027371-61.2023.8.16.0017.01.0001-04",
         "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
         "especie_prisao": "Civil",
+        "expedicao": "02/03/2026"
+    },
+    {
+        "id": "4000059-37.2025.8.16.0190.01.0002-05",
+        "nome": "OTAVIO AUGUSTO LEAL",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "alta",
+        "categoria": "Agressor Sexual",
+        "tags": [
+            "Lei: 2848, Artigo: 213, Parágrafo: caput",
+            "Agressor Sexual"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 29,
+        "mandado": "4000059-37.2025.8.16.0190.01.0002-05",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Decorrente de condenação não transitada em julgado",
         "expedicao": "02/03/2026"
     },
     {
@@ -12132,25 +12155,6 @@
         "expedicao": "01/12/2025"
     },
     {
-        "id": "0031512-89.2024.8.16.0017.01.0001-27",
-        "nome": "ISMAEL DA SILVA DO NASCIMENTO",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 43,
-        "mandado": "0031512-89.2024.8.16.0017.01.0001-27",
-        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
-        "especie_prisao": "Civil",
-        "expedicao": "01/12/2025"
-    },
-    {
         "id": "0011953-15.2025.8.16.0017.01.0001-05",
         "nome": "LEANDRO GUIMARAES",
         "vulgo": "Sem alcunha registrada",
@@ -12165,6 +12169,25 @@
         "situacao": "EM ABERTO",
         "idade": 42,
         "mandado": "0011953-15.2025.8.16.0017.01.0001-05",
+        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
+        "especie_prisao": "Civil",
+        "expedicao": "01/12/2025"
+    },
+    {
+        "id": "0031512-89.2024.8.16.0017.01.0001-27",
+        "nome": "ISMAEL DA SILVA DO NASCIMENTO",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
+        "tags": [
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 43,
+        "mandado": "0031512-89.2024.8.16.0017.01.0001-27",
         "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
         "especie_prisao": "Civil",
         "expedicao": "01/12/2025"
@@ -12208,44 +12231,6 @@
         "expedicao": "01/10/2025"
     },
     {
-        "id": "0024746-54.2023.8.16.0017.01.0001-16",
-        "nome": "GABRIEL FELIPE DEZORZI MARCAL",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Não informado",
-        "situacao": "EM ABERTO",
-        "idade": 31,
-        "mandado": "0024746-54.2023.8.16.0017.01.0001-16",
-        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
-        "especie_prisao": "Civil",
-        "expedicao": "01/10/2024"
-    },
-    {
-        "id": "0027574-33.2017.8.16.0017.01.0004-01",
-        "nome": "JEFFERSON DE SOUZA MENDES",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Maringa",
-        "situacao": "EM ABERTO",
-        "idade": 41,
-        "mandado": "0027574-33.2017.8.16.0017.01.0004-01",
-        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
-        "especie_prisao": "Civil",
-        "expedicao": "01/10/2024"
-    },
-    {
         "id": "0003762-83.2022.8.16.0017.01.0001-12",
         "nome": "MIRO DA SILVA",
         "vulgo": "Sem alcunha registrada",
@@ -12284,6 +12269,44 @@
         "expedicao": "01/10/2024"
     },
     {
+        "id": "0024746-54.2023.8.16.0017.01.0001-16",
+        "nome": "GABRIEL FELIPE DEZORZI MARCAL",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
+        "tags": [
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
+        ],
+        "cidade": "Não informado",
+        "situacao": "EM ABERTO",
+        "idade": 31,
+        "mandado": "0024746-54.2023.8.16.0017.01.0001-16",
+        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
+        "especie_prisao": "Civil",
+        "expedicao": "01/10/2024"
+    },
+    {
+        "id": "0027574-33.2017.8.16.0017.01.0004-01",
+        "nome": "JEFFERSON DE SOUZA MENDES",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Devedor de Pensão Alimentícia",
+        "tags": [
+            "CPC, Artigo: 528",
+            "Devedor de Pensão Alimentícia"
+        ],
+        "cidade": "Maringa",
+        "situacao": "EM ABERTO",
+        "idade": 41,
+        "mandado": "0027574-33.2017.8.16.0017.01.0004-01",
+        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
+        "especie_prisao": "Civil",
+        "expedicao": "01/10/2024"
+    },
+    {
         "id": "0005826-08.2013.8.16.0009.01.0003-24",
         "nome": "ANDERSON DA MAIA",
         "vulgo": "Sem alcunha registrada",
@@ -12302,6 +12325,62 @@
         "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
         "especie_prisao": "Por condenação transitada em julgado",
         "expedicao": "01/10/2020"
+    },
+    {
+        "id": "0001832-54.2026.8.16.0190.01.0001-22",
+        "nome": "NILSON DA SILVA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Não classificado",
+        "tags": [
+            "Lei: 2848, Artigo: 147, Parágrafo: caput",
+            "Lei: 2848, Artigo: 213, Parágrafo: caput"
+        ],
+        "cidade": "Pajeu - Distrito",
+        "situacao": "EM ABERTO",
+        "idade": 51,
+        "mandado": "0001832-54.2026.8.16.0190.01.0001-22",
+        "vara": "MARINGÁ - JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER E VARA DE",
+        "especie_prisao": "Preventiva",
+        "expedicao": "01/09/2026"
+    },
+    {
+        "id": "0015186-50.2017.8.16.0130.26.0011-08",
+        "nome": "GABRIEL PINHEIRO DA CRUZ",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Não classificado",
+        "tags": [
+            "Lei: 10826, Artigo: 14, Parágrafo: caput, Crime tentato: Não                 Violência Doméstica: Não",
+            "Lei: 2848, Artigo: 180, Parágrafo: caput, Artigo: 157, Parágrafo: 2, Crime tentato: Não                 Violência Doméstica: Não"
+        ],
+        "cidade": "Paranavai",
+        "situacao": "EM ABERTO",
+        "idade": 28,
+        "mandado": "0015186-50.2017.8.16.0130.26.0011-08",
+        "vara": "MARINGÁ - VARA DE EXECUÇÕES PENAIS, MEDIDAS ALTERNATIVAS E CORREGEDORIA DOS",
+        "especie_prisao": "Recaptura",
+        "expedicao": "01/09/2026"
+    },
+    {
+        "id": "0032533-66.2025.8.16.0017.01.0005-14",
+        "nome": "LUCAS JOAO DA MAIA",
+        "vulgo": "Sem alcunha registrada",
+        "foto": null,
+        "risco": "sem",
+        "categoria": "Não classificado",
+        "tags": [
+            "CPC, Artigo: 528"
+        ],
+        "cidade": "Curitiba",
+        "situacao": "EM ABERTO",
+        "idade": 31,
+        "mandado": "0032533-66.2025.8.16.0017.01.0005-14",
+        "vara": "MARINGÁ - 1ª VARA DE FAMÍLIA E SUCESSÕES, REGISTROS PÚBLICOS E CORREGEDORIA DO",
+        "especie_prisao": "Civil",
+        "expedicao": "01/09/2026"
     },
     {
         "id": "0020446-30.2015.8.16.0017.01.0001-01",
@@ -12377,25 +12456,6 @@
         "mandado": "0008682-61.2026.8.16.0017.01.0001-23",
         "vara": "MARINGÁ - 1ª VARA CRIMINAL - TJPR",
         "especie_prisao": "Preventiva",
-        "expedicao": "01/04/2026"
-    },
-    {
-        "id": "0008453-77.2021.8.16.0017.01.0005-27",
-        "nome": "LEANDRO AVELINO FERREIRA KAVATA",
-        "vulgo": "Sem alcunha registrada",
-        "foto": null,
-        "risco": "sem",
-        "categoria": "Devedor de Pensão Alimentícia",
-        "tags": [
-            "CPC, Artigo: 528",
-            "Devedor de Pensão Alimentícia"
-        ],
-        "cidade": "Paranagua",
-        "situacao": "EM ABERTO",
-        "idade": 46,
-        "mandado": "0008453-77.2021.8.16.0017.01.0005-27",
-        "vara": "MARINGÁ - 2ª VARA DE FAMÍLIA E SUCESSÕES E ACIDENTES DO TRABALHO - TJPR",
-        "especie_prisao": "Civil",
         "expedicao": "01/04/2026"
     },
     {

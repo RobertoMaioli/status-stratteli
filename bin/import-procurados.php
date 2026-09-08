@@ -3,28 +3,39 @@ declare(strict_types=1);
 
 /**
  * Importa os mandados em aberto (Maringá/PR) da base do mandados-system
- * (SQLite, mantida localmente por outra ferramenta) para
+ * (MySQL de produção, alcançado daqui via túnel SSH) para
  * data/procurados.json (fora do webroot público — .htaccess bloqueia
  * acesso direto), que procurados.php e api/procurados.php leem em produção.
  *
- * Roda só localmente, na máquina onde o mandados-system existe — o SQLite e
- * as fotos não existem no servidor. O resultado (JSON + fotos copiadas) é
- * versionado no git e chega em produção pelo `git pull` normal do projeto.
+ * Roda localmente. O MySQL de produção não é exposto direto na internet —
+ * conecta através de um túnel SSH (PuTTY: Connection > SSH > Tunnels,
+ * Source port 3307 -> Destination 127.0.0.1:3306), que precisa estar aberto
+ * antes de rodar este script. As fotos continuam vindo da pasta local do
+ * mandados-system (só existem no disco de quem processa os PDFs; o
+ * mandados-system em produção recebe cópia delas por scp separadamente,
+ * mas esse script sempre lê da origem local). O resultado (JSON + fotos
+ * copiadas) é versionado no git e chega em produção pelo `git pull` normal.
  *
  * Uso:
- *   php bin/import-procurados.php
- *   php bin/import-procurados.php --db="C:\outro\caminho\mandados_mgr.db" --photos="C:\outro\caminho\mgr"
+ *   php bin/import-procurados.php --user=mandados_app --password=SENHA
+ *   php bin/import-procurados.php --user=... --password=... --host=127.0.0.1 --port=3307 --database=mandados_mgr --photos="C:\outro\caminho\mgr"
  *
- * Não copia CPF nem RG para o JSON público — esses dados nunca saem do SQLite de origem.
+ * Não copia CPF nem RG para o JSON público — esses dados nunca saem do MySQL de origem.
  */
 
-$options = getopt('', ['db:', 'photos:']);
+$options = getopt('', ['host:', 'port:', 'user:', 'password:', 'database:', 'photos:']);
 
-$dbPath = $options['db'] ?? 'E:\\Workspace\\S\\Stratelli\\2025\\Automatizador\\mandados-system\\database\\mandados_mgr.db';
+$dbHost = $options['host'] ?? '127.0.0.1';
+$dbPort = $options['port'] ?? '3307'; // porta local do túnel SSH -> 3306 do servidor
+$dbUser = $options['user'] ?? null;
+$dbPassword = $options['password'] ?? null;
+$dbName = $options['database'] ?? 'mandados_mgr';
 $photosDir = $options['photos'] ?? 'E:\\Workspace\\S\\Stratelli\\2025\\Automatizador\\mandados-system\\uploads\\procurados\\mgr';
 
-if (!is_file($dbPath)) {
-    fwrite(STDERR, "Banco SQLite não encontrado: {$dbPath}\n");
+if ($dbUser === null || $dbPassword === null) {
+    fwrite(STDERR, "Uso: php bin/import-procurados.php --user=SEU_USUARIO --password=SUA_SENHA\n");
+    fwrite(STDERR, "Opcionais: --host=127.0.0.1 --port=3307 --database=mandados_mgr --photos=CAMINHO\n");
+    fwrite(STDERR, "Lembre de abrir o túnel SSH (PuTTY) antes de rodar — sem ele, a conexão recusa (ECONNREFUSED).\n");
     exit(1);
 }
 if (!is_dir($photosDir)) {
@@ -113,7 +124,17 @@ function formatarDataBr(?string $dataBr): ?string
     return trim($dataBr);
 }
 
-$pdo = new PDO('sqlite:' . $dbPath);
+try {
+    $pdo = new PDO(
+        "mysql:host={$dbHost};port={$dbPort};dbname={$dbName};charset=utf8mb4",
+        $dbUser,
+        $dbPassword
+    );
+} catch (PDOException $e) {
+    fwrite(STDERR, "Falha ao conectar no MySQL ({$dbHost}:{$dbPort}): " . $e->getMessage() . "\n");
+    fwrite(STDERR, "Confirme que o túnel SSH (PuTTY) está aberto e as credenciais estão certas.\n");
+    exit(1);
+}
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $stmt = $pdo->query("
