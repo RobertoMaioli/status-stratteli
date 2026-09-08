@@ -26,6 +26,25 @@ const RISCO_POR_CODIGO = [
     '12' => 'media',     // Ameaça, Dano, Desacato e Similares — Média
 ];
 
+// Descrição oficial de cada código — usada pra normalizar a categoria
+// exibida/filtrada, já que o texto cru em CLASSIFIC_CRIMINOSO tem variações
+// de grafia (ex: registros antigos com "04. furtador..." em minúsculo) que,
+// sem essa normalização, viram categorias diferentes nos filtros do painel
+// mesmo sendo o mesmo código.
+const CATEGORIA_POR_CODIGO = [
+    '01' => 'Devedor de Pensão Alimentícia',
+    '03' => 'Agressor Doméstico',
+    '04' => 'Furtador, Receptador e Similares',
+    '05' => 'Traficante',
+    '06' => 'Roubador, Porte Ilegal de Arma ou Furtador por Destruição',
+    '07' => 'Homicida/Latrocida',
+    '08' => 'Agressor Sexual',
+    '09' => 'Múltiplas Condenações',
+    '10' => 'Criminoso de ORCRIM',
+    '11' => 'Condutor de Veículo Sob Efeito de Álcool',
+    '12' => 'Ameaça, Dano, Desacato e Similares',
+];
+
 function classificacaoParaRisco(?string $classific): string
 {
     if ($classific !== null && preg_match('/^\s*(\d{2})\./', $classific, $m)) {
@@ -38,6 +57,9 @@ function limparCategoria(?string $classific): string
 {
     if ($classific === null || trim($classific) === '' || trim($classific) === '?') {
         return 'Não classificado';
+    }
+    if (preg_match('/^\s*(\d{2})\./', $classific, $m) && isset(CATEGORIA_POR_CODIGO[$m[1]])) {
+        return CATEGORIA_POR_CODIGO[$m[1]];
     }
     $limpo = preg_replace('/^\s*\d{2}\.\s*/', '', $classific);
     return trim((string) $limpo);
