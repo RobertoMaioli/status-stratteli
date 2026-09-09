@@ -907,6 +907,7 @@ body.modal-open{overflow:hidden;}
   background:var(--line);border-radius:8px;overflow:hidden;
 }
 .wanted-field{background:var(--bg-panel);padding:12px 14px;margin:0;}
+.wanted-field:last-child{grid-column:1 / -1;}
 .wanted-field dt{
   font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.08em;
   text-transform:uppercase;color:var(--text-dim);margin:0 0 4px;
