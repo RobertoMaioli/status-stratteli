@@ -7,6 +7,7 @@ auth_check();
 
 $crowdsecConfig = $config['services']['crowdsec'];
 $pollIntervalMs = (int) ($crowdsecConfig['poll_interval_ms'] ?? 30000);
+$cartoApiKey = $config['services']['carto']['api_key'] ?? '';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -85,6 +86,7 @@ $pollIntervalMs = (int) ($crowdsecConfig['poll_interval_ms'] ?? 30000);
       style="height:420px;border-radius:10px;overflow:hidden;"
       data-server-lat="<?= htmlspecialchars((string) $crowdsecConfig['server_lat'], ENT_QUOTES, 'UTF-8') ?>"
       data-server-lng="<?= htmlspecialchars((string) $crowdsecConfig['server_lng'], ENT_QUOTES, 'UTF-8') ?>"
+      data-carto-key="<?= htmlspecialchars($cartoApiKey, ENT_QUOTES, 'UTF-8') ?>"
     ></div>
   </div>
 

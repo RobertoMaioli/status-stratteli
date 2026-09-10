@@ -43,7 +43,11 @@
     map = L.map(mapEl, { worldCopyJump: true }).setView([20, 0], 2);
     // CARTO "dark matter" — mesmos dados do OpenStreetMap, estilo escuro
     // pronto (sem precisar de filtro CSS gambiarra em cima do tile claro).
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    // CARTO passou a exigir chave (gratuita) pra servir os tiles sem
+    // marca d'água de "API key required" — configurada em
+    // config.php > services.carto.api_key (https://carto.com/basemaps/apikey).
+    var cartoKey = mapEl.dataset.cartoKey || '';
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png' + (cartoKey ? '?key=' + encodeURIComponent(cartoKey) : ''), {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
       subdomains: 'abcd',
       maxZoom: 19,

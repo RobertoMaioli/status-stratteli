@@ -70,6 +70,12 @@ return [
             // Mandar no header: X-Api-Key: <token>
             'api_key' => '',
         ],
+        'carto' => [
+            // CARTO passou a exigir chave gratuita pros tiles de mapa
+            // (basemaps.cartocdn.com) usados no mapa de Ameaças/CrowdSec.
+            // Gere uma em: https://carto.com/basemaps/apikey
+            'api_key' => '',
+        ],
         'mandados' => [
             // Consumo ao vivo de /api/publico/procurados no mandados-system
             // (substitui o antigo data/procurados.json gerado por
