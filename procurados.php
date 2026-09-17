@@ -43,9 +43,9 @@ $updatedAt = 'ATUALIZADO ' . date('d/m/Y', $procuradosResultado['gerado_em'] ?: 
       <div class="label">Total de registros</div>
       <div class="value" id="wanted-stat-total">0</div>
     </div>
-    <div class="summary-chip alert">
-      <div class="label">Alta/Altíssima periculosidade</div>
-      <div class="value" id="wanted-stat-alta">0</div>
+    <div class="summary-chip">
+      <div class="label">Com foto</div>
+      <div class="value" id="wanted-stat-comfoto">0</div>
     </div>
     <div class="summary-chip">
       <div class="label">Sem foto (não exibidos)</div>

@@ -187,7 +187,7 @@
     const lista = filtrados();
 
     $("#wanted-stat-total").textContent = DADOS.length;
-    $("#wanted-stat-alta").textContent = VISIVEIS.filter((p) => p.risco === "alta" || p.risco === "altissima").length;
+    $("#wanted-stat-comfoto").textContent = VISIVEIS.length;
     $("#wanted-stat-foto").textContent = DADOS.length - VISIVEIS.length;
 
     renderRows(
