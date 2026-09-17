@@ -20,10 +20,16 @@ $crowdsec = new CrowdSecService(
     cacheTtlSeconds: $crowdsecConfig['cache_ttl_seconds']
 );
 
+$allowedRanges = ['24h', 'week', 'month', 'all'];
+$range = (string) ($_GET['range'] ?? '24h');
+if (!in_array($range, $allowedRanges, true)) {
+    $range = '24h';
+}
+
 $payload = ['ok' => true, 'error' => null];
 
 try {
-    $summary = $crowdsec->getThreatSummary();
+    $summary = $crowdsec->getThreatSummary($range);
     $payload += $summary;
 } catch (\Throwable $e) {
     $payload['ok'] = false;

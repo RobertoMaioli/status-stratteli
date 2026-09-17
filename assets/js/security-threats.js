@@ -10,6 +10,38 @@
   var lastRead = document.getElementById('threat-last-read');
   var liveUpdated = document.getElementById('threat-live-updated');
 
+  // ---------- FILTRO DE PERIODO ----------
+  // Afeta tudo (cards, graficos, top paises, eventos) menos o mapa, que
+  // sempre mostra ameaca ativa agora independente do periodo escolhido.
+  var RANGE_TITLES = {
+    '24h': 'Ameaças Detectadas nas últimas 24h',
+    week: 'Ameaças Detectadas na última semana',
+    month: 'Ameaças Detectadas no último mês',
+    all: 'Ameaças Detectadas (todos os registros)',
+  };
+  var currentRange = '24h';
+  var rangeFilter = document.getElementById('threat-range-filter');
+  var rangeTitle = document.getElementById('threat-range-title');
+
+  if (rangeFilter) {
+    rangeFilter.addEventListener('click', function (ev) {
+      var btn = ev.target.closest('.pill');
+      if (!btn || btn.dataset.range === currentRange) {
+        return;
+      }
+
+      currentRange = btn.dataset.range;
+      Array.prototype.forEach.call(rangeFilter.querySelectorAll('.pill'), function (p) {
+        p.setAttribute('aria-pressed', p === btn ? 'true' : 'false');
+      });
+      if (rangeTitle && RANGE_TITLES[currentRange]) {
+        rangeTitle.textContent = RANGE_TITLES[currentRange];
+      }
+      eventsPage = 1;
+      poll();
+    });
+  }
+
   var styles = getComputedStyle(document.documentElement);
   var signal = styles.getPropertyValue('--signal').trim() || '#F97316';
   var crit = styles.getPropertyValue('--crit').trim() || '#f87171';
@@ -466,7 +498,7 @@
   }
 
   function poll() {
-    fetch('api/security-threats.php', { credentials: 'same-origin' })
+    fetch('api/security-threats.php?range=' + encodeURIComponent(currentRange), { credentials: 'same-origin' })
       .then(function (res) { return res.json(); })
       .then(function (data) {
         if (data.ok) {

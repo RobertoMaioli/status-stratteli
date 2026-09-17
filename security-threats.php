@@ -43,8 +43,14 @@ $cartoApiKey = $config['services']['carto']['api_key'] ?? '';
   </header>
 
   <div class="section-label">
-    <div class="bar"></div><h2>Ameaças detectadas</h2>
-    <div class="live-tag" style="margin-left:auto;"><span class="dot"></span> ao vivo · a cada <?= (int) round($pollIntervalMs / 1000) ?>s · atualizado às <span id="threat-live-updated">—</span></div>
+    <div class="bar"></div><h2 id="threat-range-title">Ameaças Detectadas nas últimas 24h</h2>
+    <div class="pill-group" id="threat-range-filter" role="group" aria-label="Período" style="margin-left:auto;">
+      <button type="button" class="pill" data-range="24h" aria-pressed="true">24h</button>
+      <button type="button" class="pill" data-range="week" aria-pressed="false">Semana</button>
+      <button type="button" class="pill" data-range="month" aria-pressed="false">Mês</button>
+      <button type="button" class="pill" data-range="all" aria-pressed="false">Todos</button>
+    </div>
+    <div class="live-tag"><span class="dot"></span> ao vivo · a cada <?= (int) round($pollIntervalMs / 1000) ?>s · atualizado às <span id="threat-live-updated">—</span></div>
   </div>
 
   <div id="threat-error" class="login-error" style="margin-bottom:16px;" hidden></div>

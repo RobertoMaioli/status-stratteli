@@ -35,6 +35,18 @@ class CrowdSecService
     private const MAX_RECENT_EVENTS = 500;
 
     /**
+     * Janelas aceitas pelo filtro de periodo do dashboard (`?range=` em
+     * api/security-threats.php). "all" nao entra aqui de proposito — sem
+     * cutoff, cai no ramo que usa os totais cumulativos de $history direto
+     * (exatos, ao contrario dos outros ranges — ver getThreatSummary()).
+     */
+    private const RANGE_DURATIONS = [
+        '24h' => '-24 hours',
+        'week' => '-7 days',
+        'month' => '-30 days',
+    ];
+
+    /**
      * Prefixos de cenario que NAO sao ataques de verdade contra este
      * servidor e por isso ficam de fora do mapa e do historico cumulativo.
      * "update : +N/-M IPs" e o proprio CrowdSec sincronizando a blocklist
@@ -64,12 +76,21 @@ class CrowdSecService
 
     /**
      * Dados prontos pro frontend (mapa, graficos, tabela) — ver
-     * api/security-threats.php. O mapa (`activeThreats`) reflete só ameaça
-     * ativa agora (decisao/ban ainda nao expirou); todo o resto
-     * (`totals`, `events`, `byScenario`, `byCountry`, `timeseries`) e
-     * historico cumulativo — nunca reseta so porque um ban expirou, ver
-     * updateHistory().
+     * api/security-threats.php. O mapa (`activeThreats`) e a tabela de
+     * `events` NAO sao afetados por `$range` (mapa reflete só ameaça ativa
+     * agora, decisao/ban ainda nao expirou; a tabela sempre mostra os mais
+     * recentes do historico cumulativo) — filtro de periodo e so pros
+     * cards/graficos.
      *
+     * Pra "all", `totals`/`byScenario`/`byCountry` vem dos contadores
+     * cumulativos de $history (exatos, nunca resetam). Pros demais ranges
+     * (24h/week/month) sao recalculados a partir de `recent_events` — unico
+     * lugar com createdAt por item — filtrado pela janela; como
+     * MAX_RECENT_EVENTS limita esse array a 500 itens, uma janela com mais
+     * de 500 alertas ficaria subestimada, mas isso e bem improvavel pro
+     * volume deste servidor.
+     *
+     * @param string $range '24h'|'week'|'month'|'all'
      * @return array{
      *     updatedAt: string,
      *     totals: array{alerts: int, events: int, countries: int, uniqueIps: int},
@@ -80,7 +101,7 @@ class CrowdSecService
      *     timeseries: array<int, array{bucket: string, count: int}>
      * }
      */
-    public function getThreatSummary(): array
+    public function getThreatSummary(string $range = '24h'): array
     {
         $activeAlerts = $this->getAlerts();
         $activeThreats = array_values(array_map(
@@ -99,26 +120,50 @@ class CrowdSecService
             static fn (array $a, array $b): int => strcmp((string) ($b['createdAt'] ?? ''), (string) ($a['createdAt'] ?? ''))
         );
 
-        $scenarioCounts = $history['scenario_totals'];
+        $cutoff = $this->rangeCutoff($range);
+        $eventsInRange = $cutoff === null
+            ? $history['recent_events']
+            : array_values(array_filter(
+                $history['recent_events'],
+                fn (array $event): bool => $this->eventWithinCutoff($event, $cutoff)
+            ));
+
+        if ($cutoff === null) {
+            $totals = [
+                'alerts' => $history['total_alerts'],
+                'events' => $history['total_events'],
+                'countries' => count($history['country_totals']),
+                'uniqueIps' => count($history['unique_ips']),
+            ];
+            $scenarioCounts = $history['scenario_totals'];
+            $countryCounts = $history['country_totals'];
+        } else {
+            $totals = $this->totalsFromEvents($eventsInRange);
+            $scenarioCounts = $this->countBy($eventsInRange, 'scenario');
+            $countryCounts = $this->countBy($eventsInRange, 'country');
+        }
+
         arsort($scenarioCounts);
         $byScenario = [];
         foreach ($scenarioCounts as $scenario => $count) {
             $byScenario[] = ['scenario' => $scenario, 'label' => $this->friendlyScenario($scenario), 'count' => $count];
         }
 
-        $countryCounts = $history['country_totals'];
         arsort($countryCounts);
         $byCountry = [];
         foreach ($countryCounts as $country => $count) {
             $byCountry[] = ['country' => $country, 'count' => $count];
         }
 
-        $cutoff = (new \DateTimeImmutable('now', new \DateTimeZone('America/Sao_Paulo')))
-            ->modify('-' . self::TIMESERIES_MAX_AGE_DAYS . ' days')
-            ->format('Y-m-d\TH:00');
+        // Linha do tempo sempre limitada a TIMESERIES_MAX_AGE_DAYS, mesmo
+        // pra "all" — janelas mais estreitas (24h/week) apertam ainda mais
+        // esse corte.
+        $maxAgeCutoff = (new \DateTimeImmutable('now'))->modify('-' . self::TIMESERIES_MAX_AGE_DAYS . ' days');
+        $timeseriesCutoff = ($cutoff !== null && $cutoff > $maxAgeCutoff) ? $cutoff : $maxAgeCutoff;
+        $timeseriesCutoffBucket = $timeseriesCutoff->setTimezone(new \DateTimeZone('America/Sao_Paulo'))->format('Y-m-d\TH:00');
         $hourlyCounts = array_filter(
             $history['hourly_totals'],
-            static fn (string $bucket): bool => $bucket >= $cutoff,
+            static fn (string $bucket): bool => $bucket >= $timeseriesCutoffBucket,
             ARRAY_FILTER_USE_KEY
         );
         ksort($hourlyCounts);
@@ -129,18 +174,91 @@ class CrowdSecService
 
         return [
             'updatedAt' => (new \DateTimeImmutable('now', new \DateTimeZone('America/Sao_Paulo')))->format(DATE_ATOM),
-            'totals' => [
-                'alerts' => $history['total_alerts'],
-                'events' => $history['total_events'],
-                'countries' => count($history['country_totals']),
-                'uniqueIps' => count($history['unique_ips']),
-            ],
+            'totals' => $totals,
             'activeThreats' => $activeThreats,
             'events' => $history['recent_events'],
             'byScenario' => $byScenario,
             'byCountry' => $byCountry,
             'timeseries' => $timeseries,
         ];
+    }
+
+    private function rangeCutoff(string $range): ?\DateTimeImmutable
+    {
+        if (!isset(self::RANGE_DURATIONS[$range])) {
+            return null;
+        }
+
+        return (new \DateTimeImmutable('now'))->modify(self::RANGE_DURATIONS[$range]);
+    }
+
+    /**
+     * @param array<string, mixed> $event
+     */
+    private function eventWithinCutoff(array $event, \DateTimeImmutable $cutoff): bool
+    {
+        $createdAt = (string) ($event['createdAt'] ?? '');
+        if ($createdAt === '') {
+            return false;
+        }
+
+        try {
+            $eventDate = new \DateTimeImmutable($createdAt);
+        } catch (\Throwable) {
+            return false;
+        }
+
+        return $eventDate >= $cutoff;
+    }
+
+    /**
+     * @param array<int, array<string, mixed>> $events
+     * @return array{alerts: int, events: int, countries: int, uniqueIps: int}
+     */
+    private function totalsFromEvents(array $events): array
+    {
+        $countries = [];
+        $ips = [];
+        $eventsCount = 0;
+
+        foreach ($events as $event) {
+            $eventsCount += (int) ($event['eventsCount'] ?? 0);
+
+            $country = (string) ($event['country'] ?? '');
+            if ($country !== '') {
+                $countries[$country] = true;
+            }
+
+            $ip = (string) ($event['ip'] ?? '');
+            if ($ip !== '') {
+                $ips[$ip] = true;
+            }
+        }
+
+        return [
+            'alerts' => count($events),
+            'events' => $eventsCount,
+            'countries' => count($countries),
+            'uniqueIps' => count($ips),
+        ];
+    }
+
+    /**
+     * @param array<int, array<string, mixed>> $events
+     * @return array<string, int>
+     */
+    private function countBy(array $events, string $field): array
+    {
+        $counts = [];
+        foreach ($events as $event) {
+            $value = (string) ($event[$field] ?? '');
+            if ($value === '') {
+                continue;
+            }
+            $counts[$value] = ($counts[$value] ?? 0) + 1;
+        }
+
+        return $counts;
     }
 
     /**
