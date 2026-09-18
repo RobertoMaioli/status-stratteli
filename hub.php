@@ -36,8 +36,23 @@ $dashboards = require __DIR__ . '/config/dashboards.php';
   <div class="section-label"><div class="bar"></div><h2>Escolha um dashboard</h2></div>
 
   <div class="hub-cards">
-    <?php foreach ($dashboards as $dash): ?>
-      <a class="hub-card" href="<?= htmlspecialchars($dash['link'], ENT_QUOTES, 'UTF-8') ?>">
+    <?php foreach ($dashboards as $dash):
+      // Imagem de fundo do card: assets/img/hub/{key}.{jpg|jpeg|png|webp} —
+      // basta soltar o arquivo com esse nome, sem precisar editar dashboards.php.
+      $bgImage = null;
+      foreach (['jpg', 'jpeg', 'png', 'webp'] as $ext) {
+          $candidato = __DIR__ . "/assets/img/hub/{$dash['key']}.{$ext}";
+          if (is_file($candidato)) {
+              $bgImage = "assets/img/hub/{$dash['key']}.{$ext}";
+              break;
+          }
+      }
+    ?>
+      <a
+        class="hub-card<?= $bgImage ? ' has-bg' : '' ?>"
+        href="<?= htmlspecialchars($dash['link'], ENT_QUOTES, 'UTF-8') ?>"
+        <?php if ($bgImage): ?>style="--hub-card-image:url('<?= htmlspecialchars($bgImage, ENT_QUOTES, 'UTF-8') ?>')"<?php endif; ?>
+      >
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--signal)" stroke-width="1.8"><?= $dash['icon'] ?></svg>
         </div>

@@ -352,6 +352,7 @@ header::after{
 }
 .hub-card{
   display:flex;align-items:center;gap:14px;
+  position:relative;isolation:isolate;overflow:hidden;
   background:var(--bg-panel);
   border:1px solid var(--line);
   border-radius:var(--radius);
@@ -360,6 +361,26 @@ header::after{
   transition:border-color .15s ease,transform .15s ease,background .15s ease;
 }
 .hub-card:hover{border-color:var(--signal);background:var(--bg-panel-alt);transform:translateY(-1px);}
+/* Imagem de fundo por card (opcional, via --hub-card-image inline) — sempre
+   passa por um filtro escuro/dessaturado + gradiente na mesma cor do painel,
+   pra qualquer foto enviada já nascer com a identidade visual do dashboard
+   em vez de precisar ser pre-editada. */
+.hub-card.has-bg::before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background-image:var(--hub-card-image);
+  background-size:cover;background-position:center;
+  filter:grayscale(45%) brightness(0.45) saturate(1.1);
+  transition:filter .2s ease,transform .3s ease;
+  transform:scale(1.02);
+}
+.hub-card.has-bg::after{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:linear-gradient(100deg,var(--bg-panel) 32%,rgba(0,33,64,0.65) 62%,rgba(0,33,64,0.25) 100%);
+}
+.hub-card.has-bg:hover::before{filter:grayscale(30%) brightness(0.55) saturate(1.15);transform:scale(1.06);}
+.hub-card.has-bg:hover::after{background:linear-gradient(100deg,var(--bg-panel-alt) 32%,rgba(7,42,77,0.6) 62%,rgba(7,42,77,0.2) 100%);}
+.hub-card .service-icon,.hub-card .hub-card-text,.hub-card .hub-card-arrow{position:relative;z-index:1;}
+.hub-card.has-bg .service-icon{background:rgba(0,33,64,0.55);backdrop-filter:blur(2px);}
 .hub-card-text{flex:1;min-width:0;}
 .hub-card-name{font-family:'Space Grotesk',sans-serif;font-size:15.5px;font-weight:700;}
 .hub-card-desc{font-size:12px;color:var(--text-muted);margin-top:3px;line-height:1.4;}
